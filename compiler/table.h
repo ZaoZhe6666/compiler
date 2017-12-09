@@ -31,6 +31,7 @@ class FT{
 		void ft_add(std::string para);
 		//≤È—Ø≤È’“
 		int ft_seek(std::string name,std::string para);
+		int ft_conf(std::string name);
 		int ft_size();
 };
 
@@ -76,4 +77,13 @@ class ST{
 		int st_seek(std::string name);
 		int st_size();
 		void st_change(int value);
+};
+
+class VT{
+	private:
+		int count;
+	public:
+		VT();
+		int add();
+		int sub();
 };

@@ -36,10 +36,10 @@ void Error::PrintError(int errorID,int line,int column){
 	error_log << "[line: " << line << " column:" << column << "] Error reason: #" << errorID << endl;
 	cout << "[line: " << line << " column:" << column << "] Error reason: #" << errorID << endl;
 	count++;
-	if(count>10){
-		cin >> count;
-		exit(0);
-	}
+//	if(count>10){
+//		cin >> count;
+//		exit(0);
+//	}
 	return;
 	cout << "[line: " << line << " column:" << column << "] Error reason:" << ErrorList[errorID] << endl;
 	error_log << "[line: " << line << " column:" << column << "] Error reason:" << ErrorList[errorID] << endl;

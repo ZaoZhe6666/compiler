@@ -6,6 +6,7 @@
 #include"cffx.h"
 #include"metaphysics.h"
 #include"table.h"
+#include"zjdm.h"
 #include"error.h"
 
 #define MAXSTACKNUM 2048
@@ -15,6 +16,8 @@ class YF{
 		CF* cf;
 		ST* st;
 		FT* ft;
+		VT* vt;
+		ZJ* zj;
 		std::ofstream outf;
 		char ch;
 		int line,column,symID;
@@ -23,6 +26,7 @@ class YF{
 		std::string token;
 		char pairstack[MAXSTACKNUM];
 		int pstnum;
+		int count;
 	public:
 		YF(std::string filename);
 		void getSym();
@@ -44,11 +48,11 @@ class YF{
 	  //有返回值函数					无返回值函数	复合语句
 		void rfunc(int type,int ident);	void nrfunc(int ident);	void conplex();
 	  //参数表					主函数			表达式
-		void paratab(int com); void mfunc();	void express(int ident);
+		void paratab(int com); void mfunc();	int express(int ident);
 	  //项				因子			语句
-		void term();	void factor(int ident);	void senten();
+		void term();	int factor(int ident);	void senten();
 	  //赋值语句		条件语句		条件
-		void evalue();	void condsen();	void condit();
+		void evalue();	void condsen();	void condit(int label);
 	  //循环语句		常量			情况语句
 		void loopsen();	void consty();	void casesen();
 	  //情况表			情况子语句		有返回值函数调用语句

@@ -62,6 +62,16 @@ int FT::ft_seek(std::string name,std::string para){
 	return 0;
 }
 
+int FT::ft_conf(std::string name){
+	int i;
+	for(i=0;i<=s->top;i++){
+		if(s->func[i].name == name){
+			return 1;
+		}
+	}
+	return 0;
+}
+
 int FT::ft_size(){
 	return s->top;
 }
@@ -141,4 +151,18 @@ void ST::st_change(int value){
 	s->symbol[s->top].type +=2;
 	s->symbol[s->top].value = value;
 	outf << "Change to" << " type:"<< s->symbol[s->top].type << " value:" << value << endl;
+}
+
+VT::VT(){
+	count = 0;
+}
+
+int VT::add(){
+	count++;
+	return count;
+}
+
+int VT::sub(){
+	count--;
+	return count;
 }
