@@ -1,9 +1,15 @@
 const int a0 = 12 ,a12=5;
 const char b1 = 't' ;
 int weight [ 100 ] ;
+int foo1(){
+int a;
+int a;
+int b1;
+}
+int func2(int a,int b,int v){}
 int f1(){
     int a;
-    a = 1+2;
+    a = func2() + func2(a)+func2(a,a)+func2(a,a,a)+func2(a,a,a,a);
     return(21);
 }
 void f0 ( int n ) {

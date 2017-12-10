@@ -21,7 +21,7 @@ FT::FT(){
 	outf.open("out_FuncTable.txt");
 }
 
-int FT::ft_push(std::string name,std::string para){
+int FT::ft_push(std::string name,int para){
 	cout << "PUSH IN FUNCTABLE #" << s->top+1;
 	cout << " " << name << " " << para << endl;
 	if(s->top+1>MAXSIZE){
@@ -43,23 +43,27 @@ int FT::ft_push(std::string name,std::string para){
 	return 0;
 }
 
-void FT::ft_add(std::string para){
+void FT::ft_add(int para){
 	if(s->top<0){
 		return;
 	}
-	s->func[s->top].para += para;
+	s->func[s->top].para += 1;
 }
 
-int FT::ft_seek(std::string name,std::string para){
+int FT::ft_para(std::string name){
 	int i;
 	for(i=0;i<=s->top;i++){
 		if(s->func[i].name == name){
-			if(s->func[i].para == para){
-				return 1;
-			}
+			return s->func[i].para;
 		}
 	}
 	return 0;
+}
+int FT::ft_last_para(){
+	if(s->top<0){
+		return 0;
+	}
+	return s->func[s->top].para;
 }
 
 int FT::ft_conf(std::string name){
@@ -102,6 +106,23 @@ int ST::st_push(std::string name,int level,int type,int value){
 	if(s->top+1>MAXSIZE){
 		outf << "Stack is full??" << endl;
 		return 0;
+	}
+	int i;
+	for(i=s->top;i>=0;i--){
+		if(s->symbol[i].level == 0 && level){
+			break;
+		}
+		if(s->symbol[i].level == 1 && level){
+			if(s->symbol[i].name == name){
+				cout << "same name!" << endl;
+				return 0;
+			}
+			break;
+		}
+		if(s->symbol[i].name == name){
+			cout << "same name!" << endl;
+			return 0;
+		}
 	}
 	Symbol *new_sym;
 	if(new_sym = new Symbol){

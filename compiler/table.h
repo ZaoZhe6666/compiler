@@ -12,7 +12,7 @@
 
 struct Func{
 	std::string name;
-	std::string para;
+	int para;
 };
 
 struct FuncTable{
@@ -27,10 +27,11 @@ class FT{
 	public:
 		FT();
 		//入栈操作
-		int ft_push(std::string name,std::string para);
-		void ft_add(std::string para);
+		int ft_push(std::string name,int para);
+		void ft_add(int para);
 		//查询查找
-		int ft_seek(std::string name,std::string para);
+		int ft_para(std::string name);
+		int ft_last_para();
 		int ft_conf(std::string name);
 		int ft_size();
 };

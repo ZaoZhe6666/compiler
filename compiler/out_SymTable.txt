@@ -1,31 +1,26 @@
 PUSH IN SymTable: #0  a0  0  3  12
 PUSH IN SymTable: #1  a12  0  3  5
 PUSH IN SymTable: #2  b1  0  4  116
-PUSH IN SymTable: #3  weight  0  5  0
-Change to type:7 value:100
+PUSH IN SymTable: #3  weight  0  7  100
 PUSH IN SymTable: #4  a  3  5  0
-POP OUT: #4  a  1  5  0
-PUSH IN SymTable: #4  f0  1  0  0
-PUSH IN SymTable: #5  n  2  5  0
-POP OUT: #5  n  1  5  0
-POP OUT: #4  f0  1  0  0
-PUSH IN SymTable: #4  f2  1  2  0
-PUSH IN SymTable: #5  word  2  6  0
-POP OUT: #5  word  1  6  0
-POP OUT: #4  f2  1  2  0
-PUSH IN SymTable: #4  main  1  0  0
-PUSH IN SymTable: #5  f  0  3  233
-PUSH IN SymTable: #6  p  0  4  114
-PUSH IN SymTable: #7  ___  0  4  101
-PUSH IN SymTable: #8  a  3  5  0
-PUSH IN SymTable: #9  b  3  5  0
-PUSH IN SymTable: #10  n  3  5  0
-PUSH IN SymTable: #11  c_d  3  6  0
-PUSH IN SymTable: #12  e5_3fg4h  3  6  0
-PUSH IN SymTable: #13  x  3  6  0
-POP OUT: #13  x  1  6  0
-POP OUT: #12  e5_3fg4h  1  6  0
-POP OUT: #11  c_d  1  6  0
-POP OUT: #10  n  1  5  0
-POP OUT: #9  b  1  5  0
-POP OUT: #8  a  1  5  0
+PUSH IN SymTable: #5  a  3  5  0
+PUSH IN SymTable: #5  b1  3  5  0
+PUSH IN SymTable: #6  func2  1  1  0
+PUSH IN SymTable: #7  b  2  5  0
+PUSH IN SymTable: #8  v  2  5  0
+PUSH IN SymTable: #9  f1  1  1  0
+PUSH IN SymTable: #10  a  3  5  0
+PUSH IN SymTable: #11  f0  1  0  0
+PUSH IN SymTable: #12  n  2  5  0
+PUSH IN SymTable: #13  f2  1  2  0
+PUSH IN SymTable: #14  word  2  6  0
+PUSH IN SymTable: #15  main  1  0  0
+PUSH IN SymTable: #16  f  0  3  233
+PUSH IN SymTable: #17  p  0  4  114
+PUSH IN SymTable: #18  ___  0  4  101
+PUSH IN SymTable: #19  a  3  5  0
+PUSH IN SymTable: #20  b  3  5  0
+PUSH IN SymTable: #21  n  3  5  0
+PUSH IN SymTable: #22  c_d  3  6  0
+PUSH IN SymTable: #23  e5_3fg4h  3  6  0
+PUSH IN SymTable: #24  x  3  6  0

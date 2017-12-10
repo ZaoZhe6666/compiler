@@ -1,15 +1,71 @@
+const int a0 = 12
+const int a12 = 5
+const char b1 = 116 (ASCLL)
+int weight[100]
+
+foo1:
+int a
+int b1
+Did not return Success When you see this!
+
+func2:
+Need Parametor #1-- b
+Need Parametor #2-- v
+Did not return Success When you see this!
+
+f1:
+int a
 T1 = 0
 T2 = 1
-T2*= 1
+T3 = 0
+Sending Parametor #1 : T3    to Function func2
+T2 *= Calling func2()
 T1+= T2
 T2 = 1
-T2*= 2
+T3 = 0
+T4 = 1
+T4*= a
+T3+= T4
+Sending Parametor #1 : T3    to Function func2
+T2 *= Calling func2()
+T1+= T2
+T2 = 1
+T3 = 0
+T4 = 1
+T4*= a
+T3+= T4
+Sending Parametor #1 : T3    to Function func2
+T3 = 0
+T4 = 1
+T4*= a
+T3+= T4
+Sending Parametor #2 : T3    to Function func2
+T2 *= Calling func2()
+T1+= T2
+T2 = 1
+T3 = 0
+T4 = 1
+T4*= a
+T3+= T4
+Sending Parametor #1 : T3    to Function func2
+T3 = 0
+T4 = 1
+T4*= a
+T3+= T4
+Sending Parametor #2 : T3    to Function func2
+T2 *= Calling func2()
+T2*= a
 T1+= T2
 a = T1
 T1 = 0
 T2 = 1
 T2*= 21
 T1+= T2
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+f0:
+Need Parametor #1-- n
 T1 = 0
 T2 = 1
 T2*= n
@@ -18,17 +74,20 @@ T2 = 0
 T3 = 1
 T3*= 20
 T2+= T3
+T1 = T1>T2
+if T1 is False jump to label 0
+nothing to return
+
+label 0:
 T1 = 0
 T2 = 1
 T2*= n
 T1+= T2
-T1 = 0
-T2 = 1
-T2*= n
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
+nothing to return
+void return
+
+f2:
+Need Parametor #1-- word
 T1 = 0
 T2 = 1
 T2*= word
@@ -37,14 +96,34 @@ T2 = 0
 T3 = 1
 T3*= x
 T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 1
 T1 = 0
 T2 = 1
 T2*= y
 T1+= T2
+The Return Value Saved in T1
+
+label 1:
 T1 = 0
 T2 = 1
 T2*= n
 T1+= T2
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+main:
+const int f = 233
+const char p = 114 (ASCLL)
+const char ___ = 101 (ASCLL)
+int a
+int b
+int n
+char c_d
+char e5_3fg4h
+char x
+a = Readin()
+b = Readin()
 T1 = 0
 T2 = 1
 T2*= a
@@ -77,11 +156,11 @@ T2 = 1
 T2*= b
 T1-= T2
 a = T1
-T1 = 0
+Print String a:T1 = 0
 T2 = 1
 T2*= a
 T1+= T2
-T1 = 0
+Print String b:T1 = 0
 T2 = 1
 T2*= b
 T1+= T2
@@ -103,11 +182,11 @@ T2*= a
 T2/= b
 T1+= T2
 a = T1
-T1 = 0
+Print String a:T1 = 0
 T2 = 1
 T2*= a
 T1+= T2
-T1 = 0
+Print String b:T1 = 0
 T2 = 1
 T2*= b
 T1+= T2
@@ -119,7 +198,9 @@ T2 = 0
 T3 = 1
 T3*= 0
 T2+= T3
-T1 = 0
+T1 = T1!=T2
+if T1 is False jump to label 2
+Print String a is not 0T1 = 0
 T2 = 1
 T2*= a
 T1+= T2
@@ -128,6 +209,8 @@ T2 = 1
 T2*= 0
 T1+= T2
 a = T1
+
+label 2:
 T1 = 0
 T2 = 1
 T2*= a
@@ -136,6 +219,8 @@ T2 = 0
 T3 = 1
 T3*= 0
 T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 3
 T1 = 0
 T2 = 1
 T2*= a
@@ -145,6 +230,8 @@ T2 = 1
 T2*= 1
 T1+= T2
 a = T1
+
+label 3:
 T1 = 0
 T2 = 1
 T2*= a
@@ -153,6 +240,8 @@ T2 = 0
 T3 = 1
 T3*= 0
 T2+= T3
+T1 = T1>T2
+if T1 is False jump to label 4
 T1 = 0
 T2 = 1
 T2*= a
@@ -162,6 +251,8 @@ T2 = 1
 T2*= 2
 T1+= T2
 a = T1
+
+label 4:
 T1 = 0
 T2 = 1
 T2*= a
@@ -170,6 +261,8 @@ T2 = 0
 T3 = 1
 T3*= 0
 T2+= T3
+T1 = T1>=T2
+if T1 is False jump to label 5
 T1 = 0
 T2 = 1
 T2*= a
@@ -179,6 +272,8 @@ T2 = 1
 T2*= 3
 T1+= T2
 a = T1
+
+label 5:
 T1 = 0
 T2 = 1
 T2*= a
@@ -187,6 +282,8 @@ T2 = 0
 T3 = 1
 T3*= 10
 T2+= T3
+T1 = T1<=T2
+if T1 is False jump to label 6
 T1 = 0
 T2 = 1
 T2*= a
@@ -196,6 +293,8 @@ T2 = 1
 T2*= 4
 T1+= T2
 a = T1
+
+label 6:
 T1 = 0
 T2 = 1
 T2*= a
@@ -204,6 +303,8 @@ T2 = 0
 T3 = 1
 T3*= 10
 T2+= T3
+T1 = T1<T2
+if T1 is False jump to label 7
 T1 = 0
 T2 = 1
 T2*= a
@@ -213,6 +314,11 @@ T2 = 1
 T2*= 5
 T1+= T2
 a = T1
+
+label 7:
+Print String judge end
+
+label 8:
 T1 = 0
 T2 = 1
 T2*= a
@@ -233,6 +339,8 @@ T2 = 0
 T3 = 1
 T3*= 10
 T2+= T3
+T1 = T1<T2
+if T1 is False jump to label 8
 T1 = 0
 T2 = 1
 T2*= b
@@ -241,12 +349,16 @@ T2 = 0
 T3 = 1
 T3*= 0
 T2+= T3
+T1 = T1<T2
+if T1 is False jump to label 9
 T1 = 0
 T2 = 1
 T2*= 1
 T2*= b
 T1-= T2
 b = T1
+
+label 9:
 T1 = 0
 T2 = 1
 T2*= b
@@ -255,11 +367,15 @@ T2 = 0
 T3 = 1
 T3*= a
 T2+= T3
+T1 = T1<=T2
+if T1 is False jump to label 10
 T1 = 0
 T2 = 1
 T2*= 0
 T1+= T2
 b = T1
+
+label 10:
 T1 = 0
 T2 = 1
 T2*= b
@@ -268,25 +384,35 @@ T2 = 0
 T3 = 1
 T3*= a
 T2+= T3
+T1 = T1>T2
+if T1 is False jump to label 11
 T1 = 0
 T2 = 1
 T2*= 1
 T1+= T2
 b = T1
+
+label 11:
 T1 = 0
 T2 = 1
 T2*= b
 T1+= T2
+if T1 != 0  jump to label 12
 T1 = 0
 T2 = 1
 T2*= 0
 T1+= T2
 b = T1
+
+label 12:
+if T1 != 1  jump to label 13
 T1 = 0
 T2 = 1
 T2*= 1
 T1+= T2
 b = T1
+
+label 13:
 T1 = 0
 T2 = 1
 T2*= b
@@ -303,16 +429,22 @@ T1 = 0
 T2 = 1
 T2*= b
 T1+= T2
+if T1 != 0  jump to label 14
 T1 = 0
 T2 = 1
 T2*= 11
 T1+= T2
 b = T1
+
+label 14:
+if T1 != 1  jump to label 15
 T1 = 0
 T2 = 1
 T2*= 666
 T1+= T2
 b = T1
+
+label 15:
 T1 = 0
 T2 = 1
 T2*= b
@@ -321,9 +453,10 @@ T1 = 0
 T2 = 1
 T2*= 12
 T1+= T2
+Sending Parametor #1 : T1    to Function f0
 T1 = 0
 T2 = 1
-T3 = 0
+T2 *= Calling f1()
 T1+= T2
 a = T1
 T1 = 0
@@ -336,6 +469,8 @@ T3 = 0
 T4 = 1
 T4*= e5_3fg4h
 T3+= T4
+Sending Parametor #1 : T3    to Function f2
+T2 *= Calling f2()
 T1+= T2
 p = T1
 T1 = 0
@@ -346,6 +481,8 @@ T2 = 0
 T3 = 1
 T3*= n
 T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 16
 T1 = 0
 T2 = 1
 T2*= a
@@ -353,10 +490,13 @@ T1+= T2
 T2 = 1
 T2*= 1
 T1+= T2
+
+label 16:
 T1 = 0
 T2 = 1
 T2*= p
 T1+= T2
+if T1 != 110  jump to label 17
 T1 = 0
 T2 = 1
 T2*= a
@@ -364,6 +504,9 @@ T1+= T2
 T2 = 1
 T2*= 1
 T1+= T2
+
+label 17:
+if T1 != 121  jump to label 18
 T1 = 0
 T2 = 1
 T2*= a
@@ -371,18 +514,23 @@ T1+= T2
 T2 = 1
 T2*= 2
 T1+= T2
+
+label 18:
 T1 = 0
 T2 = 1
 T3 = 0
 T4 = 1
 T4*= x
 T3+= T4
+Sending Parametor #1 : T3    to Function f2
+T2 *= Calling f2()
 T1+= T2
 p = T1
 T1 = 0
 T2 = 1
 T2*= p
 T1+= T2
+if T1 != 110  jump to label 19
 T1 = 0
 T2 = 1
 T2*= a
@@ -390,6 +538,9 @@ T1+= T2
 T2 = 1
 T2*= 1
 T1+= T2
+
+label 19:
+if T1 != 121  jump to label 20
 T1 = 0
 T2 = 1
 T2*= a
@@ -397,6 +548,8 @@ T1+= T2
 T2 = 1
 T2*= 2
 T1+= T2
+
+label 20:
 T1 = 0
 T2 = 1
 T2*= 15
@@ -415,6 +568,7 @@ T3 = 0
 T4 = 1
 T4*= 15
 T3+= T4
+T2 *= weight[T3]
 T2*= 2
 T1+= T2
 T1 = 0
@@ -423,12 +577,14 @@ T3 = 0
 T4 = 1
 T4*= 14
 T3+= T4
+T2 *= weight[T3]
 T1+= T2
 T2 = 1
 T3 = 0
 T4 = 1
 T4*= 15
 T3+= T4
+T2 *= weight[T3]
 T1+= T2
 T1 = 0
 T2 = 1
@@ -469,6 +625,7 @@ T5+= T6
 T6 = 1
 T6*= 3
 T5+= T6
+T4 *= x[T5]
 T3-= T4
 T2*= T3
 T1+= T2
@@ -477,15 +634,10 @@ T1 = 0
 T2 = 1
 T3 = 0
 T4 = 1
-T5 = 0
-T6 = 1
-T6*= 1
-T5+= T6
-T5 = 0
-T6 = 1
-T6*= 2
-T5+= T6
+T4 *= Calling b()
+T4*= 1
 T3+= T4
+T2 *= a[T3]
 T1+= T2
 T2 = 1
 T3 = 0
@@ -494,7 +646,9 @@ T5 = 0
 T6 = 1
 T6*= f
 T5+= T6
+T4 *= d[T5]
 T3+= T4
+T2 *= c[T3]
 T1+= T2
 b = T1
 T1 = 0
@@ -510,13 +664,17 @@ T7-= T8
 T8 = 1
 T8*= 4
 T7+= T8
+T6 *= c[T7]
 T5+= T6
 T6 = 1
 T6*= k
 T5+= T6
+T4 *= b[T5]
 T4*= 233
 T3+= T4
+T2 *= a[T3]
 T1+= T2
+nothing to return
 T1 = 0
 T2 = 1
 T3 = 0
@@ -544,18 +702,28 @@ T4/= T5
 T3-= T4
 T2*= T3
 T1-= T2
+The Return Value Saved in T1
 T1 = 0
 T2 = 1
 T2*= a
 T1+= T2
+if T1 != 1  jump to label 21
 T1 = 0
 T2 = 1
 T2*= b
 T1+= T2
+if T1 != 0  jump to label 22
+nothing to return
+
+label 22:
+
+label 21:
+if T1 != 2  jump to label 23
 T1 = 0
 T2 = 1
 T2*= a
 T1+= T2
+if T1 is False jump to label 24
 T1 = 0
 T2 = 1
 T2*= b
@@ -564,6 +732,8 @@ T2 = 0
 T3 = 1
 T3*= 3
 T2+= T3
+T1 = T1>T2
+if T1 is False jump to label 25
 T1 = 0
 T2 = 1
 T2*= b
@@ -572,3 +742,10 @@ T2 = 1
 T2*= 3
 T1+= T2
 a = T1
+
+label 25:
+
+label 24:
+
+label 23:
+void return

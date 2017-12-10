@@ -54,9 +54,9 @@ class YF{
 	  //赋值语句		条件语句		条件
 		void evalue();	void condsen();	void condit(int label);
 	  //循环语句		常量			情况语句
-		void loopsen();	void consty();	void casesen();
+		void loopsen();	int consty();	void casesen();
 	  //情况表			情况子语句		有返回值函数调用语句
-		void casetab();	void case3sen();void rfcall();
+		void casetab(int left);	void case3sen();void rfcall(std::string func_name,int para_count,int all_para);
 	  //无返回值函数调用 值参数表		语句列
 		void nrfcall();	void valpatab();void senlist();
 	  //读语句			写语句			返回语句

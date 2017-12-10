@@ -5,6 +5,8 @@
 #include<string>
 #include"metaphysics.h"
 #include"error.h"
+#define MAXSTACKNUM 2048
+
 
 class ZJ{
 	private:
