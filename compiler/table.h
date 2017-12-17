@@ -7,8 +7,14 @@
 #include"metaphysics.h"
 #include"error.h"
 
-#define MAXSIZE 2048
+#define MAXSIZE 1024
 
+struct PCode{
+	int num1;
+	int num2;
+	int num3;
+	std::string str;
+};
 
 struct Func{
 	std::string name;
@@ -56,8 +62,10 @@ struct Symbol{
 		6	char		char变量
 		7	int[]		int数组
 		8	char[]		char数组
+		9	temp		中间变量
 	*/
 	int value;
+	int location;
 };
 
 struct SymTable{
@@ -75,16 +83,10 @@ class ST{
 		int st_push(std::string name,int level,int type,int value);
 		void st_pop(int level);
 		//查询操作
-		int st_seek(std::string name);
+		int st_seek(std::string name,int push_or_pop);
 		int st_size();
+		int st_loc(int weight);
+		int st_weight();
 		void st_change(int value);
-};
-
-class VT{
-	private:
-		int count;
-	public:
-		VT();
-		int add();
-		int sub();
+		int get_loc(std::string func_name,std::string sym_name,int value);
 };

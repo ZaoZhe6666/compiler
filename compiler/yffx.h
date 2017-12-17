@@ -7,6 +7,7 @@
 #include"metaphysics.h"
 #include"table.h"
 #include"zjdm.h"
+#include"mips.h"
 #include"error.h"
 
 #define MAXSTACKNUM 2048
@@ -14,10 +15,8 @@
 class YF{
 	private:
 		CF* cf;
-		ST* st;
-		FT* ft;
-		VT* vt;
 		ZJ* zj;
+		MIPS* mips;
 		std::ofstream outf;
 		char ch;
 		int line,column,symID;
@@ -33,6 +32,7 @@ class YF{
 		void error(int errorID);
 		void mustread(int symID);
 		void p(std::string word);
+		void mid2mips();
 	  //加法运算符		乘法运算符		关系运算符
 		void plus();	void mult();	int relate();
 	  //字母			数字			非零数字
@@ -52,7 +52,7 @@ class YF{
 	  //项				因子			语句
 		void term();	int factor(int ident);	void senten();
 	  //赋值语句		条件语句		条件
-		void evalue();	void condsen();	void condit(int label);
+		void evalue(std::string name);	void condsen();	void condit(int label);
 	  //循环语句		常量			情况语句
 		void loopsen();	int consty();	void casesen();
 	  //情况表			情况子语句		有返回值函数调用语句

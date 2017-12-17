@@ -22,8 +22,8 @@ FT::FT(){
 }
 
 int FT::ft_push(std::string name,int para){
-	cout << "PUSH IN FUNCTABLE #" << s->top+1;
-	cout << " " << name << " " << para << endl;
+	outf << "PUSH IN FUNCTABLE #" << s->top+1;
+	outf << " " << name << " " << para << endl;
 	if(s->top+1>MAXSIZE){
 		return 0;
 	}
@@ -101,25 +101,34 @@ ST::ST(){
 }
 
 int ST::st_push(std::string name,int level,int type,int value){
-	outf << "PUSH IN SymTable: #" << (s->top+1) << "  " << name << "  ";
-	outf <<level<<"  "<<type<< "  " <<value <<endl; 
 	if(s->top+1>MAXSIZE){
 		outf << "Stack is full??" << endl;
 		return 0;
 	}
 	int i;
+//	outf << "name:" << name << "  level:" << level <<endl;
+	if(type == 9){
+		for(i=s->top;i>=0;i--){
+			if(s->symbol[i].type <3){
+				break;
+			}
+			if(s->symbol[i].name == "T" && s->symbol[i].level == level){
+				return 0;
+			}
+		}
+	}
 	for(i=s->top;i>=0;i--){
-		if(s->symbol[i].level == 0 && level){
+		if(s->symbol[i].level == 0 && level && name != "T"){
 			break;
 		}
-		if(s->symbol[i].level == 1 && level){
+		if(s->symbol[i].level == 1 && level && name != "T"){
 			if(s->symbol[i].name == name){
 				cout << "same name!" << endl;
 				return 0;
 			}
 			break;
 		}
-		if(s->symbol[i].name == name){
+		if(s->symbol[i].name == name && name != "T"){
 			cout << "same name!" << endl;
 			return 0;
 		}
@@ -130,7 +139,21 @@ int ST::st_push(std::string name,int level,int type,int value){
 		new_sym->level = level;
 		new_sym->type = type;
 		new_sym->value = value;
+		if(type == 7 || type == 8){
+			new_sym->location = st_loc(value);
+		}
+		else if(type<3){
+			new_sym->location = 0;
+		}
+		else{
+			new_sym->location = st_loc(1);
+		}
 		s->symbol[++s->top] = *new_sym;
+		if(type<3){
+			outf<<endl;
+		}
+		outf << "PUSH IN SymTable: #" << (s->top+1) << "  " << name << "  ";
+		outf <<level<<"  "<<type<< "  " <<value << "  #" << new_sym->location <<endl;
 		return 1;
 	}
 	else{
@@ -154,9 +177,12 @@ void ST::st_pop(int level){
 	}
 }
 
-int ST::st_seek(std::string name){
+int ST::st_seek(std::string name,int push_or_pop){
 	int i;
 	for(i=s->top;i>=0;i--){
+		if(s->symbol[i].type <3 && push_or_pop){
+			return 0;
+		}
 		if(s->symbol[i].name == name){
 			return (s->symbol[i].type+1);
 		}
@@ -171,19 +197,55 @@ int ST::st_size(){
 void ST::st_change(int value){
 	s->symbol[s->top].type +=2;
 	s->symbol[s->top].value = value;
+	int i;
+	for(i=s->top;i>=0;i--){
+		if(s->symbol[i].type <3 ){
+			s->symbol[i].location +=4*value-4;
+			return;
+		}
+	}
 	outf << "Change to" << " type:"<< s->symbol[s->top].type << " value:" << value << endl;
 }
 
-VT::VT(){
-	count = 0;
+int ST::st_loc(int weight){
+	int i;
+	int location;
+	for(i=s->top;i>=0;i--){
+		if(s->symbol[i].type <3 ){
+			location = s->symbol[i].location;
+			s->symbol[i].location +=4*weight;
+			return location;
+		}
+	}
+	return s->top+1;
 }
 
-int VT::add(){
-	count++;
-	return count;
-}
-
-int VT::sub(){
-	count--;
-	return count;
+int ST::get_loc(std::string func_name,std::string sym_name,int value){
+	int i;
+	int size = s->top;
+//	cout << func_name << "   " << sym_name << endl;
+	for(i=0;i<=size;i++){
+		if(s->symbol[i].type <3 && s->symbol[i].name == func_name){
+			for(;i<=size;){
+				if(value>=0){
+					if(s->symbol[i].name == sym_name && value == s->symbol[i].level){
+						return s->symbol[i].location;
+					}
+				}
+				else{
+					if(s->symbol[i].name == sym_name){
+						return s->symbol[i].location;
+					}
+				}
+				i++;
+				if(i>size){
+					return -1;
+				}
+				if(s->symbol[i].type <3 ){
+					return -1;
+				}
+			}
+		}
+	}
+	return -1;
 }
