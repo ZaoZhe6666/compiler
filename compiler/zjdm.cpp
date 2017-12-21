@@ -122,10 +122,20 @@ void ZJ::midcode(std::string w1,int w2,int w3,int w4){
 	}
 	else if(w1 == "pr"){
 		if(w2 == 0){
-			outf << "Print Num T" << w4 << endl;
+			if(w3 == 0){
+				outf << "Print Num T" << w4 << endl;
+			}
+			else{
+				outf << "Print Char T" << w4 << "(ASCLL)"<< endl;
+			}
 		}
 		else{
-			outf << w4 << endl;
+			if(w3 == 0){
+				outf << "Print Num T" << w4 << endl;
+			}
+			else{
+				outf << "Print Char T" << w4 << "(ASCLL)"<< endl;
+			}
 		}
 	}
 	else if(w1 == "endfunc"){
@@ -244,7 +254,12 @@ void ZJ::midcode(std::string w1,int w2,int w3,std::string w4){
 	}
 	else if(w1 == "sc"){
 		pcode[ptop].num1 = -10;
-		outf << w4 << " = Readin()"<< endl;
+		if(w3 == 1){
+			outf << w4 << " = Readin(int)"<< endl;
+		}
+		else{
+			outf << w4 << " = Readin(char)"<< endl;
+		}
 	}
 	else if(w1 == "pr"){
 		pcode[ptop].num1 = -11;

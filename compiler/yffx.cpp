@@ -27,6 +27,7 @@ YF::YF(string filename){
 	pairstack[0] = '\0';
 	pstnum = 0;
 	count = 0;
+	deal_express_type = 1;
 }
 
 void YF::getSym(){
@@ -186,7 +187,7 @@ void YF::condef(int type = 0){
 				}
 				else{
 					if(!st.st_push(const_name,0,4,token[0])){
-						error(-300);
+						error(-307);
 					}
 					else{
 						zj->midcode("const",1,token[0],const_name);
@@ -330,6 +331,7 @@ int YF::express(int ident = 0){
 		st.st_push("T",left,9,1);
 	}
 	if(symID == PLUSSY || symID == SUBSY){
+		deal_express_type = 0;
 		if(ident > 1){
 			error(-41);
 		}
@@ -345,6 +347,7 @@ int YF::express(int ident = 0){
 		}
 	}
 	else if(relate()){
+		deal_express_type = 0;
 		std::string symb = token;
 		getSym();
 		right = express();
@@ -395,6 +398,7 @@ int YF::factor(int ident = 0){
 		return left;
 	}
 	else if(symID == MULTSY || symID == DIVSY){
+		deal_express_type = 0;
 		if(ident == 0){
 			error(-44);
 		}
@@ -412,6 +416,7 @@ int YF::factor(int ident = 0){
 		}
 		getSym();
 		if(symID == LPARENTSY){
+			deal_express_type = 0;
 			int ident_type = ft.ft_conf(ident_name);
 			int para_num = 0;
 			if(!ident_type){
@@ -435,6 +440,9 @@ int YF::factor(int ident = 0){
 				cout << "error 304 : ident do not shuzu  "<< ident_type << endl;
 				error(-304);
 			}
+			if(ident_type == 8){
+				deal_express_type = 0;
+			}
 			getSym();
 			int offset = express();
 			if(symbol == 4){
@@ -455,6 +463,9 @@ int YF::factor(int ident = 0){
 				cout << "error 306 : ident do not init  "<< ident_type << endl;
 				error(-306);
 			}
+			if(ident_type == 4 || ident_type == 6){
+				deal_express_type = 0;
+			}
 			zj->midcode("=",left,symbol,ident_name);
 			st.st_push("T",left,9,1);
 			factor(1);
@@ -462,6 +473,7 @@ int YF::factor(int ident = 0){
 		}
 	}
 	else if(symID == NUMBERSY){
+		deal_express_type = 0;
 		int num_v = std::stoi(token);
 		zj->midcode("=",left,-1*symbol,num_v);
 		st.st_push("T",left,9,1);
@@ -485,6 +497,7 @@ int YF::factor(int ident = 0){
 		return left;
 	}
 	else if(symID == LPARENTSY){
+		deal_express_type = 0;
 		if(ident != 0){
 			error(-42);
 		}
@@ -733,8 +746,10 @@ void YF::printsen(){
 		getSym();
 		if(symID == COMMASY){
 			getSym();
+			deal_express_type = 1;
 			int p_num = express();
-			zj->midcode("pr",1,0,p_num);
+			zj->midcode("pr",1,deal_express_type,p_num);
+			deal_express_type = 1;
 			mustread(RPARENTSY);
 		}
 		else{
@@ -748,9 +763,11 @@ void YF::printsen(){
 		}
 	}
 	else{
+		deal_express_type = 1;
 		int p_num = express();
 //		cout << p_num << endl;
-		zj->midcode("pr",0,0,p_num);
+		zj->midcode("pr",0,deal_express_type,p_num);
+		deal_express_type = 1;
 		mustread(RPARENTSY);
 	}
 }
@@ -789,7 +806,16 @@ void YF::readsen(){
 	}
 	mustread(LPARENTSY);
 	if(symID == IDENTSY){
-		zj->midcode("sc",0,0,token);
+		int vtype = st.st_seek(token,0);
+		if(vtype == 6){
+			zj->midcode("sc",0,1,token);
+		}
+		else if(vtype == 7){
+			zj->midcode("sc",0,0,token);
+		}
+		else{
+			error(-79);
+		}
 	}
 	mustread(IDENTSY);
 	while(symID == COMMASY){
@@ -800,7 +826,12 @@ void YF::readsen(){
 				error(-303);
 			}
 			else{
-				zj->midcode("sc",0,0,token);
+				if(ident_type == 6){
+					zj->midcode("sc",0,1,token);
+				}
+				else{
+					zj->midcode("sc",0,0,token);
+				}
 			}
 			getSym();
 		}
@@ -848,6 +879,7 @@ void YF::retsen(){
 void YF::rfcall(std::string func_name,int para_count,int all_para){
 	if(all_para == 0){
 		mustread(RPARENTSY);
+		zj->midcode("()",0,0,func_name);
 		return;
 	}
 	p("Call Function Have Return Value");

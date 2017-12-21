@@ -26,6 +26,7 @@ class YF{
 		char pairstack[MAXSTACKNUM];
 		int pstnum;
 		int count;
+		int deal_express_type;
 	public:
 		YF(std::string filename);
 		void getSym();

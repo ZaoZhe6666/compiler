@@ -1,342 +1,573 @@
-const char _o = 111 (ASCLL)
-const char _r = 114 (ASCLL)
-const char _z = 122 (ASCLL)
-const char _l = 108 (ASCLL)
-const char _i = 105 (ASCLL)
-const char _b = 98 (ASCLL)
-const int xixi = 19
-const int haha = 26
-const int hugao = 8
-const int maogao = 17
-const int history_process = 1
-const int minus1 = -1
-int maxval[23333]
-char minval[23333]
-char sum[23333]
-int data[2333]
-int n
-int qsort_data[2333]
-int m
+const int cst1 = 1
+const int cst2 = 2
+const int cst3 = 3
+const char csta = 97 (ASCLL)
+const char cstb = 98 (ASCLL)
+const char cstc = 99 (ASCLL)
+int g_a
+int g_b
+char g_arr[2048]
+char g_stra[1024]
+char g_strb[2048]
 
-partition:
-Need Parametor #1-- low
-Need Parametor #2-- high
-int key
-int flg
-int i
+const_define:
+const int a = 1
+const int b = 0
+const int c = -1
+const char cst23 = 120 (ASCLL)
+const char cst24 = 122 (ASCLL)
+const char consta0 = 65 (ASCLL)
+const char csta1 = 49 (ASCLL)
+const char cst_div = 47 (ASCLL)
+Print String  const_define 
+Print String            a:
+T1 = 0
+T2 = 1
+T2*= a
+T1+= T2
+Print Num T1
+Print String        cst_div:
+T1 = 0
+T2 = 1
+T2*= cst_div
+T1+= T2
+Print Char T1(ASCLL)
+Print String        
+void return
+
+const_define_test:
+Print String  const_define_test 
+Calling const_define()
+void return
+
+var_define:
+int a
+char arr[1]
+int _a
+char _arr[2]
+int a1
+char arr1[3]
+char b
+char strb[1]
+char _b
+char _bstr[2]
+char _b1
+char _bstr1[3]
+int c
+char z
+Print String  var_define 
+void return
+
+var_define_test:
+Print String  var_define_test 
+Calling var_define()
+void return
+
+define:
+const int int1 = 1
+const char cst24 = 122 (ASCLL)
+const char consta0 = 65 (ASCLL)
+int val1
+char b
+char strb[1]
+Print String  define 
+void return
+
+define_test:
+Print String  define_test 
+Calling var_define_test()
+Calling const_define_test()
+Calling define()
+Print String define test passed
+void return
+
+operator:
+int a
+int b
+int c
+int d
+int e
+int f
+Print String  operator 
+T1 = 0
+T2 = 1
+T2*= 1
+T1+= T2
+a = T1
+T1 = 0
+T2 = 1
+T2*= 1
+T1+= T2
+T2 = 1
+T2*= 2
+T1+= T2
+b = T1
+T1 = 0
+T2 = 1
+T2*= 3
+T2*= 1
+T1+= T2
+c = T1
+T1 = 0
+T2 = 1
+T2*= 4
+T1-= T2
+d = T1
+T1 = 0
+T2 = 1
+T2*= 5
+T1+= T2
+e = T1
+T1 = 0
+T2 = 1
+T2*= 6
+T1+= T2
+f = T1
 T1 = 0
 T2 = 1
 T3 = 0
 T4 = 1
-T4*= low
+T4*= b
+T4*= 3
 T3+= T4
-T2 *= qsort_data[T3]
+T2*= T3
 T1+= T2
-key = T1
+T2 = 1
+T2*= c
+T1+= T2
+T2 = 1
+T2*= d
+T2/= 4
+T1-= T2
+T2 = 1
+T2*= a
+T2/= a
+T1+= T2
+a = T1
 T1 = 0
 T2 = 1
 T2*= 0
+T1+= T2
+T2 = 1
+T2*= a
+T1+= T2
+T2 = 1
+T3 = 0
+T4 = 1
+T4*= a
+T4*= 3
+T3+= T4
+T2*= T3
+T1+= T2
+T2 = 1
+T2*= c
+T1+= T2
+T2 = 1
+T2*= d
+T2/= 4
+T1-= T2
+T2 = 1
+T2*= e
+T2*= f
+T1+= T2
+b = T1
+T1 = 0
+T2 = 1
+T3 = 0
+T4 = 1
+T4*= a
+T3+= T4
+T2*= T3
+T1-= T2
+T2 = 1
+T2*= b
+T2*= 0
+T1+= T2
+T2 = 1
+T3 = 0
+T4 = 1
+T4*= 1
+T3+= T4
+T4 = 1
+T4*= 0
+T3-= T4
+T2*= T3
+T1-= T2
+e = T1
+void return
+
+operator_test:
+Print String  operator_test 
+Calling operator()
+Print String operator test passed
+void return
+
+string:
+Print String  string 
+Print String ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
+Print String !#$%&'()*+,-./:;<=>?@[]^_`{|}~
+void return
+
+string_test:
+Print String  string_test 
+Calling string()
+void return
+
+dowhile:
+int i
+Print String  dowhile 
+T1 = 0
+T2 = 1
+T2*= 100
 T1+= T2
 i = T1
 
 label 0:
 T1 = 0
 T2 = 1
-T2*= 1
-T1+= T2
-flg = T1
-T1 = 0
-T2 = 1
-T2*= low
+T2*= i
 T1+= T2
 T2 = 0
 T3 = 1
-T3*= high
+T3*= 50
 T2+= T3
 T1 = T1>=T2
 if T1 is False jump to label 1
 T1 = 0
 T2 = 1
-T2*= 0
+T2*= i
+T2/= 2
 T1+= T2
-flg = T1
+i = T1
 
 label 1:
 T1 = 0
 T2 = 1
-T3 = 0
-T4 = 1
-T4*= high
-T3+= T4
-T2 *= qsort_data[T3]
+T2*= i
 T1+= T2
 T2 = 0
 T3 = 1
-T3*= key
+T3*= 50
 T2+= T3
 T1 = T1<T2
 if T1 is False jump to label 2
 T1 = 0
 T2 = 1
-T2*= 0
+T3 = 0
+T4 = 1
+T4*= i
+T3+= T4
+T4 = 1
+T4*= 10
+T3+= T4
+T2*= T3
+T2/= 10
 T1+= T2
-flg = T1
+i = T1
 
 label 2:
 T1 = 0
 T2 = 1
-T2*= flg
+T2*= i
 T1+= T2
-if T1 is False jump to label 3
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-i = T1
+T2 = 0
+T3 = 1
+T3*= 10
+T2+= T3
+T1 = T1>=T2
+if T1 is False jump to label 0
 
-label 4:
+label 3:
 T1 = 0
 T2 = 1
-T2*= high
+T2*= i
 T1+= T2
 T2 = 1
 T2*= 1
 T1-= T2
-high = T1
-T1 = 0
-T2 = 1
-T2*= low
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= high
-T2+= T3
-T1 = T1>=T2
-if T1 is False jump to label 5
+i = T1
+Print String dowhile test passed
 T1 = 0
 T2 = 1
 T2*= 0
 T1+= T2
-flg = T1
+while T1 is True jump to label 3
+void return
+
+dowhile_test:
+Print String  dowhile_test 
+Calling dowhile()
+void return
+
+ifcondition:
+int a
+int rightnumber
+Print String  ifcondition 
+T1 = 0
+T2 = 1
+T2*= 1
+T1+= T2
+a = T1
+T1 = 0
+T2 = 1
+T2*= 0
+T1+= T2
+rightnumber = T1
+T1 = 0
+T2 = 1
+T2*= a
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 1
+T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 4
+T1 = 0
+T2 = 1
+T2*= rightnumber
+T1+= T2
+T2 = 1
+T2*= 1
+T1+= T2
+rightnumber = T1
+
+label 4:
+T1 = 0
+T2 = 1
+T2*= 2
+T1+= T2
+a = T1
+T1 = 0
+T2 = 1
+T2*= a
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 1
+T2+= T3
+T1 = T1>T2
+if T1 is False jump to label 5
+T1 = 0
+T2 = 1
+T2*= rightnumber
+T1+= T2
+T2 = 1
+T2*= 1
+T1+= T2
+rightnumber = T1
 
 label 5:
 T1 = 0
 T2 = 1
-T3 = 0
-T4 = 1
-T4*= high
-T3+= T4
-T2 *= qsort_data[T3]
+T2*= 0
+T1+= T2
+a = T1
+T1 = 0
+T2 = 1
+T2*= a
 T1+= T2
 T2 = 0
 T3 = 1
-T3*= key
+T3*= 1
 T2+= T3
 T1 = T1<T2
 if T1 is False jump to label 6
 T1 = 0
 T2 = 1
-T2*= 0
+T2*= rightnumber
 T1+= T2
-flg = T1
+T2 = 1
+T2*= 1
+T1+= T2
+rightnumber = T1
 
 label 6:
 T1 = 0
 T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= flg
-T1+= T2
-while T1 is True jump to label 4
-
-label 3:
-T1 = 0
-T2 = 1
-T2*= low
+T2*= a
 T1+= T2
 T2 = 0
 T3 = 1
-T3*= high
+T3*= 1
 T2+= T3
-T1 = T1<T2
+T1 = T1!=T2
 if T1 is False jump to label 7
 T1 = 0
 T2 = 1
-T2*= low
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= high
-T5+= T6
-T4 *= qsort_data[T5]
-T3+= T4
-qsort_data[T2] = T3
-T1 = 0
-T2 = 1
-T2*= low
+T2*= rightnumber
 T1+= T2
 T2 = 1
 T2*= 1
 T1+= T2
-low = T1
+rightnumber = T1
 
 label 7:
 T1 = 0
 T2 = 1
-T2*= 0
-T1+= T2
-flg = T1
-T1 = 0
-T2 = 1
-T2*= low
+T2*= a
 T1+= T2
 T2 = 0
 T3 = 1
-T3*= high
+T3*= 0
 T2+= T3
-T1 = T1<T2
+T1 = T1>=T2
 if T1 is False jump to label 8
 T1 = 0
 T2 = 1
-T3 = 0
-T4 = 1
-T4*= low
-T3+= T4
-T2 *= qsort_data[T3]
+T2*= rightnumber
+T1+= T2
+T2 = 1
+T2*= 1
+T1+= T2
+rightnumber = T1
+
+label 8:
+T1 = 0
+T2 = 1
+T2*= a
 T1+= T2
 T2 = 0
 T3 = 1
-T3*= key
+T3*= 0
 T2+= T3
 T1 = T1<=T2
 if T1 is False jump to label 9
 T1 = 0
 T2 = 1
+T2*= rightnumber
+T1+= T2
+T2 = 1
 T2*= 1
 T1+= T2
-flg = T1
+rightnumber = T1
 
 label 9:
-
-label 8:
 T1 = 0
 T2 = 1
-T2*= flg
+T2*= rightnumber
 T1+= T2
+T2 = 0
+T3 = 1
+T4 = 0
+T5 = 1
+T5*= 1
+T4+= T5
+T5 = 1
+T5*= 1
+T4+= T5
+T5 = 1
+T5*= 1
+T4+= T5
+T5 = 1
+T5*= 1
+T5*= 3
+T4+= T5
+T3*= T4
+T2+= T3
+T1 = T1!=T2
 if T1 is False jump to label 10
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-i = T1
-
-label 11:
-T1 = 0
-T2 = 1
-T2*= low
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-low = T1
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-flg = T1
-T1 = 0
-T2 = 1
-T2*= low
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= high
-T2+= T3
-T1 = T1<T2
-if T1 is False jump to label 12
-T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T4*= low
-T3+= T4
-T2 *= qsort_data[T3]
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= key
-T2+= T3
-T1 = T1<=T2
-if T1 is False jump to label 13
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-flg = T1
-
-label 13:
-
-label 12:
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= flg
-T1+= T2
-while T1 is True jump to label 11
+Print String ifcondition clause error!
 
 label 10:
 T1 = 0
 T2 = 1
-T2*= low
+T2*= rightnumber
 T1+= T2
 T2 = 0
 T3 = 1
-T3*= high
+T3*= rightnumber
 T2+= T3
-T1 = T1<T2
-if T1 is False jump to label 14
+T1 = T1!=T2
+if T1 is False jump to label 11
+Print String ifcondition clause error
+
+label 11:
+void return
+
+switchcodintionans:
+Need Parametor #1-- x
+Print String  switch(int x) 
 T1 = 0
 T2 = 1
-T2*= high
+T2*= x
 T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= low
-T5+= T6
-T4 *= qsort_data[T5]
-T3+= T4
-qsort_data[T2] = T3
+if T1 != 1  jump to label 12
 T1 = 0
 T2 = 1
-T2*= high
+T2*= 2
+T1+= T2
+The Return Value Saved in T1
+
+label 12:
+if T1 != 2  jump to label 13
+T1 = 0
+T2 = 1
+T2*= 3
+T1+= T2
+The Return Value Saved in T1
+
+label 13:
+if T1 != 3  jump to label 14
+T1 = 0
+T2 = 1
+T2*= 4
+T1+= T2
+The Return Value Saved in T1
+
+label 14:
+T1 = 0
+T2 = 1
+T2*= 5
+T1+= T2
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+switchcodintion:
+int i
+int rightnumber
+Print String  switch 
+T1 = 0
+T2 = 1
+T2*= 1
+T1+= T2
+i = T1
+T1 = 0
+T2 = 1
+T2*= 0
+T1+= T2
+rightnumber = T1
+
+label 15:
+T1 = 0
+T2 = 1
+T2*= i
 T1+= T2
 T2 = 1
 T2*= 1
-T1-= T2
-high = T1
+T1+= T2
+T2 = 0
+T3 = 1
+T4 = 0
+T5 = 1
+T5*= i
+T4+= T5
+Sending Parametor #1 : T4    to Function switchcodintionans
+Calling switchcodintionans()
+T3 *= Return_switchcodintionans()
+T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 16
+T1 = 0
+T2 = 1
+T2*= rightnumber
+T1+= T2
+T2 = 1
+T2*= 1
+T1+= T2
+rightnumber = T1
 
-label 14:
+label 16:
 T1 = 0
 T2 = 1
 T2*= i
@@ -347,68 +578,479 @@ T1+= T2
 i = T1
 T1 = 0
 T2 = 1
-T2*= low
+T2*= i
 T1+= T2
 T2 = 0
 T3 = 1
-T3*= high
+T3*= 5
 T2+= T3
 T1 = T1<T2
-if T1 is False jump to label 0
+while T1 is True jump to label 15
 T1 = 0
 T2 = 1
-T2*= low
+T2*= rightnumber
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 4
+T2+= T3
+T1 = T1!=T2
+if T1 is False jump to label 17
+Print String switchcodintion clause  error!
+
+label 17:
+T1 = 0
+T2 = 1
+T2*= rightnumber
+T1+= T2
+if T1 is False jump to label 18
+T1 = 0
+T2 = 1
+T2*= i
+T1+= T2
+The Return Value Saved in T1
+
+label 18:
+Print String switchcodintion clause  error!
+Did not return Success When you see this!
+
+condition:
+const int intermax = 5
+int iter
+T1 = 0
+T2 = 1
+T2*= 0
+T1+= T2
+iter = T1
+Print String  condition 
+
+label 19:
+T1 = 0
+T2 = 1
+T2*= iter
+T1+= T2
+if T1 != 0  jump to label 20
+T1 = 0
+T2 = 1
+T2*= iter
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 0
+T2+= T3
+T1 = T1!=T2
+if T1 is False jump to label 21
+Print String error 0
+
+label 21:
+
+label 20:
+if T1 != 1  jump to label 22
+T1 = 0
+T2 = 1
+T2*= iter
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 1
+T2+= T3
+T1 = T1!=T2
+if T1 is False jump to label 23
+Print String error 1
+
+label 23:
+
+label 22:
+if T1 != 2  jump to label 24
+T1 = 0
+T2 = 1
+T2*= iter
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 2
+T2+= T3
+T1 = T1!=T2
+if T1 is False jump to label 25
+Print String error 2
+
+label 25:
+
+label 24:
+T1 = 0
+T2 = 1
+T2*= iter
+T1+= T2
+T2 = 1
+T2*= 1
+T1+= T2
+iter = T1
+T1 = 0
+T2 = 1
+T2*= iter
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= intermax
+T2+= T3
+T1 = T1<T2
+while T1 is True jump to label 19
+void return
+
+condition_test:
+Print String  condition_test 
+Calling ifcondition()
+Calling switchcodintion()
+Calling condition()
+Print String condition test passed
+void return
+
+miscellaneous:
+int _
+int a
+char array[23]
+int i
+int endid
+char ch1
+char buf[256]
+T1 = 0
+T2 = 1
+T2*= 1
+T1+= T2
+_ = T1
+T1 = 0
+T2 = 1
+T2*= 2
+T1+= T2
+a = T1
+T1 = 0
+T2 = 1
+T2*= 0
+T1+= T2
+i = T1
+Print String  miscella 
+
+label 26:
+T1 = 0
+T2 = 1
+T2*= i
 T1+= T2
 T2 = 0
 T2+= T1
 T3 = 0
 T4 = 1
-T4*= key
+T4*= i
 T3+= T4
-qsort_data[T2] = T3
+array[T2] = T3
 T1 = 0
 T2 = 1
-T2*= low
+T2*= i
+T1+= T2
+T2 = 1
+T2*= 1
+T1+= T2
+i = T1
+T1 = 0
+T2 = 1
+T2*= i
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 23
+T2+= T3
+T1 = T1<T2
+while T1 is True jump to label 26
+T1 = 0
+T2 = 1
+T2*= 97
+T1+= T2
+ch1 = T1
+T1 = 0
+T2 = 1
+T2*= 127
+T1+= T2
+i = T1
+T1 = 0
+T2 = 1
+T2*= i
+T1+= T2
+endid = T1
+T1 = 0
+T2 = 1
+T2*= 0
+T1+= T2
+_ = T1
+
+label 27:
+T1 = 0
+T2 = 1
+T3 = 0
+T4 = 1
+T4*= _
+T4*= 1
+T3+= T4
+T4 = 1
+T4*= _
+T3-= T4
+T4 = 1
+T4*= 1
+T3-= T4
+T4 = 1
+T4*= 2
+T4/= 1
+T3+= T4
+T4 = 1
+T4*= 1
+T3-= T4
+T2*= T3
+T2/= 2
+T1+= T2
+T2 = 0
+T2+= T1
+T3 = 0
+T4 = 1
+T4*= 97
+T3+= T4
+buf[T2] = T3
+T1 = 0
+T2 = 1
+T2*= _
+T1+= T2
+T2 = 1
+T2*= 1
+T1+= T2
+_ = T1
+T1 = 0
+T2 = 1
+T2*= _
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= endid
+T2+= T3
+T1 = T1<T2
+while T1 is True jump to label 27
+T1 = 0
+T2 = 1
+T3 = 0
+T4 = 1
+T4*= 0
+T3+= T4
+T2 *= buf[T3]
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 97
+T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 28
+Print String miscellaneous test passed
+
+label 28:
+void return
+
+miscellaneous_test:
+Print String  miscella_test 
+Calling miscellaneous()
+void return
+
+fibonaci:
+Need Parametor #1-- n
+Print String  fibonaci 
+T1 = 0
+T2 = 1
+T2*= n
+T1+= T2
+if T1 != 0  jump to label 29
+T1 = 0
+T2 = 1
+T2*= 0
+T1+= T2
+The Return Value Saved in T1
+
+label 29:
+if T1 != 1  jump to label 30
+T1 = 0
+T2 = 1
+T2*= 1
+T1+= T2
+The Return Value Saved in T1
+
+label 30:
+if T1 != 2  jump to label 31
+T1 = 0
+T2 = 1
+T2*= 1
+T1+= T2
+The Return Value Saved in T1
+
+label 31:
+T1 = 0
+T2 = 1
+T3 = 0
+T4 = 1
+T4*= n
+T3+= T4
+T4 = 1
+T4*= 1
+T3-= T4
+Sending Parametor #1 : T3    to Function fibonaci
+Calling fibonaci()
+T2 *= Return_fibonaci()
+T1+= T2
+T2 = 1
+T3 = 0
+T4 = 1
+T4*= n
+T3+= T4
+T4 = 1
+T4*= 2
+T3-= T4
+Sending Parametor #1 : T3    to Function fibonaci
+Calling fibonaci()
+T2 *= Return_fibonaci()
 T1+= T2
 The Return Value Saved in T1
 Did not return Success When you see this!
 
-gcd:
-Need Parametor #1-- a
-Need Parametor #2-- b
+fibonaci_test:
+int n
+Print String  fibonaci_test 
+Print String Fibonaci: Please input a unsigned positive integer ?
+n = Readin(int)
+
+label 32:
 T1 = 0
 T2 = 1
-T2*= b
+T2*= n
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 0
+T2+= T3
+T1 = T1<T2
+if T1 is False jump to label 33
+Print String Input error, try again:
+n = Readin(int)
+
+label 33:
+T1 = 0
+T2 = 1
+T2*= n
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 0
+T2+= T3
+T1 = T1>=T2
+if T1 is False jump to label 34
+Print String The fibonaci's answer is T1 = 0
+T2 = 1
+T3 = 0
+T4 = 1
+T4*= n
+T3+= T4
+Sending Parametor #1 : T3    to Function fibonaci
+Calling fibonaci()
+T2 *= Return_fibonaci()
+T1+= T2
+Print Num T1
+
+label 34:
+T1 = 0
+T2 = 1
+T2*= n
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 0
+T2+= T3
+T1 = T1<T2
+while T1 is True jump to label 32
+void return
+
+mod:
+Need Parametor #1-- n
+Need Parametor #2-- m
+Print String  mod 
+T1 = 0
+T2 = 1
+T2*= n
+T1+= T2
+T2 = 1
+T2*= n
+T2/= m
+T2*= m
+T1-= T2
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+gcd:
+Need Parametor #1-- n
+Need Parametor #2-- m
+int rem
+Print String  gcd 
+T1 = 0
+T2 = 1
+T2*= 0
+T1+= T2
+rem = T1
+T1 = 0
+T2 = 1
+T2*= n
 T1+= T2
 T2 = 0
 T3 = 1
 T3*= 0
 T2+= T3
 T1 = T1==T2
-if T1 is False jump to label 15
+if T1 is False jump to label 35
 T1 = 0
 T2 = 1
-T2*= a
+T2*= m
 T1+= T2
 The Return Value Saved in T1
 
-label 15:
+label 35:
+T1 = 0
+T2 = 1
+T2*= m
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 0
+T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 36
+T1 = 0
+T2 = 1
+T2*= n
+T1+= T2
+The Return Value Saved in T1
+
+label 36:
 T1 = 0
 T2 = 1
 T3 = 0
 T4 = 1
-T4*= b
+T4*= m
 T3+= T4
 Sending Parametor #1 : T3    to Function gcd
 T3 = 0
 T4 = 1
-T4*= a
+T5 = 0
+T6 = 1
+T6*= n
+T5+= T6
+Sending Parametor #1 : T5    to Function mod
+T5 = 0
+T6 = 1
+T6*= m
+T5+= T6
+Sending Parametor #2 : T5    to Function mod
+Calling mod()
+T4 *= Return_mod()
 T3+= T4
-T4 = 1
-T4*= a
-T4/= b
-T4*= b
-T3-= T4
 Sending Parametor #2 : T3    to Function gcd
 Calling gcd()
 T2 *= Return_gcd()
@@ -416,1015 +1058,40 @@ T1+= T2
 The Return Value Saved in T1
 Did not return Success When you see this!
 
-qsort:
-Need Parametor #1-- start
-Need Parametor #2-- end
-int pos
+iswronggcd:
+Need Parametor #1-- n
+Need Parametor #2-- m
+Print String  wronggcd 
 T1 = 0
 T2 = 1
-T2*= start
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= end
-T2+= T3
-T1 = T1<T2
-if T1 is False jump to label 16
-T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T4*= start
-T3+= T4
-Sending Parametor #1 : T3    to Function partition
-T3 = 0
-T4 = 1
-T4*= end
-T3+= T4
-Sending Parametor #2 : T3    to Function partition
-Calling partition()
-T2 *= Return_partition()
-T1+= T2
-pos = T1
-T1 = 0
-T2 = 1
-T2*= start
-T1+= T2
-Sending Parametor #1 : T1    to Function qsort
-T1 = 0
-T2 = 1
-T2*= pos
-T1+= T2
-T2 = 1
-T2*= 1
-T1-= T2
-Sending Parametor #2 : T1    to Function qsort
-Calling qsort()
-T1 = 0
-T2 = 1
-T2*= pos
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-Sending Parametor #1 : T1    to Function qsort
-T1 = 0
-T2 = 1
-T2*= end
-T1+= T2
-Sending Parametor #2 : T1    to Function qsort
-Calling qsort()
-
-label 16:
-nothing to return
-void return
-
-calculate_e:
-const int maxn = 233
-const int max_iterate = 233
-int tmp[233]
-char ans[233]
-int i
-int j
-int k
-int rem
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-i = T1
-
-label 17:
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= 0
-T3+= T4
-tmp[T2] = T3
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= 0
-T3+= T4
-ans[T2] = T3
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= maxn
-T2+= T3
-T1 = T1<T2
-while T1 is True jump to label 17
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= 2
-T3+= T4
-ans[T2] = T3
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= 1
-T3+= T4
-tmp[T2] = T3
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-
-label 18:
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-rem = T1
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-j = T1
-
-label 19:
-T1 = 0
-T2 = 1
-T2*= rem
-T2*= 10
-T1+= T2
-T2 = 1
-T3 = 0
-T4 = 1
-T4*= j
-T3+= T4
-T2 *= tmp[T3]
-T1+= T2
-rem = T1
-T1 = 0
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= rem
-T4/= i
-T3+= T4
-tmp[T2] = T3
-T1 = 0
-T2 = 1
-T2*= rem
-T1+= T2
-T2 = 1
-T2*= rem
-T2/= i
-T2*= i
-T1-= T2
-rem = T1
-T1 = 0
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-j = T1
-T1 = 0
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= maxn
-T2+= T3
-T1 = T1<T2
-while T1 is True jump to label 19
-T1 = 0
-T2 = 1
-T2*= maxn
-T1+= T2
-T2 = 1
-T2*= 1
-T1-= T2
-j = T1
-
-label 20:
-T1 = 0
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= j
-T5+= T6
-T4 *= ans[T5]
-T3+= T4
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= j
-T5+= T6
-T4 *= tmp[T5]
-T3+= T4
-ans[T2] = T3
-T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T4*= j
-T3+= T4
-T2 *= ans[T3]
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 10
-T2+= T3
-T1 = T1>T2
-if T1 is False jump to label 21
-T1 = 0
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= j
-T5+= T6
-T4 *= ans[T5]
-T3+= T4
-T4 = 1
-T4*= 10
-T3-= T4
-ans[T2] = T3
-T1 = 0
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 1
-T2*= 1
-T1-= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= j
-T5+= T6
-T6 = 1
-T6*= 1
-T5-= T6
-T4 *= ans[T5]
-T3+= T4
-T4 = 1
-T4*= 1
-T3+= T4
-ans[T2] = T3
-
-label 21:
-T1 = 0
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 1
-T2*= 1
-T1-= T2
-j = T1
-T1 = 0
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 1
-T2+= T3
-T1 = T1>=T2
-while T1 is True jump to label 20
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= max_iterate
-T2+= T3
-T1 = T1<=T2
-while T1 is True jump to label 18
-T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T4*= 0
-T3+= T4
-T2 *= ans[T3]
-T1+= T2
-Print Num T1
-Print String .
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-
-label 22:
-T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T4*= i
-T3+= T4
-T2 *= ans[T3]
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 10
-T2+= T3
-T1 = T1<T2
-while T1 is True jump to label 22
-void return
-
-weird_expressions_test:
-T1 = 0
-T2 = 1
-T2*= 2
-T1+= T2
-T2 = 1
-T2*= 3
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= 2
-T1-= T2
-T2 = 1
-T2*= 5
-T1-= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= 1
-T1-= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= 1
-T1-= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= 10
-T1-= T2
-T2 = 1
-T2*= 10
-T1-= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= xixi
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= haha
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= hugao
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= maogao
-T1+= T2
-Print Num T1
-Print String history_processT1 = 0
-T2 = 1
-T2*= history_process
-T1+= T2
-1
-T1 = 0
-T2 = 1
-T2*= 115
-T1+= T2
-Print Num T1
-void return
-
-min:
-Need Parametor #1-- a
-Need Parametor #2-- b
-T1 = 0
-T2 = 1
-T2*= a
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= b
-T2+= T3
-T1 = T1<T2
-if T1 is False jump to label 23
-T1 = 0
-T2 = 1
-T2*= a
-T1+= T2
-The Return Value Saved in T1
-
-label 23:
-T1 = 0
-T2 = 1
-T2*= b
-T1+= T2
-The Return Value Saved in T1
-Did not return Success When you see this!
-
-max:
-Need Parametor #1-- a
-Need Parametor #2-- b
-T1 = 0
-T2 = 1
-T2*= a
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= b
-T2+= T3
-T1 = T1>T2
-if T1 is False jump to label 24
-T1 = 0
-T2 = 1
-T2*= a
-T1+= T2
-The Return Value Saved in T1
-
-label 24:
-T1 = 0
-T2 = 1
-T2*= b
-T1+= T2
-The Return Value Saved in T1
-Did not return Success When you see this!
-
-query:
-Need Parametor #1-- l
-Need Parametor #2-- r
-Need Parametor #3-- type
-Need Parametor #4-- pos
-Need Parametor #5-- ll
-Need Parametor #6-- rr
-int flg
-int ans1
-int ans2
-T1 = 0
-T2 = 1
-T2*= ll
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= l
-T2+= T3
-T1 = T1>=T2
-if T1 is False jump to label 25
-T1 = 0
-T2 = 1
-T2*= rr
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= r
-T2+= T3
-T1 = T1<=T2
-if T1 is False jump to label 26
-T1 = 0
-T2 = 1
-T2*= type
+T2*= n
 T1+= T2
 T2 = 0
 T3 = 1
 T3*= 0
 T2+= T3
-T1 = T1==T2
-if T1 is False jump to label 27
-T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T4*= pos
-T3+= T4
-T2 *= maxval[T3]
-T1+= T2
-The Return Value Saved in T1
-
-label 27:
-T1 = 0
-T2 = 1
-T2*= type
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 1
-T2+= T3
-T1 = T1==T2
-if T1 is False jump to label 28
-T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T4*= pos
-T3+= T4
-T2 *= minval[T3]
-T1+= T2
-The Return Value Saved in T1
-
-label 28:
-T1 = 0
-T2 = 1
-T2*= type
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 2
-T2+= T3
-T1 = T1==T2
-if T1 is False jump to label 29
-T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T4*= pos
-T3+= T4
-T2 *= sum[T3]
-T1+= T2
-The Return Value Saved in T1
-
-label 29:
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-The Return Value Saved in T1
-
-label 26:
-
-label 25:
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-flg = T1
-T1 = 0
-T2 = 1
-T2*= ll
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= r
-T2+= T3
-T1 = T1>T2
-if T1 is False jump to label 30
+T1 = T1<=T2
+if T1 is False jump to label 37
 T1 = 0
 T2 = 1
 T2*= 1
-T1+= T2
-flg = T1
-
-label 30:
-T1 = 0
-T2 = 1
-T2*= rr
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= l
-T2+= T3
-T1 = T1<T2
-if T1 is False jump to label 31
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-flg = T1
-
-label 31:
-T1 = 0
-T2 = 1
-T2*= flg
-T1+= T2
-if T1 is False jump to label 32
-T1 = 0
-T2 = 1
-T2*= type
-T1+= T2
-if T1 != 0  jump to label 33
-T1 = 0
-T2 = 1
-T2*= 2147483647
-T1-= T2
-The Return Value Saved in T1
-
-label 33:
-if T1 != 1  jump to label 34
-T1 = 0
-T2 = 1
-T2*= 2147483647
-T1+= T2
-The Return Value Saved in T1
-
-label 34:
-if T1 != 2  jump to label 35
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-The Return Value Saved in T1
-
-label 35:
-
-label 32:
-T1 = 0
-T2 = 1
-T2*= type
-T1+= T2
-if T1 != 0  jump to label 36
-T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= l
-T5+= T6
-Sending Parametor #1 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= r
-T5+= T6
-Sending Parametor #2 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= type
-T5+= T6
-Sending Parametor #3 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= pos
-T6*= 2
-T5+= T6
-Sending Parametor #4 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= ll
-T5+= T6
-Sending Parametor #5 : T5    to Function query
-T5 = 0
-T6 = 1
-T7 = 0
-T8 = 1
-T8*= ll
-T7+= T8
-T8 = 1
-T8*= rr
-T7+= T8
-T6*= T7
-T6/= 2
-T5+= T6
-Sending Parametor #6 : T5    to Function query
-Calling query()
-T4 *= Return_query()
-T3+= T4
-Sending Parametor #1 : T3    to Function max
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= l
-T5+= T6
-Sending Parametor #1 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= r
-T5+= T6
-Sending Parametor #2 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= type
-T5+= T6
-Sending Parametor #3 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= pos
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= 1
-T5+= T6
-Sending Parametor #4 : T5    to Function query
-T5 = 0
-T6 = 1
-T7 = 0
-T8 = 1
-T8*= ll
-T7+= T8
-T8 = 1
-T8*= rr
-T7+= T8
-T6*= T7
-T6/= 2
-T5+= T6
-T6 = 1
-T6*= 1
-T5+= T6
-Sending Parametor #5 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= rr
-T5+= T6
-Sending Parametor #6 : T5    to Function query
-Calling query()
-T4 *= Return_query()
-T3+= T4
-Sending Parametor #2 : T3    to Function max
-Calling max()
-T2 *= Return_max()
-T1+= T2
-The Return Value Saved in T1
-
-label 36:
-if T1 != 1  jump to label 37
-T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= l
-T5+= T6
-Sending Parametor #1 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= r
-T5+= T6
-Sending Parametor #2 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= type
-T5+= T6
-Sending Parametor #3 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= pos
-T6*= 2
-T5+= T6
-Sending Parametor #4 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= ll
-T5+= T6
-Sending Parametor #5 : T5    to Function query
-T5 = 0
-T6 = 1
-T7 = 0
-T8 = 1
-T8*= ll
-T7+= T8
-T8 = 1
-T8*= rr
-T7+= T8
-T6*= T7
-T6/= 2
-T5+= T6
-Sending Parametor #6 : T5    to Function query
-Calling query()
-T4 *= Return_query()
-T3+= T4
-Sending Parametor #1 : T3    to Function min
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= l
-T5+= T6
-Sending Parametor #1 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= r
-T5+= T6
-Sending Parametor #2 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= type
-T5+= T6
-Sending Parametor #3 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= pos
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= 1
-T5+= T6
-Sending Parametor #4 : T5    to Function query
-T5 = 0
-T6 = 1
-T7 = 0
-T8 = 1
-T8*= ll
-T7+= T8
-T8 = 1
-T8*= rr
-T7+= T8
-T6*= T7
-T6/= 2
-T5+= T6
-T6 = 1
-T6*= 1
-T5+= T6
-Sending Parametor #5 : T5    to Function query
-T5 = 0
-T6 = 1
-T6*= rr
-T5+= T6
-Sending Parametor #6 : T5    to Function query
-Calling query()
-T4 *= Return_query()
-T3+= T4
-Sending Parametor #2 : T3    to Function min
-Calling min()
-T2 *= Return_min()
 T1+= T2
 The Return Value Saved in T1
 
 label 37:
-if T1 != 2  jump to label 38
 T1 = 0
 T2 = 1
-T3 = 0
-T4 = 1
-T4*= l
-T3+= T4
-Sending Parametor #1 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= r
-T3+= T4
-Sending Parametor #2 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= type
-T3+= T4
-Sending Parametor #3 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= pos
-T4*= 2
-T3+= T4
-Sending Parametor #4 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= ll
-T3+= T4
-Sending Parametor #5 : T3    to Function query
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= ll
-T5+= T6
-T6 = 1
-T6*= rr
-T5+= T6
-T4*= T5
-T4/= 2
-T3+= T4
-Sending Parametor #6 : T3    to Function query
-Calling query()
-T2 *= Return_query()
+T2*= m
 T1+= T2
+T2 = 0
+T3 = 1
+T3*= 0
+T2+= T3
+T1 = T1<=T2
+if T1 is False jump to label 38
+T1 = 0
 T2 = 1
-T3 = 0
-T4 = 1
-T4*= l
-T3+= T4
-Sending Parametor #1 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= r
-T3+= T4
-Sending Parametor #2 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= type
-T3+= T4
-Sending Parametor #3 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= pos
-T4*= 2
-T3+= T4
-T4 = 1
-T4*= 1
-T3+= T4
-Sending Parametor #4 : T3    to Function query
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= ll
-T5+= T6
-T6 = 1
-T6*= rr
-T5+= T6
-T4*= T5
-T4/= 2
-T3+= T4
-T4 = 1
-T4*= 1
-T3+= T4
-Sending Parametor #5 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= rr
-T3+= T4
-Sending Parametor #6 : T3    to Function query
-Calling query()
-T2 *= Return_query()
+T2*= 1
 T1+= T2
 The Return Value Saved in T1
 
@@ -1436,381 +1103,111 @@ T1+= T2
 The Return Value Saved in T1
 Did not return Success When you see this!
 
-build:
-Need Parametor #1-- l
-Need Parametor #2-- r
-Need Parametor #3-- pos
+gcd_test:
+int n
+int m
+Print String  gcd_test 
+Print String GCD: Please input two unsigned positive integer ?
+n = Readin(int)
+m = Readin(int)
 T1 = 0
 T2 = 1
-T2*= l
+T3 = 0
+T4 = 1
+T4*= n
+T3+= T4
+Sending Parametor #1 : T3    to Function iswronggcd
+T3 = 0
+T4 = 1
+T4*= m
+T3+= T4
+Sending Parametor #2 : T3    to Function iswronggcd
+Calling iswronggcd()
+T2 *= Return_iswronggcd()
 T1+= T2
-T2 = 0
-T3 = 1
-T3*= r
-T2+= T3
-T1 = T1==T2
 if T1 is False jump to label 39
+
+label 40:
+Print String Input error, try Again: 
+n = Readin(int)
+m = Readin(int)
 T1 = 0
 T2 = 1
-T2*= pos
-T1+= T2
-T2 = 0
-T2+= T1
 T3 = 0
 T4 = 1
-T5 = 0
-T6 = 1
-T6*= l
-T5+= T6
-T4 *= data[T5]
+T4*= n
 T3+= T4
-maxval[T2] = T3
-T1 = 0
-T2 = 1
-T2*= pos
-T1+= T2
-T2 = 0
-T2+= T1
+Sending Parametor #1 : T3    to Function iswronggcd
 T3 = 0
 T4 = 1
-T5 = 0
-T6 = 1
-T6*= l
-T5+= T6
-T4 *= data[T5]
+T4*= m
 T3+= T4
-minval[T2] = T3
-T1 = 0
-T2 = 1
-T2*= pos
+Sending Parametor #2 : T3    to Function iswronggcd
+Calling iswronggcd()
+T2 *= Return_iswronggcd()
 T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= l
-T5+= T6
-T4 *= data[T5]
-T3+= T4
-sum[T2] = T3
-nothing to return
+while T1 is True jump to label 40
 
 label 39:
-T1 = 0
-T2 = 1
-T2*= l
-T1+= T2
-Sending Parametor #1 : T1    to Function build
-T1 = 0
+Print String The gcd's answer is T1 = 0
 T2 = 1
 T3 = 0
 T4 = 1
-T4*= l
+T4*= n
 T3+= T4
-T4 = 1
-T4*= r
-T3+= T4
-T2*= T3
-T2/= 2
-T1+= T2
-Sending Parametor #2 : T1    to Function build
-T1 = 0
-T2 = 1
-T2*= pos
-T2*= 2
-T1+= T2
-Sending Parametor #3 : T1    to Function build
-Calling build()
-T1 = 0
-T2 = 1
+Sending Parametor #1 : T3    to Function gcd
 T3 = 0
 T4 = 1
-T4*= l
+T4*= m
 T3+= T4
-T4 = 1
-T4*= r
-T3+= T4
-T2*= T3
-T2/= 2
+Sending Parametor #2 : T3    to Function gcd
+Calling gcd()
+T2 *= Return_gcd()
 T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-Sending Parametor #1 : T1    to Function build
-T1 = 0
-T2 = 1
-T2*= r
-T1+= T2
-Sending Parametor #2 : T1    to Function build
-T1 = 0
-T2 = 1
-T2*= pos
-T2*= 2
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-Sending Parametor #3 : T1    to Function build
-Calling build()
-T1 = 0
-T2 = 1
-T2*= pos
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T7 = 0
-T8 = 1
-T8*= pos
-T8*= 2
-T7+= T8
-T6 *= maxval[T7]
-T5+= T6
-Sending Parametor #1 : T5    to Function max
-T5 = 0
-T6 = 1
-T7 = 0
-T8 = 1
-T8*= pos
-T8*= 2
-T7+= T8
-T8 = 1
-T8*= 1
-T7+= T8
-T6 *= maxval[T7]
-T5+= T6
-Sending Parametor #2 : T5    to Function max
-Calling max()
-T4 *= Return_max()
-T3+= T4
-maxval[T2] = T3
-T1 = 0
-T2 = 1
-T2*= pos
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T7 = 0
-T8 = 1
-T8*= pos
-T8*= 2
-T7+= T8
-T6 *= minval[T7]
-T5+= T6
-Sending Parametor #1 : T5    to Function min
-T5 = 0
-T6 = 1
-T7 = 0
-T8 = 1
-T8*= pos
-T8*= 2
-T7+= T8
-T8 = 1
-T8*= 1
-T7+= T8
-T6 *= minval[T7]
-T5+= T6
-Sending Parametor #2 : T5    to Function min
-Calling min()
-T4 *= Return_min()
-T3+= T4
-minval[T2] = T3
-T1 = 0
-T2 = 1
-T2*= pos
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= pos
-T6*= 2
-T5+= T6
-T4 *= sum[T5]
-T3+= T4
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= pos
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= 1
-T5+= T6
-T4 *= sum[T5]
-T3+= T4
-sum[T2] = T3
+Print Num T1
 void return
 
-echo:
-char x
+is_prime:
+Need Parametor #1-- x
 int i
 T1 = 0
 T2 = 1
-T2*= 0
+T2*= 2
 T1+= T2
 i = T1
-
-label 40:
-x = Readin()
 T1 = 0
 T2 = 1
 T2*= x
 T1+= T2
 T2 = 0
 T3 = 1
-T3*= 48
+T3*= 2
 T2+= T3
 T1 = T1==T2
 if T1 is False jump to label 41
-nothing to return
-
-label 41:
-T1 = 0
-T2 = 1
-T2*= x
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= x
-T1+= T2
-T2 = 1
-T2*= 2
-T1+= T2
-Print Num T1
 T1 = 0
 T2 = 1
 T2*= 1
 T1+= T2
-while T1 is True jump to label 40
-void return
+The Return Value Saved in T1
 
-fibo:
-int tmp[4]
-char ans[4]
-int n
-char t[4]
-int i
-int j
-int k
-int s
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-s = T1
+label 41:
 
 label 42:
 T1 = 0
 T2 = 1
-T2*= 0
-T1+= T2
-T2 = 0
-T2+= T1
 T3 = 0
 T4 = 1
-T4*= 0
+T4*= x
 T3+= T4
-tmp[T2] = T3
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-T2 = 0
-T2+= T1
+Sending Parametor #1 : T3    to Function mod
 T3 = 0
 T4 = 1
-T4*= 1
+T4*= i
 T3+= T4
-tmp[T2] = T3
-T1 = 0
-T2 = 1
-T2*= 2
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= 1
-T3+= T4
-tmp[T2] = T3
-T1 = 0
-T2 = 1
-T2*= 3
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= 2
-T5+= T6
-T4 *= tmp[T5]
-T3+= T4
-tmp[T2] = T3
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= 0
-T3+= T4
-ans[T2] = T3
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= 1
-T3+= T4
-ans[T2] = T3
-T1 = 0
-T2 = 1
-T2*= 2
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= 1
-T3+= T4
-ans[T2] = T3
-T1 = 0
-T2 = 1
-T2*= 3
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= 0
-T3+= T4
-ans[T2] = T3
-Print String Please input n, and the program will work out the n-th element of the fibonacci sequence:
-Print String Input 0 to quit this test.
-n = Readin()
-T1 = 0
-T2 = 1
-T2*= n
+Sending Parametor #2 : T3    to Function mod
+Calling mod()
+T2 *= Return_mod()
 T1+= T2
 T2 = 0
 T3 = 1
@@ -1818,948 +1215,376 @@ T3*= 0
 T2+= T3
 T1 = T1==T2
 if T1 is False jump to label 43
-nothing to return
+T1 = 0
+T2 = 1
+T2*= 0
+T1+= T2
+The Return Value Saved in T1
 
 label 43:
 T1 = 0
 T2 = 1
+T2*= i
+T1+= T2
+T2 = 1
+T2*= 1
+T1+= T2
+i = T1
+T1 = 0
+T2 = 1
+T2*= i
+T2*= i
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= x
+T2+= T3
+T1 = T1<T2
+while T1 is True jump to label 42
+T1 = 0
+T2 = 1
+T2*= 1
+T1+= T2
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+prime_factorization:
+Need Parametor #1-- n
+int i
+int first
+T1 = 0
+T2 = 1
+T2*= 2
+T1+= T2
+i = T1
+T1 = 0
+T2 = 1
 T2*= 0
 T1+= T2
-s = T1
+first = T1
+T1 = 0
+T2 = 1
+T2*= n
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 1
+T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 44
+Print String 1
+nothing to return
 
 label 44:
-T1 = 0
-T2 = 1
-T2*= n
-T1+= T2
-T2 = 1
-T2*= n
-T2/= 2
-T2*= 2
-T1-= T2
-if T1 is False jump to label 45
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-i = T1
-
-label 46:
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-j = T1
-
-label 47:
-T1 = 0
-T2 = 1
-T2*= i
-T2*= 2
-T1+= T2
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= 0
-T3+= T4
-t[T2] = T3
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-k = T1
-
-label 48:
-T1 = 0
-T2 = 1
-T2*= i
-T2*= 2
-T1+= T2
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= i
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= j
-T5+= T6
-T4 *= t[T5]
-T3+= T4
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= i
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= k
-T5+= T6
-T4 *= ans[T5]
-T5 = 0
-T6 = 1
-T6*= k
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= j
-T5+= T6
-T4 *= tmp[T5]
-T3+= T4
-t[T2] = T3
-T1 = 0
-T2 = 1
-T2*= i
-T2*= 2
-T1+= T2
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= i
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= j
-T5+= T6
-T4 *= t[T5]
-T3+= T4
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= i
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= j
-T5+= T6
-T4 *= t[T5]
-T4/= 10000
-T4*= 10000
-T3-= T4
-t[T2] = T3
-T1 = 0
-T2 = 1
-T2*= k
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-k = T1
-T1 = 0
-T2 = 1
-T2*= k
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 2
-T2+= T3
-T1 = T1<T2
-while T1 is True jump to label 48
-T1 = 0
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-j = T1
-T1 = 0
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 2
-T2+= T3
-T1 = T1<T2
-while T1 is True jump to label 47
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 2
-T2+= T3
-T1 = T1<T2
-while T1 is True jump to label 46
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-i = T1
-
-label 49:
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= i
-T5+= T6
-T4 *= t[T5]
-T3+= T4
-ans[T2] = T3
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 4
-T2+= T3
-T1 = T1<T2
-while T1 is True jump to label 49
 
 label 45:
 T1 = 0
 T2 = 1
-T2*= 0
-T1+= T2
-i = T1
-
-label 50:
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-j = T1
-
-label 51:
-T1 = 0
-T2 = 1
-T2*= i
-T2*= 2
-T1+= T2
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T2+= T1
 T3 = 0
 T4 = 1
-T4*= 0
+T4*= i
 T3+= T4
-t[T2] = T3
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-k = T1
-
-label 52:
-T1 = 0
-T2 = 1
-T2*= i
-T2*= 2
-T1+= T2
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= i
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= j
-T5+= T6
-T4 *= t[T5]
-T3+= T4
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= i
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= k
-T5+= T6
-T4 *= tmp[T5]
-T5 = 0
-T6 = 1
-T6*= k
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= j
-T5+= T6
-T4 *= tmp[T5]
-T3+= T4
-t[T2] = T3
-T1 = 0
-T2 = 1
-T2*= i
-T2*= 2
-T1+= T2
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= i
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= j
-T5+= T6
-T4 *= t[T5]
-T3+= T4
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= i
-T6*= 2
-T5+= T6
-T6 = 1
-T6*= j
-T5+= T6
-T4 *= t[T5]
-T4/= 10000
-T4*= 10000
-T3-= T4
-t[T2] = T3
-T1 = 0
-T2 = 1
-T2*= k
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-k = T1
-T1 = 0
-T2 = 1
-T2*= k
+Sending Parametor #1 : T3    to Function is_prime
+Calling is_prime()
+T2 *= Return_is_prime()
 T1+= T2
 T2 = 0
 T3 = 1
-T3*= 2
+T3*= 1
 T2+= T3
-T1 = T1<T2
-while T1 is True jump to label 52
+T1 = T1==T2
+if T1 is False jump to label 46
 T1 = 0
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-j = T1
-T1 = 0
-T2 = 1
-T2*= j
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 2
-T2+= T3
-T1 = T1<T2
-while T1 is True jump to label 51
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 2
-T2+= T3
-T1 = T1<T2
-while T1 is True jump to label 50
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-i = T1
-
-label 53:
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T5 = 0
-T6 = 1
-T6*= i
-T5+= T6
-T4 *= t[T5]
-T3+= T4
-tmp[T2] = T3
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 4
-T2+= T3
-T1 = T1<T2
-while T1 is True jump to label 53
-T1 = 0
-T2 = 1
-T2*= n
-T2/= 2
-T1+= T2
-n = T1
-T1 = 0
-T2 = 1
-T2*= s
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-s = T1
-T1 = 0
-T2 = 1
-T2*= n
-T1+= T2
-while T1 is True jump to label 44
-Print String The result is: T1 = 0
 T2 = 1
 T3 = 0
 T4 = 1
-T4*= 1
+T4*= n
 T3+= T4
-T2 *= ans[T3]
-T1+= T2
-1
-T1 = 0
-T2 = 1
-T2*= s
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-s = T1
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-while T1 is True jump to label 42
-void return
-
-main:
-int i
-int j
-int a
-int b
-int flg
-int x
-int l
-int r
-int type
-Print String The program first orzs libo to gain some rp and increase the probability of passing the test.
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-i = T1
-
-label 54:
-Print String orzlibo T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 10
-T2+= T3
-T1 = T1<T2
-while T1 is True jump to label 54
-T1 = 0
-T2 = 1
-T2*= _o
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= _r
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= _z
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= _l
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= _i
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= _b
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= _o
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-flg = T1
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-i = T1
-
-label 55:
-Print String please input 2 integers, and the program will work out their gcd.
-Print String input 2 zeros to quit the loop.
-a = Readin()
-b = Readin()
-T1 = 0
-T2 = 1
-T2*= a
+Sending Parametor #1 : T3    to Function mod
+T3 = 0
+T4 = 1
+T4*= i
+T3+= T4
+Sending Parametor #2 : T3    to Function mod
+Calling mod()
+T2 *= Return_mod()
 T1+= T2
 T2 = 0
 T3 = 1
 T3*= 0
+T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 47
+
+label 48:
+T1 = 0
+T2 = 1
+T2*= n
+T2/= i
+T1+= T2
+n = T1
+T1 = 0
+T2 = 1
+T2*= first
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 1
+T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 49
+Print String *
+
+label 49:
+T1 = 0
+T2 = 1
+T2*= 1
+T1+= T2
+first = T1
+T1 = 0
+T2 = 1
+T2*= i
+T1+= T2
+Print Num T1
+T1 = 0
+T2 = 1
+T3 = 0
+T4 = 1
+T4*= n
+T3+= T4
+Sending Parametor #1 : T3    to Function mod
+T3 = 0
+T4 = 1
+T4*= i
+T3+= T4
+Sending Parametor #2 : T3    to Function mod
+Calling mod()
+T2 *= Return_mod()
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 0
+T2+= T3
+T1 = T1==T2
+while T1 is True jump to label 48
+
+label 47:
+
+label 46:
+T1 = 0
+T2 = 1
+T2*= i
+T1+= T2
+T2 = 1
+T2*= 1
+T1+= T2
+i = T1
+T1 = 0
+T2 = 1
+T2*= i
+T2*= i
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= n
+T2+= T3
+T1 = T1<T2
+while T1 is True jump to label 45
+T1 = 0
+T2 = 1
+T2*= n
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 1
+T2+= T3
+T1 = T1!=T2
+if T1 is False jump to label 50
+T1 = 0
+T2 = 1
+T2*= first
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 1
+T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 51
+Print String *
+
+label 51:
+T1 = 0
+T2 = 1
+T2*= n
+T1+= T2
+Print Num T1
+
+label 50:
+void return
+
+prime_factorization_test:
+int n
+Print String prime_factorization: Please input a unsigned positive integer(<2^31-1) ?
+n = Readin(int)
+
+label 52:
+T1 = 0
+T2 = 1
+T2*= n
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 0
+T2+= T3
+T1 = T1<T2
+if T1 is False jump to label 53
+Print String Input error, try again:
+n = Readin(int)
+
+label 53:
+T1 = 0
+T2 = 1
+T2*= n
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= 0
+T2+= T3
+T1 = T1<T2
+while T1 is True jump to label 52
+Print String The factor of n is 
+T1 = 0
+T2 = 1
+T2*= n
+T1+= T2
+Sending Parametor #1 : T1    to Function prime_factorization
+Calling prime_factorization()
+void return
+
+iswrong:
+Need Parametor #1-- a
+T1 = 0
+T2 = 1
+T2*= 69
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= a
+T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 54
+T1 = 0
+T2 = 1
+T2*= 0
+T1+= T2
+The Return Value Saved in T1
+
+label 54:
+T1 = 0
+T2 = 1
+T2*= 77
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= a
+T2+= T3
+T1 = T1==T2
+if T1 is False jump to label 55
+T1 = 0
+T2 = 1
+T2*= 0
+T1+= T2
+The Return Value Saved in T1
+
+label 55:
+T1 = 0
+T2 = 1
+T2*= 72
+T1+= T2
+T2 = 0
+T3 = 1
+T3*= a
 T2+= T3
 T1 = T1==T2
 if T1 is False jump to label 56
 T1 = 0
 T2 = 1
-T2*= b
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 0
-T2+= T3
-T1 = T1==T2
-if T1 is False jump to label 57
-T1 = 0
-T2 = 1
 T2*= 0
 T1+= T2
-flg = T1
-
-label 57:
+The Return Value Saved in T1
 
 label 56:
+Print String !!!
 T1 = 0
 T2 = 1
-T2*= flg
+T2*= 1
 T1+= T2
-if T1 is False jump to label 58
-Print String the gcd is: T1 = 0
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+main:
+char kind
+Print String Please input Test Type:E(Easy), (M)Middle, H(Hard): 
+kind = Readin(char)
+T1 = 0
 T2 = 1
 T3 = 0
 T4 = 1
-T4*= a
+T4*= kind
 T3+= T4
-Sending Parametor #1 : T3    to Function gcd
-T3 = 0
-T4 = 1
-T4*= b
-T3+= T4
-Sending Parametor #2 : T3    to Function gcd
-Calling gcd()
-T2 *= Return_gcd()
+Sending Parametor #1 : T3    to Function iswrong
+Calling iswrong()
+T2 *= Return_iswrong()
 T1+= T2
-1
+if T1 is False jump to label 57
 
 label 58:
+Print String Try Again: 
+kind = Readin(char)
 T1 = 0
 T2 = 1
-T2*= i
+T3 = 0
+T4 = 1
+T4*= kind
+T3+= T4
+Sending Parametor #1 : T3    to Function iswrong
+Calling iswrong()
+T2 *= Return_iswrong()
 T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
+while T1 is True jump to label 58
+
+label 57:
+Print String   11111111   
 T1 = 0
 T2 = 1
-T2*= flg
+T2*= kind
 T1+= T2
-while T1 is True jump to label 55
-Print String Now, let's do some math problems for fun.
-Print String Well, let's run another segment tree test to verify its correctness.
-Print String Please input the length of the sequence:
-n = Readin()
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
+if T1 != 69  jump to label 59
+Print String  in  E! 
+Calling define_test()
+Print String  after d_t 
+Calling operator_test()
+Print String  after f_t 
+Calling fibonaci_test()
+Print String  after fib_t 
 
 label 59:
-Print String Please input the T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-1
-Print String -th number: 
-x = Readin()
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= x
-T3+= T4
-data[T2] = T3
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= n
-T2+= T3
-T1 = T1<=T2
-while T1 is True jump to label 59
-Print String The numbers you just inputed are:
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
+if T1 != 77  jump to label 60
+Calling dowhile_test()
+Calling condition_test()
+Calling string_test()
+Calling gcd_test()
 
 label 60:
-Print String The T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-1
-Print String -th: T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T4*= i
-T3+= T4
-T2 *= data[T3]
-T1+= T2
-1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= n
-T2+= T3
-T1 = T1<=T2
-while T1 is True jump to label 60
-Print String Building segment tree...
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-Sending Parametor #1 : T1    to Function build
-T1 = 0
-T2 = 1
-T2*= n
-T1+= T2
-Sending Parametor #2 : T1    to Function build
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-Sending Parametor #3 : T1    to Function build
-Calling build()
-Print String The tree is succesfully built! Now it can respond to your query requests.
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-flg = T1
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-i = T1
+if T1 != 72  jump to label 61
+Calling define_test()
+Calling operator_test()
+Calling dowhile_test()
+Calling condition_test()
+Calling string_test()
+Calling miscellaneous_test()
+Calling prime_factorization_test()
 
 label 61:
-Print String Please input 3 numbers, l, r, and type, type=-1 means exit:
-l = Readin()
-r = Readin()
-type = Readin()
-T1 = 0
-T2 = 1
-T2*= type
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 0
-T2+= T3
-T1 = T1<T2
-if T1 is False jump to label 62
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-flg = T1
-
-label 62:
-T1 = 0
-T2 = 1
-T2*= type
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= 3
-T2+= T3
-T1 = T1>=T2
-if T1 is False jump to label 63
-T1 = 0
-T2 = 1
-T2*= 0
-T1+= T2
-flg = T1
-
-label 63:
-T1 = 0
-T2 = 1
-T2*= flg
-T1+= T2
-if T1 is False jump to label 64
-Print String Your query result is T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T4*= l
-T3+= T4
-Sending Parametor #1 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= r
-T3+= T4
-Sending Parametor #2 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= type
-T3+= T4
-Sending Parametor #3 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= 1
-T3+= T4
-Sending Parametor #4 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= 1
-T3+= T4
-Sending Parametor #5 : T3    to Function query
-T3 = 0
-T4 = 1
-T4*= n
-T3+= T4
-Sending Parametor #6 : T3    to Function query
-Calling query()
-T2 *= Return_query()
-T1+= T2
-1
-
-label 64:
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= flg
-T1+= T2
-while T1 is True jump to label 61
-Print String Echo testing...
-Print String Quick sort test:
-Print String Please input the number of integers:
-m = Readin()
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-
-label 65:
-Print String Please input the T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-1
-Print String -th number:
-x = Readin()
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T2+= T1
-T3 = 0
-T4 = 1
-T4*= x
-T3+= T4
-qsort_data[T2] = T3
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= m
-T2+= T3
-T1 = T1<=T2
-while T1 is True jump to label 65
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-Sending Parametor #1 : T1    to Function qsort
-T1 = 0
-T2 = 1
-T2*= m
-T1+= T2
-Sending Parametor #2 : T1    to Function qsort
-Calling qsort()
-Print String The result after sorting is:
-T1 = 0
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-
-label 66:
-T1 = 0
-T2 = 1
-T3 = 0
-T4 = 1
-T4*= i
-T3+= T4
-T2 *= qsort_data[T3]
-T1+= T2
-Print Num T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 1
-T2*= 1
-T1+= T2
-i = T1
-T1 = 0
-T2 = 1
-T2*= i
-T1+= T2
-T2 = 0
-T3 = 1
-T3*= m
-T2+= T3
-T1 = T1<=T2
-while T1 is True jump to label 66
+nothing to return
 Program Finished

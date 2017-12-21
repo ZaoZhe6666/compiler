@@ -131,12 +131,18 @@ void MIPS::mid2mips(PCode pcode){
 			if(const_init_judge){
 				const_init(str,num3);
 			}
+			else{
+				int offset = getLocation(str);
+				outf << "\tli $t0 " << num3 << endl;
+				outf << "\tsw $t0 " << (-1*offset) << "($fp)" << endl;
+			}
 		}
 		else if(num1 == -3){
 			int para_offset = num3*4-4;
 			int offset_right = getLocation(num2);
 			outf << "\tlw $t0 " << (-1*offset_right) << "($fp)" << endl;
-			outf << "\tsw $t0 " << para_offset << "($sp)" << endl;
+			outf << "\tsw $t0 0($sp)" << endl;
+			outf << "\tsubi $sp $sp 4" << endl;
 		}
 		else if(num1 == -5){
 			int offset_left = getLocation(num2);
@@ -159,15 +165,19 @@ void MIPS::mid2mips(PCode pcode){
 				int offset_sz = getLocation(str);
 				
 				outf << "\tlw $t2 " << (-1*offset_brack) << "($fp)" << endl;
-				outf << "\tmul $t2 $t2 4" << endl;
+				outf << "\tli $s0 4" << endl;
+				outf << "\tmul $t2 $t2 $s0" << endl;
 				if(offset_sz < 0){
-					outf << "\tlw $t1 " << str << "($0)" << endl;
+					outf << "\tla $t1 " << str << endl;
+					outf << "\tadd $t1 $t1 $t2" << endl;
+					outf << "\tlw $t1 0($t1)" << endl;
 				}
 				else{
-					outf << "\tlw $t1 " << (-1*offset_sz) << "($fp)" << endl;
-				}				
-				outf << "\tadd $t1 $t1 $t2" << endl;
-				outf << "\tlw $t1 0($t1)" << endl;
+					outf << "\tli $t1 " << (-1*offset_sz) << endl;
+					outf << "\tsub $t1 $t1 $t2" << endl;
+					outf << "\tadd $t1 $t1 $fp" << endl;
+					outf << "\tlw $t1 0($t1)" << endl;
+				}
 				outf << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				outf << "\tdiv $t0 $t0 $t1" << endl;
 				outf << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
@@ -181,12 +191,15 @@ void MIPS::mid2mips(PCode pcode){
 				outf << "\tmul $t2 $t2 $s0" << endl;
 				if(offset_sz < 0){
 					outf << "\tla $t1 " << str << endl;
+					outf << "\tadd $t1 $t1 $t2" << endl;
+					outf << "\tlw $t1 0($t1)" << endl;
 				}
 				else{
-					outf << "\tlw $t1 " << (-1*offset_sz) << "($fp)" << endl;
-				}				
-				outf << "\tadd $t1 $t1 $t2" << endl;
-				outf << "\tlw $t1 0($t1)" << endl;
+					outf << "\tli $t1 " << (-1*offset_sz) << endl;
+					outf << "\tsub $t1 $t1 $t2" << endl;
+					outf << "\tadd $t1 $t1 $fp" << endl;
+					outf << "\tlw $t1 0($t1)" << endl;
+				}
 				outf << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				outf << "\tmul $t0 $t0 $t1" << endl;
 				outf << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
@@ -207,12 +220,21 @@ void MIPS::mid2mips(PCode pcode){
 			outf << endl;
 			outf << endl;
 			outf << str << ":" << endl;
-			outf << "\tsubi $sp $sp " << (getLocation(str)+8) << endl;
-			outf << "\tsw $fp 8($sp)\n\tsw $ra 4($sp)\n\taddi $fp $sp " << (getLocation(str)+8) << endl;
+			cout << "func name:" << str << "    para_offset:" << st.getpara_offset(str) << endl;
+			outf << "\tsubi $sp $sp " << (getLocation(str)+ 8 - st.getpara_offset(str)) << endl;
+			outf << "\tsw $fp 8($sp)" << endl;
+			outf << "\tsw $ra 4($sp)" << endl;
+			outf << "\taddi $fp $sp " << (getLocation(str)+8) << endl;
 		}
 		else if(num1 == -10){
-			outf << "\tli $v0 5" <<endl;
-			outf << "\tsyscall" << endl;
+			if(num3 == 1){
+				outf << "\tli $v0 5" <<endl;
+				outf << "\tsyscall" << endl;
+			}
+			else{
+				outf << "\tli $v0 12" <<endl;
+				outf << "\tsyscall" << endl;
+			}
 			int offset = getLocation(str);
 			if(offset < 0){
 				outf << "\tsw $v0 " << str << "($0)" << endl;
@@ -246,19 +268,22 @@ void MIPS::mid2mips(PCode pcode){
 			int offset_right = getLocation(num3);
 			int offset_off = getLocation(num2);
 			int offset_sz = getLocation(str);
-			if(offset_sz < 0){
-				outf << "\tla $t0 " << str << endl;
-			}
-			else{
-				outf << "\tlw $t0 " << (-1*offset_sz) << "($fp)" << endl;
-			}	
-			outf << "\tlw $t2 " << (-1*offset_right) << "($fp)" << endl;
-			outf << "\tlw $t1 " << (-1*offset_off) << "($fp)" << endl;
+			
+			outf << "\tlw $t1 " << (-1*offset_off) << "($fp)" << endl; 
 			outf << "\tli $s0 4" << endl;
 			outf << "\tmul $t1 $t1 $s0" << endl;
-			outf << "\tadd $t0 $t0 $t1" << endl;
+			if(offset_sz < 0){
+				outf << "\tla $t0 " << str << endl;
+				outf << "\tsub $t0 $t0 $t1" << endl;
+			}
+			else{
+				outf << "\tli $t0 " << (-1*offset_sz) << endl;
+				outf << "\tsub $t0 $t0 $t1" << endl;
+				outf << "\tadd $t0 $t0 $fp" << endl;
+			}
+			outf << "\tlw $t2 " << (-1*offset_right) << "($fp)" << endl;
 			outf << "\tsw $t2 0($t0)" << endl;
-
+			
 		}
 	}
 	else{
@@ -369,7 +394,12 @@ void MIPS::mid2mips(PCode pcode){
 			int offset = getLocation(num3);
 			outf << "\tlw $t0 " << (-1*offset) << "($fp)" << endl;
 			outf << "\tmove $a0 $t0" << endl;
-			outf << "\tli $v0 1" << endl;
+			if(num2 == 0){
+				outf << "\tli $v0 1" << endl;
+			}
+			else{
+				outf << "\tli $v0 11" << endl;
+			}
 			outf << "\tsyscall" << endl;
 //			outf << "\tla $a0 ENT" << endl;
 //			outf << "\tli $v0 4" << endl;

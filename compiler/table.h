@@ -77,6 +77,8 @@ class ST{
 	private:
 		std::ofstream outf;
 		SymTable *s;
+		int const_sp;
+		int const_judge;
 	public:
 		ST();
 		//³öÈëÕ»²Ù×÷
@@ -89,4 +91,5 @@ class ST{
 		int st_weight();
 		void st_change(int value);
 		int get_loc(std::string func_name,std::string sym_name,int value);
+		int getpara_offset(std::string name);
 };

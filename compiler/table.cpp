@@ -97,6 +97,8 @@ ST::ST(){
 	else{
 		s = NULL;
 	}
+	const_sp = -1;
+	const_judge = 1;
 	outf.open("out_SymTable.txt");
 }
 
@@ -107,6 +109,9 @@ int ST::st_push(std::string name,int level,int type,int value){
 	}
 	int i;
 //	outf << "name:" << name << "  level:" << level <<endl;
+	if(type <3){
+		const_judge = 0;
+	}
 	if(type == 9){
 		for(i=s->top;i>=0;i--){
 			if(s->symbol[i].type <3){
@@ -118,6 +123,10 @@ int ST::st_push(std::string name,int level,int type,int value){
 		}
 	}
 	for(i=s->top;i>=0;i--){
+		if(st_seek(name,1) && name!="T"){
+			cout << "same name :" << name << endl;
+		}
+		/*
 		if(s->symbol[i].level == 0 && level && name != "T"){
 			break;
 		}
@@ -132,6 +141,7 @@ int ST::st_push(std::string name,int level,int type,int value){
 			cout << "same name!" << endl;
 			return 0;
 		}
+		*/
 	}
 	Symbol *new_sym;
 	if(new_sym = new Symbol){
@@ -151,6 +161,10 @@ int ST::st_push(std::string name,int level,int type,int value){
 		s->symbol[++s->top] = *new_sym;
 		if(type<3){
 			outf<<endl;
+		}
+		
+		if(const_judge){
+			const_sp++;
 		}
 		outf << "PUSH IN SymTable: #" << (s->top+1) << "  " << name << "  ";
 		outf <<level<<"  "<<type<< "  " <<value << "  #" << new_sym->location <<endl;
@@ -181,6 +195,17 @@ int ST::st_seek(std::string name,int push_or_pop){
 	int i;
 	for(i=s->top;i>=0;i--){
 		if(s->symbol[i].type <3 && push_or_pop){
+			return 0;
+		}
+		if(s->symbol[i].type <3 && !push_or_pop){
+			if(s->symbol[i].name == name){
+				return (s->symbol[i].type+1);
+			}
+			for(i=const_sp;i>=0;i--){
+				if(s->symbol[i].name == name){
+					return (s->symbol[i].type+1);
+				}
+			}
 			return 0;
 		}
 		if(s->symbol[i].name == name){
@@ -248,4 +273,25 @@ int ST::get_loc(std::string func_name,std::string sym_name,int value){
 		}
 	}
 	return -1;
+}
+
+int ST::getpara_offset(std::string name){
+	int i;
+	int para_num = 1;
+	int size = s->top;
+	for(i=0;i<=size;i++){
+		if(s->symbol[i].type <3 && s->symbol[i].name == name){
+			for(;;para_num++){
+				if(i+para_num>size){
+					break;
+				}
+				if(s->symbol[i+para_num].level != 2){
+					break;
+				}
+			}
+			para_num--;
+			return para_num*4;
+		}
+	}
+	return 0;
 }

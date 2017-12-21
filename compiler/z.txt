@@ -1,365 +1,370 @@
-const char _o='o',_r='r',_z='z',_l='l',_i='i',_b='b';
-const int xixi=19,haha=26,hugao=8,maogao=17;
-const int history_process=+1;
-const int minus1=-1;
+const int cst1 = 1, cst2 = 2, cst3 = 3;
+const char csta = 'a', cstb = 'b', cstc = 'c';
+int g_a, g_b, g_arr[2048];
+char g_stra[1024], g_strb[2048];
 
-int maxval[23333],minval[23333],sum[23333];
-int data[2333];
-int n;
-int qsort_data[2333],m;
 
-int partition(int low, int high){
-    int key,flg,i;
-    key = qsort_data[low];
-    i=0;
-    do{
-        flg=1;
-        if(low>=high) flg=0;
-        if(qsort_data[high]<key) flg=0;
-        if(flg)  {
-            i=0;
-            do{
-                high=high-1;
-                if(low>=high) flg=0;
-                if(qsort_data[high]<key) flg=0;
-                i=i+1;
-            }while(flg);
-        }
-        if(low<high) {
-            qsort_data[low] = qsort_data[high];
-            low=low+1;
-        }
-        
-        flg=0;
-        if(low<high) if(qsort_data[low]<=key) flg=1;
-        if(flg) {
-            i=0;
-            do{
-            low=low+1;
-            flg=0;
-            if(low<high) if(qsort_data[low]<=key) flg=1;
-            i = i+1;
-            }while(flg);
-        }
-        if(low<high) {
-            qsort_data[high] = qsort_data[low];
-            high=high-1;
-        }
-        i=i+1;
-    }while(low<high)
-    qsort_data[low] = key;
-    return(low);
+void const_define(){
+    const int a = 1;
+    const int b = 0, c = -1;
+    const char cst23='x';
+    const char cst24='z', constA0='A', cstA1='1', cst_div = '/';
+printf(" const_define ");
+printf("           a:");
+    printf(a);   
+    printf("       cst_div:");
+    printf(cst_div);
+    printf("       ");
 }
 
-int gcd(int a,int b) {
-    if(b==0) return(a);
-    return(gcd(b,a-a/b*b));
+void const_define_test(){
+printf(" const_define_test ");
+    const_define();
 }
 
-
-
-
-void qsort(int start, int end){
-    int pos;
-    if (start<end){
-        pos = partition(start, end);
-        qsort(start,pos-1);
-        qsort(pos+1,end);
-    }
-    return;
+void var_define(){
+    int a, arr[1], _a, _arr[2], a1, arr1[3];
+    char b, strb[1], _b, _bstr[2], _b1, _bstr1[3];
+    int c;
+    char z;
+printf(" var_define ");
+}
+void var_define_test(){
+printf(" var_define_test ");
+    var_define();
 }
 
-void calculate_e() {
-    const int maxn=233,max_iterate=233;
-    int tmp[233],ans[233];
-    int i,j,k,rem;
-    
-    i=0;
-    do{
-        tmp[i]=0; ans[i]=0;
-        i=i+1;
-    }while(i<maxn);
-    
-    ans[0]=2; tmp[0]=1;
-    i=1;
-    do{
-        rem=0;
-        j=0;
-        do{
-            rem=rem*10+tmp[j];
-            tmp[j]=rem/i;
-            rem=rem-rem/i*i;
-            j=j+1;
-        }while(j<maxn);
-        j=maxn-1;
-        do{
-            ans[j]=ans[j]+tmp[j];
-            if(ans[j]>10) {
-                ans[j]=ans[j]-10;
-                ans[j-1]=ans[j-1]+1;
-            }
-            j=j-1;
-        }while(j>=1);
-        i=i+1;
-    }while(i<=max_iterate);
-    
-    printf(ans[0]);
-    printf(".");
-    i=1;
-    do{
-        printf(ans[i]);
-        i=i+1;
-    }while(i<10);
-} 
-
-void weird_expressions_test() {
-    printf(--2++3);
-    printf(-2+-5);
-    printf(0);
-    printf(+-1);
-    printf(-+1);
-    printf(--1);
-    printf(++1);
-    printf(-10-10); 
-    
-    printf(xixi);
-    printf(haha);
-    printf(0);
-    printf(hugao);
-    printf(maogao);
-    printf("history_process",history_process);
-    printf('s'); 
+void define(){
+    const int int1 = 1;
+    const char cst24='z', constA0='A';
+    int val1;
+    char b, strb[1];
+    printf(" define ");
 }
 
-int min(int a,int b) {
-    if(a<b) return (a);
-    return (b);
+void define_test(){
+printf(" define_test ");
+    var_define_test();
+    const_define_test();
+    define();
+    printf("define test passed");
 }
 
-int max(int a,int b) {
-    if(a>b) return (a);
-    return (b);
+void operator(){
+    int a, b, c, d, e, f;
+printf(" operator ");
+    a = 1; b = 1 + 2; c = 3 * 1; d = -4; e = 5; f = 6;
+    a = (b * 3) + c - d / 4 + a / a;
+    b = + 0 + a + (a * 3) + c - d / 4 + e * f;
+    e = -(a) + b * 0 - (1 - 0);
 }
 
-int query(int l,int r,int type,int pos,int ll,int rr) {
-    int flg,ans1,ans2;
-    
-    if(ll >= l) if(rr <= r) {
-        if(type == 0) return(maxval[pos]);
-        if(type == 1) return(minval[pos]);
-        if(type == 2) return(sum[pos]);
-        return(0);
-    }
-    flg=0;
-    if(ll > r) flg=1;
-    if(rr < l) flg=1;
-    if(flg) {
-        switch(type) {
-            case 0: return(-2147483647);
-            case 1: return (2147483647);
-            case 2: return(0);
-        }
-    }
-    
-    switch(type) {
-        case 0: return (max(query(l,r,type,pos*2,ll,(ll+rr)/2),query(l,r,type,pos*2+1,(ll+rr)/2+1,rr)));
-        case 1: return (min(query(l,r,type,pos*2,ll,(ll+rr)/2),query(l,r,type,pos*2+1,(ll+rr)/2+1,rr)));
-        case 2: return (query(l,r,type,pos*2,ll,(ll+rr)/2)+query(l,r,type,pos*2+1,(ll+rr)/2+1,rr));
-    }
-    return(0);
+void operator_test(){
+printf(" operator_test ");
+    operator();
+    printf("operator test passed");
 }
-
-
-void build(int l,int r,int pos) {
-    
-    if(l==r) {
-        maxval[pos] = data[l];
-        minval[pos] = data[l];
-        sum[pos]=data[l];
-        return;
-    }
-    
-    build(l,(l+r)/2,pos*2);
-    build((l+r)/2+1,r,pos*2+1); 
-    
-    maxval[pos] = max(maxval[pos*2],maxval[pos*2+1]);
-    minval[pos] = min(minval[pos*2],minval[pos*2+1]);
-    sum[pos] = sum[pos*2] + sum[pos*2+1];
+void string(){
+printf(" string ");
+    printf("ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz");
+    printf("!#$%&'()*+,-./:;<=>?@[]^_`{|}~");
 }
+void string_test(){
+printf(" string_test ");
+    string();
 
-
-
-void echo() {
-    char x;
+}
+void dowhile(){
     int i;
-    i=0;
-    do{
-        scanf(x);
-        if(x=='0') return;
-        printf(x);
-        printf(x+2);
-    }while(1);
+printf(" dowhile ");
+    i = 100;
+
+    do {
+        if (i >= 50) 
+            i = i / 2;
+        if (i < 50)
+            i = (i + 10) / 10;
+    } while (i >= 10);
+    do {
+        i = i - 1;
+        printf("dowhile test passed");
+
+    }while (0)
 }
 
-void fibo() {
-    int tmp[4],ans[4],n,t[4];
-    int i,j,k,s;
-    s=0;
-    do{
-        tmp[0]=0; tmp[1]=1; tmp[2]=1; tmp[3]=tmp[2];
-        ans[0]=0; ans[1]=1; ans[2]=1; ans[3]=0;
-        
-        printf("Please input n, and the program will work out the n-th element of the fibonacci sequence:");
-        printf("Input 0 to quit this test.");
-        scanf(n);
-        if(n==0) return;
-        s=0;
-        do{
-            if(n-n/2*2) {
-                i=0;
-                do{
-                    j=0;
-                    do{
-                        t[i*2+j]=0;
-                        k=0;
-                        do{
-                            t[i*2+j]=t[i*2+j]+ans[i*2+k]*tmp[k*2+j];
-                            t[i*2+j]=t[i*2+j]-t[i*2+j]/10000*10000;
-                            k=k+1;
-                        }while(k<2);
-                        j=j+1;
-                    }while(j<2)
-                    i=i+1;
-                }while(i<2)
-                i=0;
-                do{
-                    ans[i]=t[i];
-                    i=i+1;
-                }while(i<4);
-            }
-            
-            i=0;
-            do{
-                j=0;
-                do{
-                    t[i*2+j]=0;
-                    k=0;
-                    do{
-                        t[i*2+j]=t[i*2+j]+tmp[i*2+k]*tmp[k*2+j];
-                        t[i*2+j]=t[i*2+j]-t[i*2+j]/10000*10000;
-                        k=k+1;
-                    }while(k<2);
-                    j=j+1;
-                }while(j<2);
-                i=i+1;
-            }while(i<2);
-            i=0;
-            do{
-                tmp[i]=t[i];
-                i=i+1;
-            }while(i<4);
-            n=n/2;
-            s=s+1;
-        }while(n);
-        printf("The result is: ", ans[1]);
-        s = s+1;
-    }while(1);
+void dowhile_test(){
+printf(" dowhile_test ");
+    dowhile();
+}
+
+void ifcondition(){
+    int a, rightnumber;
+printf(" ifcondition ");
+    a = 1;
+    rightnumber = 0;
+    if (a == 1) rightnumber = rightnumber + 1;
+    a = 2;
+    if (a > 1) rightnumber = rightnumber + 1;
+    a = 0;
+    if (a < 1) rightnumber = rightnumber + 1;
+    if (a != 1) rightnumber = rightnumber + 1;
+    if (a >= 0) rightnumber = rightnumber + 1;
+    if (a <= 0) rightnumber = rightnumber + 1;
+    if (rightnumber !=  (1 + 1 + 1 + 1 * 3))
+        printf("ifcondition clause error!");
+    if (rightnumber != RIGHTNUMBER)
+        printf("ifcondition clause error");
 }
 
 
-void main() {
-    int i,j;
-    int a,b,flg,x;
-    int l,r,type;
-    
-    printf("The program first orzs libo to gain some rp and increase the probability of passing the test.");
-    
-    i = 0;
-    do{
-        printf("orzlibo ", i);
-        i=i+1;
-    }while(i<10)
-    printf(_o);
-    printf(_r);
-    printf(_z);
-    printf(_l);
-    printf(_i);
-    printf(_b);
-    printf(_o);
-    
-    flg=1;
-    i=0;
-    do{
-        printf("please input 2 integers, and the program will work out their gcd.");
-        printf("input 2 zeros to quit the loop.");
-        scanf(a,b);
-        if(a==0) if(b==0) flg=0;
-        if(flg) printf("the gcd is: ",gcd(a,b));
-        i=i+1;
-    }while(flg)
-    
-    printf("Now, let's do some math problems for fun.");
-    fibo();
-    
-    printf("Well, let's run another segment tree test to verify its correctness.");
-    printf("Please input the length of the sequence:");
-    scanf(n);
-    i=1;
-    do{
-        printf("Please input the ", i);
-        printf("-th number: ");
-        scanf(x);
-        data[i]=x;
-        i=i+1;
-    }while(i<=n)
-    
-    printf("The numbers you just inputed are:");
-    i=1;
-    do{
-        printf("The ", i);
-        printf("-th: ",data[i]);
-        i=i+1;
-    }while(i<=n)
-    
-    printf("Building segment tree...");
-    build(1,n,1);
-    printf("The tree is succesfully built! Now it can respond to your query requests.");
-    flg=1;
-    i=0;
-    do{
-        printf("Please input 3 numbers, l, r, and type, type=-1 means exit:");
-        scanf(l,r,type);
-        if(type<0) flg=0;
-        if(type>=3) flg=0;
-        if(flg) {
-            printf("Your query result is ",query(l,r,type,1,1,n));
+int switchcodintionans(int x){
+printf(" switch(int x) ");
+    switch (x) {
+        case 1 : return (2);
+        case 2 : return (3);
+        case 3 : return (4);
+    }
+    return (5);
+}
+
+
+int switchcodintion(){
+    int i, rightnumber;
+printf(" switch ");
+    i = 1;
+    rightnumber = 0;
+    do {
+        if ( i + 1 == switchcodintionans(i))
+            rightnumber = rightnumber + 1;
+        i = i + 1;
+    }while (i < 5);
+    if (rightnumber != 4)
+        printf("switchcodintion clause  error!");
+    if (rightnumber)
+        return (i);
+    printf("switchcodintion clause  error!");
+}
+
+void condition(){
+    const int intermax = 5;
+    int iter;
+    iter = 0;
+printf(" condition ");
+    do {
+        switch (iter){
+            case 0: if (iter != 0) printf("error 0");
+            case 1: if (iter != 1) printf("error 1");
+            case 2: if (iter != 2) printf("error 2");
         }
-        i=i+1;
-    }while(flg)
-    
-    printf("Echo testing...");
-    echo();
-    
-    weird_expressions_test();
-    
-    calculate_e();
-    
-    printf("Quick sort test:");
-    printf("Please input the number of integers:");
-    scanf(m);
-    i=1;
+        iter = iter + 1;
+    }while (iter < intermax);
+}
+
+void condition_test(){
+printf(" condition_test ");
+    ifcondition();
+    switchcodintion();
+    condition();
+    printf("condition test passed");
+}
+
+
+void miscellaneous(){
+    int _, a, array[23], i, endid;
+    char ch1, buf[256];
+    _ = 1; a = 2; i= 0;
+printf(" miscella ");
+    do {
+        array[i] = i;
+        i = i + 1;
+    }while (i < 23);
+    ch1 = 'a';
+    i = 127;
+    endid = i;
+    _ = 0;
+
+    do {
+        buf[ (_ * 1 - _ - 1 + 2 / 1 - 1) / 2] =  'a';
+        _ = _ + 1;
+    }while (_ < endid);
+
+    ;;;;;;;;;{}{};;;;;{}{}{;;;;;;};;;
+    if (buf[0] == 'a')
+    printf("miscellaneous test passed");
+}
+void miscellaneous_test(){
+printf(" miscella_test ");
+    miscellaneous();
+}
+
+
+int fibonaci(int n){
+printf(" fibonaci ");
+    switch (n){
+        case 0: return (0);
+        case 1: return (1);
+        case 2: return (1);
+    }
+    return (fibonaci(n - 1) + fibonaci(n - 2));
+}
+
+void fibonaci_test(){
+    int n;
+printf(" fibonaci_test ");
+    printf("Fibonaci: Please input a unsigned positive integer ?");
+    scanf(n);
     do{
-        printf("Please input the ",i);
-        printf("-th number:");
-        scanf(x);
-        qsort_data[i]=x;
-        i=i+1;
-    }while(i<=m)
-    qsort(1,m);
-    printf("The result after sorting is:");
-    i=1;
-    do{
-        printf(qsort_data[i]);
-        i=i+1;
-    }while(i<=m)
+        if (n < 0){
+            printf("Input error, try again:");
+            scanf(n);
+        }
+        if (n >= 0){
+            printf("The fibonaci's answer is ", fibonaci(n));   
+        }
+    }
+    while(n < 0)
+    
+}
+int mod(int n, int m){
+printf(" mod ");
+    return (n - n / m * m);
+}
+int gcd(int n, int m){
+    int rem;
+printf(" gcd ");
+    rem = 0;
+    if (n == 0)
+        return (m);
+    if (m == 0)
+        return (n);
+    return (gcd(m, mod(n, m)));
+}
+
+int isWrongGcd(int n, int m){
+printf(" wronggcd ");
+    if (n <= 0)
+        return (1);
+    if (m <= 0)
+        return (1);
+    return (0);
+}
+void gcd_test(){
+    int n, m;
+    printf(" gcd_test ");
+    printf("GCD: Please input two unsigned positive integer ?");
+    scanf(n, m);
+    if (isWrongGcd(n, m)){
+        do {
+            printf("Input error, try Again: ");
+            scanf(n, m);
+        } while (isWrongGcd(n, m));
+    }
+    printf("The gcd's answer is ", gcd(n, m));
+}
+
+int is_prime(int x){
+    int i;
+    i = 2;
+    if (x == 2)
+        return (1);
+    do {
+        if (mod(x, i) == 0)
+            return (0);
+        i = i + 1;
+    }while (i * i < x);
+    return (1);
+}
+
+void prime_factorization(int n){
+    int i, first;
+    i = 2;
+    first = 0;
+    if (n == 1){
+        printf("1");
+        return ;
+    }
+    do {
+        if (is_prime(i) == 1) {
+            if (mod(n, i) == 0){
+                do {
+                    n = n / i;
+                    if (first == 1)
+                        printf("*");
+                    first = 1;
+                    printf(i);
+                } while (mod(n, i) == 0);
+            }
+        }
+        i = i + 1;
+    } while(i * i < n)
+
+    if (n != 1){
+        if (first == 1)
+            printf("*");
+        printf(n);
+    }
+}
+
+void prime_factorization_test(){
+    int n;
+    printf("prime_factorization: Please input a unsigned positive integer(<2^31-1) ?");
+    scanf(n);
+    do {
+        if (n < 0){
+            printf("Input error, try again:");
+            scanf(n);
+        }
+    }while (n < 0)
+    printf("The factor of n is ");
+    prime_factorization(n);
+}
+int iswrong(char A){
+    if ('E' == A)
+        return (0);
+    if ('M' == A)
+        return (0);
+    if ('H' == A)
+        return (0);
+    printf("!!!");
+    return (1);
+}
+
+void main(){
+    char kind;
+    printf("Please input Test Type:E(Easy), (M)Middle, H(Hard): ");
+    scanf(kind);
+    if (isWrong(kind)){
+        do{
+            printf("Try Again: ");
+            scanf(kind);
+        }while (isWrong(kind))
+    }
+    printf("  11111111   ");
+    switch(kind){
+    case 'E': {
+                printf(" in  E! ");
+                define_test();
+                printf(" after d_t ");
+                operator_test();
+                printf(" after f_t ");
+                fibonaci_test();
+                printf(" after fib_t ");
+            }
+    case 'M': {
+                dowhile_test();
+                condition_test();
+                string_test();
+                gcd_test();
+            }
+    case 'H': {
+            define_test();
+            operator_test();
+            dowhile_test();
+            condition_test();
+            string_test();
+            miscellaneous_test();
+            prime_factorization_test();
+        }
+    }
+    return ;
 }
