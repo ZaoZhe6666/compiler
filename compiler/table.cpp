@@ -215,6 +215,16 @@ int ST::st_seek(std::string name,int push_or_pop){
 	return 0;
 }
 
+int ST::st_func_type(std::string name){
+	int i;
+	for(i=s->top;i>=0;i--){
+		if(s->symbol[i].name == name){
+			return (s->symbol[i].type+1);
+		}
+	}
+	return 0;
+}
+
 int ST::st_size(){
 	return s->top;
 }

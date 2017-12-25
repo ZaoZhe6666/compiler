@@ -11,7 +11,7 @@ using namespace std;
 
 ZJ::ZJ(){
 	outf.open("out_zj.txt");
-	label_num = -1;
+	label_num = 0;
 	ptop = -1;
 }
 

@@ -92,8 +92,7 @@ void MIPS::mid2mips(PCode pcode){
 				}
 				else{
 					outf << "\tlw $t0 " << (-1*offset_right) << "($fp)" << endl;
-					outf << "\tlw $t1 " << str << "($0)" << endl;
-					outf << "\tsw $t0 " << "0($t1)" << endl;
+					outf << "\tsw $t0 " << str << "($0)" << endl;
 				}
 			}
 			else{
@@ -274,7 +273,7 @@ void MIPS::mid2mips(PCode pcode){
 			outf << "\tmul $t1 $t1 $s0" << endl;
 			if(offset_sz < 0){
 				outf << "\tla $t0 " << str << endl;
-				outf << "\tsub $t0 $t0 $t1" << endl;
+				outf << "\tadd $t0 $t0 $t1" << endl;
 			}
 			else{
 				outf << "\tli $t0 " << (-1*offset_sz) << endl;

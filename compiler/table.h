@@ -92,4 +92,5 @@ class ST{
 		void st_change(int value);
 		int get_loc(std::string func_name,std::string sym_name,int value);
 		int getpara_offset(std::string name);
+		int st_func_type(std::string name);
 };

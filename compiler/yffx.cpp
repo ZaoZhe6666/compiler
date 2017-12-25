@@ -331,7 +331,9 @@ int YF::express(int ident = 0){
 		st.st_push("T",left,9,1);
 	}
 	if(symID == PLUSSY || symID == SUBSY){
-		deal_express_type = 0;
+		if(ident != 0){
+			deal_express_type = 0;
+		}
 		if(ident > 1){
 			error(-41);
 		}
@@ -371,6 +373,7 @@ int YF::express(int ident = 0){
 }
 
 int YF::factor(int ident = 0){
+	int det = deal_express_type;
 	p("Factor");
 //	cout << "factor"<<endl;
 	if(symID == -1){
@@ -418,6 +421,7 @@ int YF::factor(int ident = 0){
 		if(symID == LPARENTSY){
 			deal_express_type = 0;
 			int ident_type = ft.ft_conf(ident_name);
+			int func_type = st.st_func_type(ident_name);
 			int para_num = 0;
 			if(!ident_type){
 				cout << "error 302 : ident is " << ident_type << endl;
@@ -431,6 +435,9 @@ int YF::factor(int ident = 0){
 			rfcall(ident_name,1,para_num);
 			zj->midcode("=()",left,symbol,ident_name);
 			st.st_push("T",left,9,1);
+			if(func_type == 3){
+				deal_express_type = det;
+			}
 			factor(1);
 			return left;
 		}
@@ -454,6 +461,9 @@ int YF::factor(int ident = 0){
 			st.st_push("T",offset,9,1);
 //			cout << "3	T" << left << symbol << " = " << ident_name << "[ T" << offset << " ]" <<endl;
 			mustread(RBRACKSY);
+			if(ident_type == 9){
+				deal_express_type = det;
+			}
 			factor(1);
 			return left;
 		}
@@ -742,17 +752,19 @@ void YF::printsen(){
 	mustread(LPARENTSY);
 	if(symID == STRINGSY){
 		int str_num = mips->string_save(token);
-		zj->midcode("pr",0,str_num,token);
+		std::string string_tok = token;
 		getSym();
 		if(symID == COMMASY){
 			getSym();
 			deal_express_type = 1;
 			int p_num = express();
+			zj->midcode("pr",0,str_num,string_tok);
 			zj->midcode("pr",1,deal_express_type,p_num);
 			deal_express_type = 1;
 			mustread(RPARENTSY);
 		}
 		else{
+			zj->midcode("pr",0,str_num,string_tok);
 			zj->midcode("pr",1,0,"");
 			if(symID == RPARENTSY){
 				getSym();
