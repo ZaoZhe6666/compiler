@@ -17,7 +17,7 @@ MIPS::MIPS(){
 	outf.open("mips.asm");
 	outf << ".data" << endl;
 //	outf << "\ttemp_register: .space 4096" << endl;
-	outf << "\treturn_dota: .word 0" << endl;
+//	outf << "\treturn_dota: .word 0" << endl;
 	StringNum = -1;
 	const_init_judge = 1;
 	main_judge = 0;
@@ -25,10 +25,10 @@ MIPS::MIPS(){
 }
 
 void MIPS::string_init(){
-	outf << "\tErrorInfor: .asciiz \"Something Wrong1\"" << endl;
+	outf << "\tErrorInfor: .asciiz \"Something Wrong!\"" << endl;
 	int i;
 	for(i=0;i<=StringNum;i++){
-		outf << "\tstring" << i << ": .asciiz \"" << s_list[i] << "\""<<endl;
+		outf << "\tSTRING" << i << ": .asciiz \"" << s_list[i] << "\""<<endl;
 	}
 	outf << endl;
 	outf << endl;
@@ -145,13 +145,17 @@ void MIPS::mid2mips(PCode pcode){
 		}
 		else if(num1 == -5){
 			int offset_left = getLocation(num2);
-			outf << "\tlw $t1 return_dota($0)" << endl;
-			outf << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
+			outf << "\tmove $t1 $s1" << endl;
 			if(num3 == 3){
+				outf << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				outf << "\tmul $t0 $t0 $t1" << endl;
 			}
-			else{
+			else if(num3 == 4){
+				outf << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				outf << "\tdiv $t0 $t0 $t1" << endl;
+			}
+			else if(num3 == 2){
+				outf << "\tmove $t0 $s1" << endl;
 			}
 			outf << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
 		}
@@ -164,8 +168,7 @@ void MIPS::mid2mips(PCode pcode){
 				int offset_sz = getLocation(str);
 				
 				outf << "\tlw $t2 " << (-1*offset_brack) << "($fp)" << endl;
-				outf << "\tli $s0 4" << endl;
-				outf << "\tmul $t2 $t2 $s0" << endl;
+				outf << "\tmul $t2 $t2 4" << endl;
 				if(offset_sz < 0){
 					outf << "\tla $t1 " << str << endl;
 					outf << "\tadd $t1 $t1 $t2" << endl;
@@ -186,8 +189,7 @@ void MIPS::mid2mips(PCode pcode){
 				int offset_brack = getLocation(num3);
 				int offset_sz = getLocation(str);
 				outf << "\tlw $t2 " << (-1*offset_brack) << "($fp)" << endl;
-				outf << "\tli $s0 4" << endl;
-				outf << "\tmul $t2 $t2 $s0" << endl;
+				outf << "\tmul $t2 $t2 4" << endl;
 				if(offset_sz < 0){
 					outf << "\tla $t1 " << str << endl;
 					outf << "\tadd $t1 $t1 $t2" << endl;
@@ -250,7 +252,7 @@ void MIPS::mid2mips(PCode pcode){
 						break;
 					}
 				}
-				outf << "\tla $a0 string" << i_pr << endl;
+				outf << "\tla $a0 STRING" << i_pr << endl;
 				outf << "\tli $v0 4" << endl;
 				outf << "\tsyscall" << endl;
 			}
@@ -269,8 +271,7 @@ void MIPS::mid2mips(PCode pcode){
 			int offset_sz = getLocation(str);
 			
 			outf << "\tlw $t1 " << (-1*offset_off) << "($fp)" << endl; 
-			outf << "\tli $s0 4" << endl;
-			outf << "\tmul $t1 $t1 $s0" << endl;
+			outf << "\tmul $t1 $t1 4" << endl;
 			if(offset_sz < 0){
 				outf << "\tla $t0 " << str << endl;
 				outf << "\tadd $t0 $t0 $t1" << endl;
@@ -292,10 +293,20 @@ void MIPS::mid2mips(PCode pcode){
 		}
 		else if(str == "="){
 			std::string sym_list[10]={"li","add","sub","mul","div","mul","subi","addi"};
-			if(num2 < 0){
-				num2 += 8;
+			if(num2 == -6){
 				int offset_left = getLocation(num1);
 				int offset_right = getLocation(num3);
+				outf << "\tlw $t0 " << (-1*offset_right) << "($fp)" << endl;
+				outf << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
+			}
+			else if(num2 == -5){
+				int offset_left = getLocation(num1);
+				outf << "\tli $t0 " << num3 << endl;
+				outf << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
+			}
+			else if(num2 < 0){
+				num2 += 8;
+				int offset_left = getLocation(num1);
 				outf << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				outf << "\tli $t1 " << num3 << endl;
 				outf << "\t" << sym_list[num2] << " $t0 $t0 $t1" << endl;
@@ -303,7 +314,6 @@ void MIPS::mid2mips(PCode pcode){
 			}
 			else if(num2 == 0){
 				int offset_left = getLocation(num1);
-				outf << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				outf << "\tli $t0 " << num3 << endl;
 				outf << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
 			}
@@ -318,47 +328,55 @@ void MIPS::mid2mips(PCode pcode){
 		}
 		else if(str == "<" || str == "<=" || str == "==" ||
 				str == ">" || str == ">=" || str == "!="){
+			if(num2<0){
+				num2 *= -1;
+				if(str == "=="){
+					str = "!=";
+				}
+				else if(str == "!="){
+					str = "==";
+				}
+				else if(str == ">="){
+					str = "<";
+				}
+				else if(str == "<="){
+					str = ">";
+				}
+				else if(str == ">"){
+					str = "<=";
+				}
+				else if(str == "<"){
+					str = ">=";
+				}
+			}
 			int offset_left = getLocation(num1);
 			int offset_right = getLocation(num3);
 			outf << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 			outf << "\tlw $t1 " << (-1*offset_right) << "($fp)" << endl;
 			outf << "\tsub $t0 $t0 $t1" << endl;
 			if(str == "<"){
-				outf << "\tslti $t0 $t0 0" << endl;
-				outf << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
+				outf << "\tbltz $t0 label" << num2 << endl;
 			}
 			else if(str == "<="){
-				outf << "\tslti $t0 $t0 1" << endl;
-				outf << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
+				outf << "\tblez $t0 label" << num2 << endl;
 			}
 			else if(str == "=="){
-				outf << "\tslti $t1 $t0 1" << endl;
-				outf << "\tli $t2 -1" << endl;
-				outf << "\tslt $t2 $t2 $t0" << endl;
-				outf << "\tand $t0 $t1 $t2" << endl;
-				outf << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
+				outf << "\tbeqz $t0 label" << num2 << endl;
 			}
 			else if(str == ">"){
-				outf << "\tslt $t0 $0 $t0" << endl;
-				outf << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
+				outf << "\tbgtz $t0 label" << num2 << endl;
 			}
 			else if(str == ">="){
-				outf << "\tli $t1 -1" << endl;
-				outf << "\tslt $t0 $t1 $t0" << endl;
-				outf << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
+				outf << "\tbgez $t0 label" << num2 << endl;
 			}
 			else if(str == "!="){
-				outf << "\tslt $t1 $0 $t0" << endl;
-				outf << "\tslti $t2 $t0 0" << endl;
-				outf << "\tor $t0 $t1 $t2" << endl;
-				outf << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
+				outf << "\tbnez $t0 label" << num2 << endl;
 			}
 		}
 		else if(str == "ret"){
 			if(num3 >= 0){
 				int offset = getLocation(num2);
-				outf << "\tlw $t0 " << (-1*offset) << "($fp)" << endl;
-				outf << "\tsw $t0 return_dota($0)" << endl;
+				outf << "\tlw $s1 " << (-1*offset) << "($fp)" << endl;
 				outf << "\tlw $t0 4($sp)" << endl;
 				outf << "\tmove $t1 $sp" << endl;
 				outf << "\tmove $sp $fp" << endl;

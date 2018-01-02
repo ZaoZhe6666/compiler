@@ -27,6 +27,7 @@ class YF{
 		int pstnum;
 		int count;
 		int deal_express_type;
+		int relate_judge;
 	public:
 		YF(std::string filename);
 		void getSym();

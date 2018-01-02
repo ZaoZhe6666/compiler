@@ -40,6 +40,8 @@ void ZJ::midcode(std::string w1,int w2,int w3,int w4){
 	}
 	else if(w1 == "="){
 		/*
+		-6  T2 = T4
+		-5  T2 = w4
 		-4	T2 = T2 / w4
 		-3	T2 = T2 * w4
 		-2	T2 = T2 - w4
@@ -50,7 +52,13 @@ void ZJ::midcode(std::string w1,int w2,int w3,int w4){
 		3	T2 = T2 * T4
 		4	T2 = T2 / T4
 		*/
-		if(w3 == -4){
+		if(w3 == -6){
+			outf << "T" << w2 << " = T"<< w4 << endl;
+		}
+		else if(w3 == -5){
+			outf << "T" << w2 << " = "<< w4 << endl;
+		}
+		else if(w3 == -4){
 			outf << "T" << w2 << "/= "<< w4 << endl;
 		}
 		else if(w3 == -3){
@@ -95,14 +103,25 @@ void ZJ::midcode(std::string w1,int w2,int w3,int w4){
 	}
 	else if(w1 == "<" || w1 == "<=" || w1 == "==" ||
 			w1 == ">" || w1 == ">=" || w1 == "!="){
-		outf << "T" << w2 << " = T" << w2 << w1 << "T" << w4 << endl;
+		outf << "\nT" << w2 << " = T" << w2 << w1 << "T" << w4 << endl;
 	}
 	else if(w1 == "jmp"){
-		if(w3<0){
-			outf << "while T" << w2 <<" is True jump to label " << w4 << endl;
+		if(w3 == -2){
+			outf << "while T" << w2 <<" is True jump to label " << w4  << "\n" << endl;
 		}
-		else{
-			outf << "if T" << w2 <<" is False jump to label " << w4 << endl;
+		else if(w3 == -1){
+			outf << "while T" << w2 <<" is True jump to label " << w4  << "\n" << endl;
+			ptop--;
+			pcode[ptop].num2 = w4;
+		}
+		else if(w3 == 1){
+			outf << "if T" << w2 <<" is False jump to label " << w4 << "\n" << endl;
+			ptop--;
+			pcode[ptop].num2 = w4;
+			pcode[ptop].num2 *= -1;
+		}
+		else if(w3 == 2){
+			outf << "if T" << w2 <<" is False jump to label " << w4 << "\n" << endl;
 		}
 	}
 	else if(w1 == "label"){
@@ -163,12 +182,12 @@ void ZJ::midcode(std::string w1,int w2,int w3,std::string w4){
 	if(w1 == "="){
 		pcode[ptop].num1 = -1;
 		/*
-		-1	T4 = T2
-		0	T2 = T4
-		1	T2 = T2 + T4
-		2	T2 = T2 - T4
-		3	T2 = T2 * T4
-		4	T2 = T2 / T4
+		-1	w4 = T2
+		0	T2 = w4
+		1	T2 = T2 + w4
+		2	T2 = T2 - w4
+		3	T2 = T2 * w4
+		4	T2 = T2 / w4
 		*/
 		if(w3 == -1){
 			outf << w4 << " = T"<< w2 <<endl;
@@ -210,12 +229,20 @@ void ZJ::midcode(std::string w1,int w2,int w3,std::string w4){
 		outf << "Need Parametor #" << w2 << "-- " << w4 << endl;
 	}
 	else if(w1 == "=()"){
+		/*
+		w3	3 mul
+			4 div
+			2 assign
+		*/
 		pcode[ptop].num1 = -5;
 		if(w3 == 3){
 			outf << "T" << w2 << " *= Return_" << w4 << "()" << endl;
 		}
-		else{
+		else if(w3 == 4){
 			outf << "T" << w2 << " /= Return_" << w4 << "()" << endl;
+		}
+		else if(w3 == 2){
+			outf << "T" << w2 << " = Return_" << w4 << "()" << endl;
 		}
 	}
 	else if(w1 == "=[]"){

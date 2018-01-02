@@ -226,10 +226,20 @@ void YF::condit(int label){
 	int cond = express(0);
 	if(label<0){
 		label*=-1;
-		zj->midcode("jmp",cond,-1,label);
+		if(relate_judge){
+			zj->midcode("jmp",cond,-1,label);
+		}
+		else{
+			zj->midcode("jmp",cond,-2,label);
+		}
 	}
 	else{
-		zj->midcode("jmp",cond,1,label);
+		if(relate_judge){
+			zj->midcode("jmp",cond,1,label);
+		}
+		else{
+			zj->midcode("jmp",cond,2,label);
+		}
 	}
 }
 
@@ -327,8 +337,9 @@ int YF::express(int ident = 0){
 	int symbol = 1;
 	if(ident == 0){
 		left = ++count;
-		zj->midcode("=",left,0,0);
+//		zj->midcode("=",left,0,0);
 		st.st_push("T",left,9,1);
+		relate_judge = 0;
 	}
 	if(symID == PLUSSY || symID == SUBSY){
 		if(ident != 0){
@@ -353,17 +364,24 @@ int YF::express(int ident = 0){
 		std::string symb = token;
 		getSym();
 		right = express();
-		zj->midcode(symb,left,zj->label_num+1,right);
+		relate_judge = 1;
+		zj->midcode(symb,left,zj->label_num,right);
 		st.st_push("T",left,9,1);
 	}
 
 	if(symID == IDENTSY || symID == NUMBERSY || symID ==SQUTASY
 		|| symID == MULTSY || symID == DIVSY || relate() || symID == LPARENTSY){
-		right = factor(0);
-		zj->midcode("=",left,symbol,right);
-		st.st_push("T",left,9,1);
-		st.st_push("T",right,9,1);
-		count--;
+		if(ident != 0){
+			count++;
+			right = factor(0);
+			zj->midcode("=",left,symbol,right);
+			st.st_push("T",left,9,1);
+			st.st_push("T",right,9,1);
+			count--;
+		}
+		else{
+			right = factor(-1*(symbol==2));
+		}
 		right = express(1);
 	}
 	if(ident == 0){
@@ -383,38 +401,41 @@ int YF::factor(int ident = 0){
 	int right = 0;
 	int symbol = 3;
 	if(ident == 0){
-		left = ++count;
-		zj->midcode("=",left,0,1);
+//		left = ++count;
+//		zj->midcode("=",left,0,1);
 		st.st_push("T",left,9,1);
 	}
-
+	if(ident < 0){
+		zj->midcode("=",left,0,-1);
+		ident = 1;
+	}
 	if(symID == PLUSSY || symID == SUBSY){
-		if(ident == 0){
+		if(ident <= 1){
 			error(-43);
 		}
 		return left;
 	}
 	else if(relate()){
-		if(ident == 0){
+		if(ident <= 1){
 			error(-47);
 		}
 		return left;
 	}
 	else if(symID == MULTSY || symID == DIVSY){
 		deal_express_type = 0;
-		if(ident == 0){
+		if(ident <= 1){
 			error(-44);
 		}
 		if(symID == DIVSY){
 			symbol = 4;
 		}
 		getSym();
-		ident = 0;
+		ident = 1;
 	}
 
 	if(symID == IDENTSY){
 		std::string ident_name = token;
-		if(ident != 0){
+		if(ident == 2){
 			error(-42);
 		}
 		getSym();
@@ -433,12 +454,17 @@ int YF::factor(int ident = 0){
 			getSym();
 //			cout << "3	T" << left << symbol << " = calling function " << ident_name <<endl;
 			rfcall(ident_name,1,para_num);
-			zj->midcode("=()",left,symbol,ident_name);
+			if(ident == 0){
+				zj->midcode("=()",left,2,ident_name);
+			}
+			else{
+				zj->midcode("=()",left,symbol,ident_name);
+			}
 			st.st_push("T",left,9,1);
 			if(func_type == 3){
 				deal_express_type = det;
 			}
-			factor(1);
+			factor(2);
 			return left;
 		}
 		else if(symID == LBRACKSY){
@@ -456,6 +482,9 @@ int YF::factor(int ident = 0){
 				offset += 1;
 				offset *= -1;
 			}
+			if(ident == 0){
+				zj->midcode("=",left,0,1);
+			}
 			zj->midcode("=[]",left,offset,ident_name);
 			st.st_push("T",left,9,1);
 			st.st_push("T",offset,9,1);
@@ -464,7 +493,7 @@ int YF::factor(int ident = 0){
 			if(ident_type == 9){
 				deal_express_type = det;
 			}
-			factor(1);
+			factor(2);
 			return left;
 		}
 		else{
@@ -476,48 +505,48 @@ int YF::factor(int ident = 0){
 			if(ident_type == 4 || ident_type == 6){
 				deal_express_type = 0;
 			}
-			zj->midcode("=",left,symbol,ident_name);
+			zj->midcode("=",left,(ident==0)?0:symbol,ident_name);
 			st.st_push("T",left,9,1);
-			factor(1);
+			factor(2);
 			return left;
 		}
 	}
 	else if(symID == NUMBERSY){
 		deal_express_type = 0;
 		int num_v = std::stoi(token);
-		zj->midcode("=",left,-1*symbol,num_v);
+		zj->midcode("=",left,(ident == 0)?-5:-1*symbol,num_v);
 		st.st_push("T",left,9,1);
-		if(ident != 0){
+		if(ident == 2){
 			error(-45);
 		}
 		getSym();
-		factor(1);
+		factor(2);
 //		cout << "4	T" << left << symbol << "=" << " T" << right <<endl;
 		return left;
 	}
 	else if(symID == SQUTASY){
 		int char_num = token[0];
-		zj->midcode("=",left,-1*symbol,char_num);
+		zj->midcode("=",left,(ident == 0)?-5:-1*symbol,char_num);
 		st.st_push("T",left,9,1);
-		if(ident != 0){
+		if(ident == 2){
 			error(-42);
 		}
 		getSym();
-		factor(1);
+		factor(2);
 		return left;
 	}
 	else if(symID == LPARENTSY){
 		deal_express_type = 0;
-		if(ident != 0){
+		if(ident == 2){
 			error(-42);
 		}
 		getSym();
 		right = express();
-		zj->midcode("=",left,symbol,right);
+		zj->midcode("=",left,(ident == 0)?-6:symbol,right);
 		st.st_push("T",left,9,1);
 		st.st_push("T",right,9,1);
 		mustread(RPARENTSY);
-		factor(1);
+		factor(2);
 		return left;
 	}
 	else if(symID == RPARENTSY || symID == RBRACKSY){
