@@ -12,7 +12,7 @@ using namespace std;
 extern FT ft;
 extern ST st;
 
-YF::YF(string filename){
+YF::YF(std::string filename){
 	cf = new CF(filename);
 	zj = new ZJ();
 	mips = new MIPS();
@@ -28,6 +28,8 @@ YF::YF(string filename){
 	pstnum = 0;
 	count = 0;
 	deal_express_type = 1;
+	array_index = 0;
+	array_garbage_judge = 0;
 }
 
 void YF::getSym(){
@@ -40,7 +42,7 @@ void YF::getSym(){
 			symID = cf->getSymID();
 		}
 	}
-	line = cf->getline();
+	line = cf->getlinenum();
 	column = cf->getcolumn();
 }
 
@@ -50,6 +52,11 @@ void YF::p(std::string word){
 
 void YF::error(int errorID){
 	extern Error error;
+	error.PrintError(errorID,line,column);
+}
+
+void YF::mustread_error(int errorID){
+	extern Error error;
 	error.PrintError(errorID,curline,column);
 }
 
@@ -58,7 +65,7 @@ void YF::mustread(int sym){
 		return;
 	}
 	while(symID != sym && line == curline){
-		error(-100);
+		mustread_error(-100);
 		cout << "Need #"<< sym << "   Have #" << symID <<endl;
 		getSym();
 	}
@@ -99,7 +106,9 @@ void YF::casesen(){
 	int left = express(0);
 	mustread(RPARENTSY);
 	mustread(LBRACESY);
+	count++;
 	casetab(left);
+	count--;
 	mustread(RBRACESY);
 }
 
@@ -112,8 +121,8 @@ void YF::casetab(int left){
 		getSym();
 //		case3sen();
 		int casenum = consty();
-		if(casenum < 0){
-			error(-55);
+		if(symID < 0){
+			error(-10);
 		}
 		else{
 			int label = ++zj->label_num;
@@ -168,11 +177,11 @@ void YF::condef(int type = 0){
 			else if(symID == SEMISY){
 			}
 			else{
-				error(-88);
+				error(-11);
 			}
 		}
 		else{
-			error(-57);
+			error(-12);
 		}
 	}
 	else if(symID == CHARSY || type == 2){
@@ -183,7 +192,7 @@ void YF::condef(int type = 0){
 			if(symID == ASSIGNSY){
 				getSym();
 				if(!chara()){
-					error(-93);
+					error(-13);
 				}
 				else{
 					if(!st.st_push(const_name,0,4,token[0])){
@@ -200,20 +209,15 @@ void YF::condef(int type = 0){
 				else if(symID == SEMISY){
 				}
 				else{
-					error(-87);
+					error(-14);
 				}
 			}
-			else if(symID == COMMASY){
-				condef(2);
-			}
-			else if(symID == SEMISY){
-			}
 			else{
-				error(-58);
+				error(-15);
 			}
 		}
 		else{
-			error(-59);
+			error(-16);
 		}
 	}
 }
@@ -304,7 +308,7 @@ int YF::consty(){
 		getSym();
 	}
 	else{
-		error(-99);
+		error(-17);
 	}
 	return r_v;
 }
@@ -314,15 +318,25 @@ void YF::evalue(std::string name){
 	if(symID == -1){
 		return;
 	}
+	array_index = 1;
+	array_garbage_judge = 1;
 	int left = express(0);
+	if(array_index){
+		if(array_index < 0 || array_index > st.array_length(name)){
+			cout << "error 607 : ARRAY INDEX OUT OF RANGE  " << array_index << endl;
+			error(-607);
+			zj->midcode("=",left,0,0);
+		}
+		array_index = 0;
+	}
 	count+=2;
 	st.st_push("T",count,9,1);
-	zj->midcode("=",count,0,0);
-	zj->midcode("=",count,1,left);
+//	zj->midcode("=",count,0,0);
+//	zj->midcode("=",count,1,left);
 	mustread(RBRACKSY);
 	mustread(ASSIGNSY);
 	int right = express(0);
-	zj->midcode("[]=",count,right,name);
+	zj->midcode("[]=",left,right,name);
 	count -=2;
 }
 
@@ -335,6 +349,7 @@ int YF::express(int ident = 0){
 	int left = count;
 	int right=0;
 	int symbol = 1;
+	int ai = 0;
 	if(ident == 0){
 		left = ++count;
 //		zj->midcode("=",left,0,0);
@@ -344,10 +359,12 @@ int YF::express(int ident = 0){
 	if(symID == PLUSSY || symID == SUBSY){
 		if(ident != 0){
 			deal_express_type = 0;
+			ai = array_index;
+			array_index = 1;
 		}
-		if(ident > 1){
-			error(-41);
-		}
+//		if(ident > 1){
+//			error(-18);
+//		}
 		if(symID == SUBSY){
 			symbol = 2;
 		}
@@ -360,6 +377,8 @@ int YF::express(int ident = 0){
 		}
 	}
 	else if(relate()){
+		array_index = 0;
+		array_garbage_judge = 0;
 		deal_express_type = 0;
 		std::string symb = token;
 		getSym();
@@ -378,6 +397,9 @@ int YF::express(int ident = 0){
 			st.st_push("T",left,9,1);
 			st.st_push("T",right,9,1);
 			count--;
+			if(array_garbage_judge){
+				array_index = (symbol == 1)?(ai+array_index):(ai-array_index);
+			}
 		}
 		else{
 			right = factor(-1*(symbol==2));
@@ -408,23 +430,24 @@ int YF::factor(int ident = 0){
 	if(ident < 0){
 		zj->midcode("=",left,0,-1);
 		ident = 1;
+		array_index *= -1;
 	}
 	if(symID == PLUSSY || symID == SUBSY){
 		if(ident <= 1){
-			error(-43);
+			error(-19);
 		}
 		return left;
 	}
 	else if(relate()){
 		if(ident <= 1){
-			error(-47);
+			error(-20);
 		}
 		return left;
 	}
 	else if(symID == MULTSY || symID == DIVSY){
 		deal_express_type = 0;
 		if(ident <= 1){
-			error(-44);
+			error(-21);
 		}
 		if(symID == DIVSY){
 			symbol = 4;
@@ -434,9 +457,11 @@ int YF::factor(int ident = 0){
 	}
 
 	if(symID == IDENTSY){
+		array_index = 0;
+		array_garbage_judge = 0;
 		std::string ident_name = token;
 		if(ident == 2){
-			error(-42);
+			error(-22);
 		}
 		getSym();
 		if(symID == LPARENTSY){
@@ -477,7 +502,17 @@ int YF::factor(int ident = 0){
 				deal_express_type = 0;
 			}
 			getSym();
+			array_index = 1;
+			array_garbage_judge = 1;
 			int offset = express();
+			if(array_index && array_garbage_judge){
+				if(array_index < 0 || array_index > st.array_length(ident_name)){
+					cout << "error 606 : ARRAY INDEX OUT OF RANGE  " << array_index << endl;
+					error(-606);
+					zj->midcode("=",offset,0,0);
+				}
+			}
+			array_index = 0;
 			if(symbol == 4){
 				offset += 1;
 				offset *= -1;
@@ -514,10 +549,11 @@ int YF::factor(int ident = 0){
 	else if(symID == NUMBERSY){
 		deal_express_type = 0;
 		int num_v = std::stoi(token);
+		array_index = (symbol == 3)?(array_index * num_v):(array_index / num_v);
 		zj->midcode("=",left,(ident == 0)?-5:-1*symbol,num_v);
 		st.st_push("T",left,9,1);
 		if(ident == 2){
-			error(-45);
+			error(-23);
 		}
 		getSym();
 		factor(2);
@@ -526,22 +562,28 @@ int YF::factor(int ident = 0){
 	}
 	else if(symID == SQUTASY){
 		int char_num = token[0];
+		array_index = (symbol == 3)?(array_index * char_num):(array_index / char_num);
 		zj->midcode("=",left,(ident == 0)?-5:-1*symbol,char_num);
 		st.st_push("T",left,9,1);
 		if(ident == 2){
-			error(-42);
+			error(-24);
 		}
 		getSym();
 		factor(2);
 		return left;
 	}
 	else if(symID == LPARENTSY){
+		int ai = array_index;
+		array_index = 1;
 		deal_express_type = 0;
 		if(ident == 2){
-			error(-42);
+			error(-25);
 		}
 		getSym();
 		right = express();
+		if(array_garbage_judge && array_index){
+			array_index = (symbol == 3)?(ai * array_index):(ai / array_index);
+		}
 		zj->midcode("=",left,(ident == 0)?-6:symbol,right);
 		st.st_push("T",left,9,1);
 		st.st_push("T",right,9,1);
@@ -556,7 +598,7 @@ int YF::factor(int ident = 0){
 		return left;
 	}
 	else{
-		error(-666);
+		error(-26);
 		return left;
 	}
 }
@@ -573,14 +615,14 @@ int YF::inty(){
 			return sym;
 		}
 		else{
-			error(-61);
+			error(-27);
 		}
 	}
 	else if(symID == NUMBERSY){
 		return 1;
 	}
 	else{
-		error(-62);
+		error(-28);
 	}
 	return 0;
 }
@@ -628,8 +670,8 @@ void YF::mult(){
 		return;
 	}
 	getSym();
-	if(symID != PLUSSY && symID != SUBSY){
-		error(-63);
+	if(symID != MULTSY && symID != DIVSY){
+		error(-29);
 	}
 }
 
@@ -640,7 +682,7 @@ void YF::num(){
 	}
 	getSym();
 	if(symID != NUMBERSY){
-		error(-64);
+		error(-30);
 	}
 }
 
@@ -651,7 +693,7 @@ int YF::nfint(){
 	}
 	if(symID == NUMBERSY){
 		if(token.c_str()[0] == 0 && token.length()>1){
-			error(-15);
+			error(-31);
 		}
 		else{
 			return 1;
@@ -676,7 +718,7 @@ void YF::nrfunc(int ident = 0){
 				pairstack[pstnum++] = '(';
 			}
 			else{
-				error(-77);
+				error(-32);
 			}
 		}
 		else if(symID == MAINSY){
@@ -687,7 +729,7 @@ void YF::nrfunc(int ident = 0){
 			return;
 		}
 		else{
-			error(-86);
+			error(-33);
 		}
 	}
 	else{
@@ -696,7 +738,7 @@ void YF::nrfunc(int ident = 0){
 			pairstack[pstnum++] = '(';
 		}
 		else{
-			error(-27);
+			error(-34);
 		}
 	}
 	paratab(0);
@@ -716,10 +758,10 @@ void YF::nznum(){
 	}
 	getSym();
 	if(symID != NUMBERSY){
-		error(-65);
+		error(-35);
 	}
 	else if(int(token.c_str())==0){
-		error(-66);
+		error(-36);
 	}
 }
 
@@ -731,14 +773,14 @@ void YF::paratab(int com = 0){
 	getSym();
 	if(symID == RPARENTSY){
 		if(com == 1){
-			error(-24);
+			error(-37);
 		}
 		pairstack[--pstnum] = '\0';
 	}
 	else if(symID == INTSY || symID == CHARSY){
 		int sym_type = (symID == INTSY)?5:6;
 		if(com == 2){
-			error(-26);
+			error(-38);
 		}
 		getSym();
 		if(symID == IDENTSY){
@@ -758,7 +800,7 @@ void YF::paratab(int com = 0){
 		paratab(1);
 	}
 	else{
-		error(-25);
+		error(-39);
 	}
 }
 
@@ -769,7 +811,7 @@ void YF::plus(){
 	}
 	getSym();
 	if(symID != PLUSSY || symID != SUBSY){
-		error(-67);
+		error(-40);
 	}
 }
 
@@ -799,7 +841,7 @@ void YF::printsen(){
 				getSym();
 			}
 			else{
-				error(-45);
+				error(-41);
 			}
 		}
 	}
@@ -834,7 +876,7 @@ void YF::program(){
 		}
 		else{
 			getSym();
-			error(-65);
+			error(-42);
 		}
 	}
 	mid2mips();
@@ -855,7 +897,7 @@ void YF::readsen(){
 			zj->midcode("sc",0,0,token);
 		}
 		else{
-			error(-79);
+			error(-43);
 		}
 	}
 	mustread(IDENTSY);
@@ -877,14 +919,14 @@ void YF::readsen(){
 			getSym();
 		}
 		else{
-			error(-43);
+			error(-44);
 		}
 	}
 	if(symID == RPARENTSY){
 		getSym();
 	}
 	else{
-		error(-44);
+		error(-45);
 	}
 }
 
@@ -968,11 +1010,11 @@ void YF::rfunc(int type,int ident = 0){
 				pairstack[pstnum++] = '(';
 			}
 			else{
-				error(-22);
+				error(-46);
 			}
 		}
 		else if(symID == MAINSY){
-			error(-20);
+			error(-47);
 			ft.ft_push(token,0);
 			st.st_push(token,1,0,0);
 			zj->midcode("func",0,0,token);
@@ -980,7 +1022,7 @@ void YF::rfunc(int type,int ident = 0){
 			return;
 		}
 		else{
-			error(-21);
+			error(-48);
 		}
 	}
 	paratab();
@@ -1054,8 +1096,8 @@ void YF::senten(){
 		if(symID == LPARENTSY){
 			int para_num = 0;
 			if(!ft.ft_conf(ident_name)){
-				cout << "error 306 : "<< ident_type <<endl;
-				error(-306);
+				cout << "error 307 : "<< ident_type <<endl;
+				error(-307);
 			}
 			else{
 				para_num = ft.ft_para(ident_name);
@@ -1077,20 +1119,20 @@ void YF::senten(){
 		}
 		else if(symID == LBRACKSY){
 			if(ident_type < 8 || ident_type >9){
-				error(-306);
+				error(-308);
 			}
 			getSym();
 			evalue(ident_name);
 		}
 		else{
-			error(-96);
+			error(-49);
 		}
 	}
 	else if(symID == -1){
 		
 	}
 	else{
-		error(-40);
+		error(-50);
 		getSym();
 	}
 }
@@ -1102,7 +1144,7 @@ void YF::strin(){
 	}
 	getSym(); 
 	if(symID != STRINGSY){
-		error(-69);
+		error(-51);
 	}
 }
 
@@ -1134,14 +1176,14 @@ void YF::vardef(int type,int level,int ident = 0){
 					zj->midcode("[]",var_type,num,var_name);
 				}
 				else{
-					error(-9);
+					error(-52);
 				}
 				getSym();
 				if(symID == RBRACKSY){
 					getSym();
 				}
 				else{
-					error(-16);
+					error(-53);
 				}
 				vardef(type,level,1);
 			}
@@ -1151,7 +1193,7 @@ void YF::vardef(int type,int level,int ident = 0){
 			}
 		}
 		else{
-			error(-10);
+			error(-54);
 		}
 	}
 	else if(symID == SEMISY){
@@ -1159,7 +1201,7 @@ void YF::vardef(int type,int level,int ident = 0){
 		varexp(level);
 	}
 	else{
-		error(-14);
+		error(-55);
 	}
 }
 
@@ -1192,14 +1234,14 @@ void YF::varexp(int level){
 					zj->midcode("[]",var_type,num,var_name);
 				}
 				else{
-					error(-9);
+					error(-56);
 				}
 				getSym();
 				if(symID == RBRACKSY){
 					getSym();
 				}
 				else{
-					error(-16);
+					error(-57);
 				}
 				vardef(type,level,1);
 			}
@@ -1212,7 +1254,7 @@ void YF::varexp(int level){
 			}
 		}
 		else{
-			error(-17);
+			error(-58);
 		}
 	}
 	else if(symID == VOIDSY){
@@ -1235,7 +1277,7 @@ void YF::varexp(int level){
 //			st.st_pop(1);
 		}
 		else{
-			error(-19);
+			error(-59);
 		}
 	}
 	else{

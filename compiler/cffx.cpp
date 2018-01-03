@@ -31,7 +31,7 @@ char *OutWord[OUTWORDNUM]={"const",			"int",				"char",
 							 "right brace",	"identifier"
 							}; 
 
-CF::CF(string filename){
+CF::CF(std::string filename){
 	inf.open(filename.c_str());
 	outf.open("out_cf.txt");
 	ch=' ';
@@ -42,6 +42,7 @@ CF::CF(string filename){
 	token="";
 	if(!inf.is_open()){
 		cout << "Couldn't open the file!" <<endl;
+		getline(cin,filename);
 		exit(0);
 	}
 }
@@ -105,7 +106,7 @@ void CF::getchar_cf(){
 	} 
 	return;
 }
-string CF::getSym(){
+std::string CF::getSym(){
 	token = "";
 	symID=0;
 	while(isspace()){
@@ -290,6 +291,9 @@ string CF::getSym(){
 				ch = inf.get();
 				line_point++;
 				while(!(ch == EOF || ch == '\"' || ch=='\r' || ch == '\n')){
+					if(ch == '\\'){
+						token+=ch;
+					}
 					token+=ch;
 					ch = inf.get();
 					line_point++;
@@ -365,7 +369,7 @@ int CF::getSymID(){
 	return symID;
 }
 
-int CF::getline(){
+int CF::getlinenum(){
 	return line_num;
 }
 

@@ -86,7 +86,7 @@ void ZJ::midcode(std::string w1,int w2,int w3,int w4){
 			outf << "T" << w2 << "/= T"<< w4 << endl;
 		}
 		else{
-			error.PrintError(-501,-1,-1);
+//			error.PrintError(-501,-1,-1);
 		}
 	}
 	else if(w1 == "[]="){

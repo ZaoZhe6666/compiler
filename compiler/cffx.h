@@ -53,6 +53,6 @@ class CF{
 		std::string getSym();
 		void getchar_cf();
 		int getSymID();
-		int getline();
+		int getlinenum();
 		int getcolumn();
 };

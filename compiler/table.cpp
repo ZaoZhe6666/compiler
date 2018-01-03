@@ -126,22 +126,6 @@ int ST::st_push(std::string name,int level,int type,int value){
 		if(st_seek(name,1) && name!="T"){
 			cout << "same name :" << name << endl;
 		}
-		/*
-		if(s->symbol[i].level == 0 && level && name != "T"){
-			break;
-		}
-		if(s->symbol[i].level == 1 && level && name != "T"){
-			if(s->symbol[i].name == name){
-				cout << "same name!" << endl;
-				return 0;
-			}
-			break;
-		}
-		if(s->symbol[i].name == name && name != "T"){
-			cout << "same name!" << endl;
-			return 0;
-		}
-		*/
 	}
 	Symbol *new_sym;
 	if(new_sym = new Symbol){
@@ -301,6 +285,24 @@ int ST::getpara_offset(std::string name){
 			}
 			para_num--;
 			return para_num*4;
+		}
+	}
+	return 0;
+}
+
+int ST::array_length(std::string name){
+	int i;
+	for(i=s->top;i>=0;i--){
+		if(s->symbol[i].type <3){
+			for(i=const_sp;i>=0;i--){
+				if(s->symbol[i].name == name){
+					return (s->symbol[i].value-1);
+				}
+			}
+			return 0;
+		}
+		if(s->symbol[i].name == name){
+			return (s->symbol[i].value-1);
 		}
 	}
 	return 0;

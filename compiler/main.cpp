@@ -12,7 +12,7 @@ ST st;
 int main(){
 	string filename;
 	cout << "Please enter the file path of your input:";
-	cin >> filename;
+	getline(cin,filename);
 	YF yf(filename);
 
 	yf.program();

@@ -28,11 +28,14 @@ class YF{
 		int count;
 		int deal_express_type;
 		int relate_judge;
+		int array_index;
+		int array_garbage_judge;
 	public:
 		YF(std::string filename);
 		void getSym();
 		void error(int errorID);
 		void mustread(int symID);
+		void mustread_error(int errorID);
 		void p(std::string word);
 		void mid2mips();
 	  //加法运算符		乘法运算符		关系运算符

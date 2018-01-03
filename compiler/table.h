@@ -93,4 +93,5 @@ class ST{
 		int get_loc(std::string func_name,std::string sym_name,int value);
 		int getpara_offset(std::string name);
 		int st_func_type(std::string name);
+		int array_length(std::string name);
 };
