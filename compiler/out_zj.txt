@@ -1,27 +1,983 @@
-int a[10]
-int c[20]
+const int cst1 = 1
+const int cst2 = 2
+const int cst3 = 3
+const char csta = 97 (ASCLL)
+const char cstb = 98 (ASCLL)
+const char cstc = 99 (ASCLL)
+int g_a
+int g_b
+char g_arr[2048]
+char g_stra[1024]
+char g_strb[2048]
 
-main:
-T2 = 0
+const_define:
+const int a = 1
+const int b = 0
+const int c = -1
+const char cst23 = 120 (ASCLL)
+const char cst24 = 122 (ASCLL)
+const char consta0 = 65 (ASCLL)
+const char csta1 = 49 (ASCLL)
+const char cst_div = 47 (ASCLL)
+T1 = a
+Print Num T1
+T1 = cst_div
+Print Char T1(ASCLL)
+void return
+
+const_define_test:
+Calling const_define()
+void return
+
+var_define:
+int a
+char arr[1]
+int _a
+char _arr[2]
+int a1
+char arr1[3]
+char b
+char strb[1]
+char _b
+char _bstr[2]
+char _b1
+char _bstr1[3]
+int c
+char z
+void return
+
+var_define_test:
+Calling var_define()
+void return
+
+define:
+const int int1 = 1
+const char cst24 = 122 (ASCLL)
+const char consta0 = 65 (ASCLL)
+int val1
+char b
+char strb[1]
+void return
+
+define_test:
+Calling var_define_test()
+Calling const_define_test()
+Calling define()
+Print String define test passed
+void return
+
+operator:
+int a
+int b
+int c
+int d
+int e
+int f
 T1 = 1
-T1 *= a[T2]
-if T1 != 0  jump to label 1
+a = T1
+T1 = 1
+T2 = 2
+T1+= T2
+b = T1
+T1 = 3
+T1*= 1
+c = T1
+T1 = -1
+T1*= 4
+d = T1
+T1 = 5
+e = T1
+T1 = 6
+f = T1
+T2 = b
+T2*= 3
+T1 = T2
+T2 = c
+T1+= T2
+T2 = d
+T2/= 4
+T1-= T2
+T2 = a
+T2/= a
+T1+= T2
+a = T1
+T1 = 0
+T2 = a
+T1+= T2
+T3 = a
+T3*= 3
+T2 = T3
+T1+= T2
+T2 = c
+T1+= T2
+T2 = d
+T2/= 4
+T1-= T2
+T2 = e
+T2*= f
+T1+= T2
+b = T1
+T1 = -1
+T2 = a
+T1*= T2
+T2 = b
+T2*= 0
+T1+= T2
+T3 = 1
+T4 = 0
+T3-= T4
+T2 = T3
+T1-= T2
+e = T1
+void return
+
+operator_test:
+Calling operator()
+Print String operator test passed
+void return
+
+string:
+Print String ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
+Print String !#$%&'()*+,-./:;<=>?@[]^_`{|}~
+void return
+
+string_test:
+Calling string()
+void return
+
+dowhile:
+int i
+T1 = 100
+i = T1
 
 label 1:
-if T1 != 1  jump to label 2
-T3 = 1
-T2 = 1
-T2 *= a[T3]
-if T2 != 2  jump to label 3
+T1 = i
+T2 = 50
 
-label 3:
-if T2 != 666  jump to label 4
-Print String shit
+T1 = T1>=T2
+if T1 is False jump to label 2
 
-label 4:
+T1 = i
+T1/= 2
+i = T1
 
 label 2:
-if T1 != 3  jump to label 5
+T1 = i
+T2 = 50
+
+T1 = T1<T2
+if T1 is False jump to label 3
+
+T2 = i
+T3 = 10
+T2+= T3
+T1 = T2
+T1/= 10
+i = T1
+
+label 3:
+T1 = i
+T2 = 10
+
+T1 = T1>=T2
+while T1 is True jump to label 1
+
+
+label 4:
+T1 = i
+T2 = 1
+T1-= T2
+i = T1
+Print String dowhile test passed
+T1 = 0
+while T1 is True jump to label 4
+
+void return
+
+dowhile_test:
+Calling dowhile()
+void return
+
+ifcondition:
+int a
+int rightnumber
+T1 = 1
+a = T1
+T1 = 0
+rightnumber = T1
+T1 = a
+T2 = 1
+
+T1 = T1==T2
+if T1 is False jump to label 5
+
+T1 = rightnumber
+T2 = 1
+T1+= T2
+rightnumber = T1
 
 label 5:
+T1 = 2
+a = T1
+T1 = a
+T2 = 1
+
+T1 = T1>T2
+if T1 is False jump to label 6
+
+T1 = rightnumber
+T2 = 1
+T1+= T2
+rightnumber = T1
+
+label 6:
+T1 = 0
+a = T1
+T1 = a
+T2 = 1
+
+T1 = T1<T2
+if T1 is False jump to label 7
+
+T1 = rightnumber
+T2 = 1
+T1+= T2
+rightnumber = T1
+
+label 7:
+T1 = a
+T2 = 1
+
+T1 = T1!=T2
+if T1 is False jump to label 8
+
+T1 = rightnumber
+T2 = 1
+T1+= T2
+rightnumber = T1
+
+label 8:
+T1 = a
+T2 = 0
+
+T1 = T1>=T2
+if T1 is False jump to label 9
+
+T1 = rightnumber
+T2 = 1
+T1+= T2
+rightnumber = T1
+
+label 9:
+T1 = a
+T2 = 0
+
+T1 = T1<=T2
+if T1 is False jump to label 10
+
+T1 = rightnumber
+T2 = 1
+T1+= T2
+rightnumber = T1
+
+label 10:
+T1 = rightnumber
+T3 = 1
+T4 = 1
+T3+= T4
+T4 = 1
+T3+= T4
+T4 = 1
+T4*= 3
+T3+= T4
+T2 = T3
+
+T1 = T1!=T2
+if T1 is False jump to label 11
+
+Print String ifcondition clause error!
+
+label 11:
+T1 = rightnumber
+T2 = rightnumber
+
+T1 = T1!=T2
+if T1 is False jump to label 12
+
+Print String ifcondition clause error
+
+label 12:
+void return
+
+switchcodintionans:
+Need Parametor #1-- x
+T1 = x
+if T1 != 1  jump to label 13
+T1 = 2
+The Return Value Saved in T1
+
+label 13:
+if T1 != 2  jump to label 14
+T1 = 3
+The Return Value Saved in T1
+
+label 14:
+if T1 != 3  jump to label 15
+T1 = 4
+The Return Value Saved in T1
+
+label 15:
+T1 = 5
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+switchcodintion:
+int i
+int rightnumber
+T1 = 1
+i = T1
+T1 = 0
+rightnumber = T1
+
+label 16:
+T1 = i
+T2 = 1
+T1+= T2
+T3 = i
+Sending Parametor #1 : T3    to Function switchcodintionans
+Calling switchcodintionans()
+T2 = Return_switchcodintionans()
+
+T1 = T1==T2
+if T1 is False jump to label 17
+
+T1 = rightnumber
+T2 = 1
+T1+= T2
+rightnumber = T1
+
+label 17:
+T1 = i
+T2 = 1
+T1+= T2
+i = T1
+T1 = i
+T2 = 5
+
+T1 = T1<T2
+while T1 is True jump to label 16
+
+T1 = rightnumber
+T2 = 4
+
+T1 = T1!=T2
+if T1 is False jump to label 18
+
+Print String switchcodintion clause  error!
+
+label 18:
+T1 = rightnumber
+if T1 is False jump to label 19
+
+T1 = i
+The Return Value Saved in T1
+
+label 19:
+Print String switchcodintion clause  error!
+Did not return Success When you see this!
+
+condition:
+const int intermax = 5
+int iter
+T1 = 0
+iter = T1
+
+label 20:
+T1 = iter
+if T1 != 0  jump to label 21
+T1 = iter
+T2 = 0
+
+T1 = T1!=T2
+if T1 is False jump to label 22
+
+Print String error 0
+
+label 22:
+
+label 21:
+if T1 != 1  jump to label 23
+T1 = iter
+T2 = 1
+
+T1 = T1!=T2
+if T1 is False jump to label 24
+
+Print String error 1
+
+label 24:
+
+label 23:
+if T1 != 2  jump to label 25
+T1 = iter
+T2 = 2
+
+T1 = T1!=T2
+if T1 is False jump to label 26
+
+Print String error 2
+
+label 26:
+
+label 25:
+T1 = iter
+T2 = 1
+T1+= T2
+iter = T1
+T1 = iter
+T2 = intermax
+
+T1 = T1<T2
+while T1 is True jump to label 20
+
+void return
+
+condition_test:
+Calling ifcondition()
+Calling switchcodintion()
+Calling condition()
+Print String condition test passed
+void return
+
+miscellaneous:
+int _
+int a
+char array[23]
+int i
+int endid
+char ch1
+char buf[256]
+T1 = 1
+_ = T1
+T1 = 2
+a = T1
+T1 = 0
+i = T1
+
+label 27:
+T1 = i
+T3 = i
+array[T1] = T3
+T1 = i
+T2 = 1
+T1+= T2
+i = T1
+T1 = i
+T2 = 23
+
+T1 = T1<T2
+while T1 is True jump to label 27
+
+T1 = 97
+ch1 = T1
+T1 = 127
+i = T1
+T1 = i
+endid = T1
+T1 = 0
+_ = T1
+
+label 28:
+T2 = _
+T2*= 1
+T3 = _
+T2-= T3
+T3 = 1
+T2-= T3
+T3 = 2
+T3/= 1
+T2+= T3
+T3 = 1
+T2-= T3
+T1 = T2
+T1/= 2
+T3 = 97
+buf[T1] = T3
+T1 = _
+T2 = 1
+T1+= T2
+_ = T1
+T1 = _
+T2 = endid
+
+T1 = T1<T2
+while T1 is True jump to label 28
+
+T2 = 0
+T1 = 1
+T1 *= buf[T2]
+T2 = 97
+
+T1 = T1==T2
+if T1 is False jump to label 29
+
+Print String miscellaneous test passed
+
+label 29:
+void return
+
+miscellaneous_test:
+Calling miscellaneous()
+void return
+
+fibonaci:
+Need Parametor #1-- n
+T1 = n
+if T1 != 0  jump to label 30
+T1 = 0
+The Return Value Saved in T1
+
+label 30:
+if T1 != 1  jump to label 31
+T1 = 1
+The Return Value Saved in T1
+
+label 31:
+if T1 != 2  jump to label 32
+T1 = 1
+The Return Value Saved in T1
+
+label 32:
+T2 = n
+T3 = 1
+T2-= T3
+Sending Parametor #1 : T2    to Function fibonaci
+Calling fibonaci()
+T1 = Return_fibonaci()
+T3 = n
+T4 = 2
+T3-= T4
+Sending Parametor #1 : T3    to Function fibonaci
+Calling fibonaci()
+T2 = Return_fibonaci()
+T1+= T2
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+fibonaci_test:
+int n
+Print String Fibonaci: Please input a unsigned positive integer ?
+n = Readin(int)
+
+label 33:
+T1 = n
+T2 = 0
+
+T1 = T1<T2
+if T1 is False jump to label 34
+
+Print String Input error, try again:
+n = Readin(int)
+
+label 34:
+T1 = n
+T2 = 0
+
+T1 = T1>=T2
+if T1 is False jump to label 35
+
+T2 = n
+Sending Parametor #1 : T2    to Function fibonaci
+Calling fibonaci()
+T1 = Return_fibonaci()
+Print String The fibonaci's answer is Print Num T1
+
+label 35:
+T1 = n
+T2 = 0
+
+T1 = T1<T2
+while T1 is True jump to label 33
+
+void return
+
+mod:
+Need Parametor #1-- n
+Need Parametor #2-- m
+T1 = n
+T2 = n
+T2/= m
+T2*= m
+T1-= T2
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+gcd:
+Need Parametor #1-- n
+Need Parametor #2-- m
+int rem
+T1 = 0
+rem = T1
+T1 = n
+T2 = 0
+
+T1 = T1==T2
+if T1 is False jump to label 36
+
+T1 = m
+The Return Value Saved in T1
+
+label 36:
+T1 = m
+T2 = 0
+
+T1 = T1==T2
+if T1 is False jump to label 37
+
+T1 = n
+The Return Value Saved in T1
+
+label 37:
+T2 = m
+Sending Parametor #1 : T2    to Function gcd
+T3 = n
+Sending Parametor #1 : T3    to Function mod
+T3 = m
+Sending Parametor #2 : T3    to Function mod
+Calling mod()
+T2 = Return_mod()
+Sending Parametor #2 : T2    to Function gcd
+Calling gcd()
+T1 = Return_gcd()
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+iswronggcd:
+Need Parametor #1-- n
+Need Parametor #2-- m
+T1 = n
+T2 = 0
+
+T1 = T1<=T2
+if T1 is False jump to label 38
+
+T1 = 1
+The Return Value Saved in T1
+
+label 38:
+T1 = m
+T2 = 0
+
+T1 = T1<=T2
+if T1 is False jump to label 39
+
+T1 = 1
+The Return Value Saved in T1
+
+label 39:
+T1 = 0
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+gcd_test:
+int n
+int m
+Print String GCD: Please input two unsigned positive integer ?
+n = Readin(int)
+m = Readin(int)
+T2 = n
+Sending Parametor #1 : T2    to Function iswronggcd
+T2 = m
+Sending Parametor #2 : T2    to Function iswronggcd
+Calling iswronggcd()
+T1 = Return_iswronggcd()
+if T1 is False jump to label 40
+
+
+label 41:
+Print String Input error, try Again: 
+n = Readin(int)
+m = Readin(int)
+T2 = n
+Sending Parametor #1 : T2    to Function iswronggcd
+T2 = m
+Sending Parametor #2 : T2    to Function iswronggcd
+Calling iswronggcd()
+T1 = Return_iswronggcd()
+while T1 is True jump to label 41
+
+
+label 40:
+T2 = n
+Sending Parametor #1 : T2    to Function gcd
+T2 = m
+Sending Parametor #2 : T2    to Function gcd
+Calling gcd()
+T1 = Return_gcd()
+Print String The gcd's answer is Print Num T1
+void return
+
+is_prime:
+Need Parametor #1-- x
+int i
+T1 = 2
+i = T1
+T1 = x
+T2 = 2
+
+T1 = T1==T2
+if T1 is False jump to label 42
+
+T1 = 1
+The Return Value Saved in T1
+
+label 42:
+
+label 43:
+T2 = x
+Sending Parametor #1 : T2    to Function mod
+T2 = i
+Sending Parametor #2 : T2    to Function mod
+Calling mod()
+T1 = Return_mod()
+T2 = 0
+
+T1 = T1==T2
+if T1 is False jump to label 44
+
+T1 = 0
+The Return Value Saved in T1
+
+label 44:
+T1 = i
+T2 = 1
+T1+= T2
+i = T1
+T1 = i
+T1*= i
+T2 = x
+
+T1 = T1<T2
+while T1 is True jump to label 43
+
+T1 = 1
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+prime_factorization:
+Need Parametor #1-- n
+int i
+int first
+T1 = 2
+i = T1
+T1 = 0
+first = T1
+T1 = n
+T2 = 1
+
+T1 = T1==T2
+if T1 is False jump to label 45
+
+Print String 1
+nothing to return
+
+label 45:
+
+label 46:
+T2 = i
+Sending Parametor #1 : T2    to Function is_prime
+Calling is_prime()
+T1 = Return_is_prime()
+T2 = 1
+
+T1 = T1==T2
+if T1 is False jump to label 47
+
+T2 = n
+Sending Parametor #1 : T2    to Function mod
+T2 = i
+Sending Parametor #2 : T2    to Function mod
+Calling mod()
+T1 = Return_mod()
+T2 = 0
+
+T1 = T1==T2
+if T1 is False jump to label 48
+
+
+label 49:
+T1 = n
+T1/= i
+n = T1
+T1 = first
+T2 = 1
+
+T1 = T1==T2
+if T1 is False jump to label 50
+
+Print String *
+
+label 50:
+T1 = 1
+first = T1
+T1 = i
+Print Num T1
+T2 = n
+Sending Parametor #1 : T2    to Function mod
+T2 = i
+Sending Parametor #2 : T2    to Function mod
+Calling mod()
+T1 = Return_mod()
+T2 = 0
+
+T1 = T1==T2
+while T1 is True jump to label 49
+
+
+label 48:
+
+label 47:
+T1 = i
+T2 = 1
+T1+= T2
+i = T1
+T1 = i
+T1*= i
+T2 = n
+
+T1 = T1<T2
+while T1 is True jump to label 46
+
+T1 = n
+T2 = 1
+
+T1 = T1!=T2
+if T1 is False jump to label 51
+
+T1 = first
+T2 = 1
+
+T1 = T1==T2
+if T1 is False jump to label 52
+
+Print String *
+
+label 52:
+T1 = n
+Print Num T1
+
+label 51:
+void return
+
+prime_factorization_test:
+int n
+Print String prime_factorization: Please input a unsigned positive integer(<2^31-1) ?
+n = Readin(int)
+
+label 53:
+T1 = n
+T2 = 0
+
+T1 = T1<T2
+if T1 is False jump to label 54
+
+Print String Input error, try again:
+n = Readin(int)
+
+label 54:
+T1 = n
+T2 = 0
+
+T1 = T1<T2
+while T1 is True jump to label 53
+
+Print String The factor of n is 
+T1 = n
+Sending Parametor #1 : T1    to Function prime_factorization
+Calling prime_factorization()
+void return
+
+iswrong:
+Need Parametor #1-- a
+T1 = 69
+T2 = a
+
+T1 = T1==T2
+if T1 is False jump to label 55
+
+T1 = 0
+The Return Value Saved in T1
+
+label 55:
+T1 = 77
+T2 = a
+
+T1 = T1==T2
+if T1 is False jump to label 56
+
+T1 = 0
+The Return Value Saved in T1
+
+label 56:
+T1 = 72
+T2 = a
+
+T1 = T1==T2
+if T1 is False jump to label 57
+
+T1 = 0
+The Return Value Saved in T1
+
+label 57:
+T1 = 1
+The Return Value Saved in T1
+Did not return Success When you see this!
+
+main:
+char kind
+Print String Please input Test Type:E(Easy), (M)Middle, H(Hard): 
+kind = Readin(char)
+T2 = kind
+Sending Parametor #1 : T2    to Function iswrong
+Calling iswrong()
+T1 = Return_iswrong()
+if T1 is False jump to label 58
+
+
+label 59:
+Print String Try Again: 
+kind = Readin(char)
+T2 = kind
+Sending Parametor #1 : T2    to Function iswrong
+Calling iswrong()
+T1 = Return_iswrong()
+while T1 is True jump to label 59
+
+
+label 58:
+T1 = kind
+if T1 != 69  jump to label 60
+Calling define_test()
+Calling operator_test()
+Calling fibonaci_test()
+
+label 60:
+if T1 != 77  jump to label 61
+Calling dowhile_test()
+Calling condition_test()
+Calling string_test()
+Calling gcd_test()
+
+label 61:
+if T1 != 72  jump to label 62
+Calling define_test()
+Calling operator_test()
+Calling dowhile_test()
+Calling condition_test()
+Calling string_test()
+Calling miscellaneous_test()
+Calling prime_factorization_test()
+
+label 62:
+nothing to return
 Program Finished

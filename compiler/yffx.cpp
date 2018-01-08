@@ -82,6 +82,7 @@ void YF::mid2mips(){
 	int i;
 	for(i=0;i<=zj->ptop;i++){
 		mips->mid2mips(zj->getcode(i));
+		mips->mid2mips_MemT2Temp(zj->getcode(i));
 	}
 }
 
@@ -106,9 +107,9 @@ void YF::casesen(){
 	int left = express(0);
 	mustread(RPARENTSY);
 	mustread(LBRACESY);
-	count++;
+//	count++;
 	casetab(left);
-	count--;
+//	count--;
 	mustread(RBRACESY);
 }
 

@@ -235,14 +235,14 @@ void ZJ::midcode(std::string w1,int w2,int w3,std::string w4){
 			2 assign
 		*/
 		pcode[ptop].num1 = -5;
-		if(w3 == 3){
+		if(w3 == 2){
+			outf << "T" << w2 << " = Return_" << w4 << "()" << endl;
+		}
+		else if(w3 == 3){
 			outf << "T" << w2 << " *= Return_" << w4 << "()" << endl;
 		}
 		else if(w3 == 4){
 			outf << "T" << w2 << " /= Return_" << w4 << "()" << endl;
-		}
-		else if(w3 == 2){
-			outf << "T" << w2 << " = Return_" << w4 << "()" << endl;
 		}
 	}
 	else if(w1 == "=[]"){

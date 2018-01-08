@@ -1,7 +1,187 @@
-PUSH IN SymTable: #1  a  0  7  10  #0
-PUSH IN SymTable: #2  c  0  7  20  #1
+PUSH IN SymTable: #1  cst1  0  3  1  #0
+PUSH IN SymTable: #2  cst2  0  3  2  #1
+PUSH IN SymTable: #3  cst3  0  3  3  #2
+PUSH IN SymTable: #4  csta  0  4  97  #3
+PUSH IN SymTable: #5  cstb  0  4  98  #4
+PUSH IN SymTable: #6  cstc  0  4  99  #5
+PUSH IN SymTable: #7  g_a  0  5  0  #6
+PUSH IN SymTable: #8  g_b  0  5  0  #7
+PUSH IN SymTable: #9  g_arr  0  5  0  #8
+Change to type:7 value:2048
+PUSH IN SymTable: #10  g_stra  0  8  1024  #9
+PUSH IN SymTable: #11  g_strb  0  6  0  #10
+Change to type:8 value:2048
 
-PUSH IN SymTable: #3  main  1  0  0  #0
-PUSH IN SymTable: #4  T  1  9  1  #0
-PUSH IN SymTable: #5  T  2  9  1  #4
-PUSH IN SymTable: #6  T  3  9  1  #8
+PUSH IN SymTable: #12  const_define  1  0  0  #0
+PUSH IN SymTable: #13  a  0  3  1  #0
+PUSH IN SymTable: #14  b  0  3  0  #4
+PUSH IN SymTable: #15  c  0  3  -1  #8
+PUSH IN SymTable: #16  cst23  0  4  120  #12
+PUSH IN SymTable: #17  cst24  0  4  122  #16
+PUSH IN SymTable: #18  consta0  0  4  65  #20
+PUSH IN SymTable: #19  csta1  0  4  49  #24
+PUSH IN SymTable: #20  cst_div  0  4  47  #28
+PUSH IN SymTable: #21  T  1  9  1  #32
+
+PUSH IN SymTable: #22  const_define_test  1  0  0  #0
+
+PUSH IN SymTable: #23  var_define  1  0  0  #0
+PUSH IN SymTable: #24  a  3  5  0  #0
+PUSH IN SymTable: #25  arr  3  5  0  #4
+PUSH IN SymTable: #26  _a  3  5  0  #8
+PUSH IN SymTable: #27  _arr  3  5  0  #12
+PUSH IN SymTable: #28  a1  3  5  0  #20
+PUSH IN SymTable: #29  arr1  3  5  0  #24
+PUSH IN SymTable: #30  b  3  6  0  #36
+PUSH IN SymTable: #31  strb  3  6  0  #40
+PUSH IN SymTable: #32  _b  3  6  0  #44
+PUSH IN SymTable: #33  _bstr  3  6  0  #48
+PUSH IN SymTable: #34  _b1  3  6  0  #56
+PUSH IN SymTable: #35  _bstr1  3  6  0  #60
+PUSH IN SymTable: #36  c  3  5  0  #72
+PUSH IN SymTable: #37  z  3  6  0  #76
+
+PUSH IN SymTable: #38  var_define_test  1  0  0  #0
+
+PUSH IN SymTable: #39  define  1  0  0  #0
+PUSH IN SymTable: #40  int1  0  3  1  #0
+PUSH IN SymTable: #41  cst24  0  4  122  #4
+PUSH IN SymTable: #42  consta0  0  4  65  #8
+PUSH IN SymTable: #43  val1  3  5  0  #12
+PUSH IN SymTable: #44  b  3  6  0  #16
+PUSH IN SymTable: #45  strb  3  6  0  #20
+
+PUSH IN SymTable: #46  define_test  1  0  0  #0
+
+PUSH IN SymTable: #47  operator  1  0  0  #0
+PUSH IN SymTable: #48  a  3  5  0  #0
+PUSH IN SymTable: #49  b  3  5  0  #4
+PUSH IN SymTable: #50  c  3  5  0  #8
+PUSH IN SymTable: #51  d  3  5  0  #12
+PUSH IN SymTable: #52  e  3  5  0  #16
+PUSH IN SymTable: #53  f  3  5  0  #20
+PUSH IN SymTable: #54  T  1  9  1  #24
+PUSH IN SymTable: #55  T  2  9  1  #28
+PUSH IN SymTable: #56  T  3  9  1  #32
+PUSH IN SymTable: #57  T  4  9  1  #36
+
+PUSH IN SymTable: #58  operator_test  1  0  0  #0
+
+PUSH IN SymTable: #59  string  1  0  0  #0
+
+PUSH IN SymTable: #60  string_test  1  0  0  #0
+
+PUSH IN SymTable: #61  dowhile  1  0  0  #0
+PUSH IN SymTable: #62  i  3  5  0  #0
+PUSH IN SymTable: #63  T  1  9  1  #4
+PUSH IN SymTable: #64  T  2  9  1  #8
+PUSH IN SymTable: #65  T  3  9  1  #12
+
+PUSH IN SymTable: #66  dowhile_test  1  0  0  #0
+
+PUSH IN SymTable: #67  ifcondition  1  0  0  #0
+PUSH IN SymTable: #68  a  3  5  0  #0
+PUSH IN SymTable: #69  rightnumber  3  5  0  #4
+PUSH IN SymTable: #70  T  1  9  1  #8
+PUSH IN SymTable: #71  T  2  9  1  #12
+PUSH IN SymTable: #72  T  3  9  1  #16
+PUSH IN SymTable: #73  T  4  9  1  #20
+
+PUSH IN SymTable: #74  switchcodintionans  1  1  0  #0
+PUSH IN SymTable: #75  x  2  5  0  #0
+PUSH IN SymTable: #76  T  1  9  1  #4
+
+PUSH IN SymTable: #77  switchcodintion  1  1  0  #0
+PUSH IN SymTable: #78  i  3  5  0  #0
+PUSH IN SymTable: #79  rightnumber  3  5  0  #4
+PUSH IN SymTable: #80  T  1  9  1  #8
+PUSH IN SymTable: #81  T  2  9  1  #12
+PUSH IN SymTable: #82  T  3  9  1  #16
+
+PUSH IN SymTable: #83  condition  1  0  0  #0
+PUSH IN SymTable: #84  intermax  0  3  5  #0
+PUSH IN SymTable: #85  iter  3  5  0  #4
+PUSH IN SymTable: #86  T  1  9  1  #8
+PUSH IN SymTable: #87  T  2  9  1  #12
+
+PUSH IN SymTable: #88  condition_test  1  0  0  #0
+
+PUSH IN SymTable: #89  miscellaneous  1  0  0  #0
+PUSH IN SymTable: #90  _  3  5  0  #0
+PUSH IN SymTable: #91  a  3  5  0  #4
+PUSH IN SymTable: #92  array  3  5  0  #8
+PUSH IN SymTable: #93  i  3  5  0  #100
+PUSH IN SymTable: #94  endid  3  5  0  #104
+PUSH IN SymTable: #95  ch1  3  6  0  #108
+PUSH IN SymTable: #96  buf  3  6  0  #112
+PUSH IN SymTable: #97  T  1  9  1  #1136
+PUSH IN SymTable: #98  T  2  9  1  #1140
+PUSH IN SymTable: #99  T  3  9  1  #1144
+
+PUSH IN SymTable: #100  miscellaneous_test  1  0  0  #0
+
+PUSH IN SymTable: #101  fibonaci  1  1  0  #0
+PUSH IN SymTable: #102  n  2  5  0  #0
+PUSH IN SymTable: #103  T  1  9  1  #4
+PUSH IN SymTable: #104  T  2  9  1  #8
+PUSH IN SymTable: #105  T  3  9  1  #12
+PUSH IN SymTable: #106  T  4  9  1  #16
+
+PUSH IN SymTable: #107  fibonaci_test  1  0  0  #0
+PUSH IN SymTable: #108  n  3  5  0  #0
+PUSH IN SymTable: #109  T  1  9  1  #4
+PUSH IN SymTable: #110  T  2  9  1  #8
+
+PUSH IN SymTable: #111  mod  1  1  0  #0
+PUSH IN SymTable: #112  n  2  5  0  #0
+PUSH IN SymTable: #113  m  2  5  0  #4
+PUSH IN SymTable: #114  T  1  9  1  #8
+PUSH IN SymTable: #115  T  2  9  1  #12
+
+PUSH IN SymTable: #116  gcd  1  1  0  #0
+PUSH IN SymTable: #117  n  2  5  0  #0
+PUSH IN SymTable: #118  m  2  5  0  #4
+PUSH IN SymTable: #119  rem  3  5  0  #8
+PUSH IN SymTable: #120  T  1  9  1  #12
+PUSH IN SymTable: #121  T  2  9  1  #16
+PUSH IN SymTable: #122  T  3  9  1  #20
+
+PUSH IN SymTable: #123  iswronggcd  1  1  0  #0
+PUSH IN SymTable: #124  n  2  5  0  #0
+PUSH IN SymTable: #125  m  2  5  0  #4
+PUSH IN SymTable: #126  T  1  9  1  #8
+PUSH IN SymTable: #127  T  2  9  1  #12
+
+PUSH IN SymTable: #128  gcd_test  1  0  0  #0
+PUSH IN SymTable: #129  n  3  5  0  #0
+PUSH IN SymTable: #130  m  3  5  0  #4
+PUSH IN SymTable: #131  T  1  9  1  #8
+PUSH IN SymTable: #132  T  2  9  1  #12
+
+PUSH IN SymTable: #133  is_prime  1  1  0  #0
+PUSH IN SymTable: #134  x  2  5  0  #0
+PUSH IN SymTable: #135  i  3  5  0  #4
+PUSH IN SymTable: #136  T  1  9  1  #8
+PUSH IN SymTable: #137  T  2  9  1  #12
+
+PUSH IN SymTable: #138  prime_factorization  1  0  0  #0
+PUSH IN SymTable: #139  n  2  5  0  #0
+PUSH IN SymTable: #140  i  3  5  0  #4
+PUSH IN SymTable: #141  first  3  5  0  #8
+PUSH IN SymTable: #142  T  1  9  1  #12
+PUSH IN SymTable: #143  T  2  9  1  #16
+
+PUSH IN SymTable: #144  prime_factorization_test  1  0  0  #0
+PUSH IN SymTable: #145  n  3  5  0  #0
+PUSH IN SymTable: #146  T  1  9  1  #4
+PUSH IN SymTable: #147  T  2  9  1  #8
+
+PUSH IN SymTable: #148  iswrong  1  1  0  #0
+PUSH IN SymTable: #149  a  2  6  0  #0
+PUSH IN SymTable: #150  T  1  9  1  #4
+PUSH IN SymTable: #151  T  2  9  1  #8
+
+PUSH IN SymTable: #152  main  1  0  0  #0
+PUSH IN SymTable: #153  kind  3  6  0  #0
+PUSH IN SymTable: #154  T  1  9  1  #4
+PUSH IN SymTable: #155  T  2  9  1  #8
