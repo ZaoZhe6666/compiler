@@ -4,6 +4,7 @@
 #include<fstream>
 #include<stack>
 #include<string>
+#include<vector>
 #include"metaphysics.h"
 #include"error.h"
 
@@ -14,6 +15,55 @@ struct PCode{
 	int num2;
 	int num3;
 	std::string str;
+};
+
+struct DagPoint{
+	std::string name;
+	int left;
+	int right;
+	int value;
+	int loc;
+};
+
+struct DagTable{
+	std::vector<DagPoint> dt;
+	int topnum;
+};
+
+struct DagRelate{
+	std::string relate;
+	int left;
+	int right;
+	int mid;
+};
+
+struct DagRelateTable{
+	std::vector<DagRelate> drt;
+};
+
+class DT{
+	private:
+		std::ofstream outf;
+		DagTable *s1;
+		DagRelateTable *s2;
+	public:
+		DT();
+		//判断变量是否在dag表中
+		int dt_seek(std::string str);
+		//判断寄存器是否在dag表中
+		int DT::dt_seek(std::string str,int n);
+		//判断常数int/char是否在dag表中
+		int dt_seek(int n);
+		//判断关系left relate right是否在关系树中
+		int dt_seek(std::string relate,int left,int right);
+
+		//创建新的DAG图中孤立节点
+		int dt_create_point(std::string name,int value);
+		//修改dag表中寄存器指向位置
+		void dt_change_point_value(int point_index, int loc);
+		//创建DAG图中关系节点
+		int dt_create_relate(std::string relate,int left,int right);
+		void dt_delete_relate();
 };
 
 struct Func{

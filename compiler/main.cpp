@@ -9,6 +9,7 @@ using namespace std;
 Error error;
 FT ft;
 ST st;
+DT dt;
 int main(){
 	string filename;
 	cout << "Please enter the file path of your input:";

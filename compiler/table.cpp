@@ -9,6 +9,124 @@
 
 using namespace std;
 
+DT::DT(){
+	DagTable *dt;
+	if(dt = new DagTable){
+		dt->topnum = 0;
+		s1 = dt;
+	}
+	else{
+		s1 = NULL;
+	}
+	DagRelateTable *drt;
+	if(drt = new DagRelateTable){
+		s2 = drt;
+	}
+	else{
+		s2 = NULL;
+	}
+	outf.open("out_DagTable.txt");
+}
+
+int DT::dt_seek(std::string str){
+	outf << "\t\tSEEK IDENT " << str <<endl;
+	int i;
+	int top = s1->dt.size();
+	for(i=0;i<top;i++){
+		if(s1->dt.at(i).name == str){
+			return i;
+		}
+	}
+	return -1;
+}
+
+int DT::dt_seek(std::string str,int n){
+	outf << "\t\tSEEK TEMP T" << n <<endl;
+	int i;
+	int top = s1->dt.size();
+	for(i=0;i<top;i++){
+		if(s1->dt.at(i).name == "T" && s1->dt.at(i).value == n){
+			return i;
+		}
+	}
+	return -1;
+}
+
+int DT::dt_seek(int n){
+	outf << "\t\tSEEK CONST " << n <<endl;
+	int i;
+	int top = s1->dt.size();
+	for(i=0;i<top;i++){
+		if(s1->dt.at(i).name == "CONST" && s1->dt.at(i).value == n){
+			return i;
+		}
+	}
+	return -1;
+}
+
+int DT::dt_seek(std::string relate,int left,int right){
+	outf << "\t\tSEEK RELATE " << left << " " << relate << " " << right <<endl;
+	int i;
+	int top = s2->drt.size();
+	for(i=0;i<top;i++){
+		if(s2->drt.at(i).relate == relate && s2->drt.at(i).left == left && s2->drt.at(i).right == right){
+			return s2->drt.at(i).mid;
+		}
+	}
+	return 0;
+}
+
+int DT::dt_create_point(std::string name,int value){
+	DagPoint dp;
+	dp.left = 0;
+	dp.right = 0;
+	dp.value = value;
+	dp.name = name;
+	dp.loc = ++s1->topnum;
+	s1->dt.push_back(dp);
+	if(name == "T"){
+		outf << "CREATE POINT #"  << s1->topnum << "  T" << value <<endl;
+	}
+	else if(name == "CONST"){
+		outf << "CREATE POINT #"  << s1->topnum << "  CONST  " << value <<endl;
+	}
+	else{
+		outf << "CREATE POINT #"  << s1->topnum << "  " << name <<endl;
+	}
+	return dp.loc;
+}
+
+void DT::dt_change_point_value(int point_index, int loc){
+	s1->dt.at(point_index).loc = loc;
+	return;
+}
+
+int DT::dt_create_relate(std::string relate,int left,int right){
+	DagRelate new_relate;
+	new_relate.left = left;
+	new_relate.right = right;
+	new_relate.relate = relate;
+	new_relate.mid = ++s1->topnum;
+	DagPoint dp;
+	dp.left = left;
+	dp.right = right;
+	dp.loc = s1->topnum;
+	dp.name = relate;
+	dp.value = 0;
+	s1->dt.push_back(dp);
+	outf << "CREATE POINT #"  << s1->topnum << " " << relate <<endl;
+	s2->drt.push_back(new_relate);
+	outf << "CREATE RELATE #" << left << "--- " << relate << "(#" << s1->topnum << ") ---#" << right <<endl;
+	return dp.loc;
+}
+
+void DT::dt_delete_relate(){
+	outf << "########## END DAG ##########" << endl;
+	s1->dt.clear();
+	s1->topnum = 0;
+	s2->drt.clear();
+}
+
 FT::FT(){
 	FuncTable *ft;
 	if(ft = new FuncTable){

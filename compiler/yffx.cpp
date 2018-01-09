@@ -80,7 +80,8 @@ void YF::mustread(int sym){
 
 void YF::mid2mips(){
 	int i;
-	for(i=0;i<=zj->ptop;i++){
+	int zj_ptop = zj->ptop;
+	for(i=0;i<=zj_ptop;i++){
 		mips->mid2mips(zj->getcode(i));
 		mips->mid2mips_MemT2Temp(zj->getcode(i));
 	}
@@ -455,6 +456,13 @@ int YF::factor(int ident = 0){
 		}
 		getSym();
 		ident = 1;
+		if(symID == PLUSSY || symID == SUBSY){
+			if(symID == SUBSY){
+				zj->midcode("=",left,-3,-1);
+				array_index *= -1;
+			}
+			getSym();
+		}
 	}
 
 	if(symID == IDENTSY){
