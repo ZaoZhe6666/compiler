@@ -1,47 +1,1225 @@
-token: int		symID: 1		SY:int		line: 1		column:1
-token: a		symID: 37		SY:identifier		line: 1		column:5
-token: [		symID: 33		SY:left brack		line: 1		column:6
-token: 10		symID: 29		SY:number		line: 1		column:7
-token: ]		symID: 34		SY:right brack		line: 1		column:9
-token: ;		symID: 24		SY:semi		line: 1		column:10
-token: int		symID: 1		SY:int		line: 2		column:1
-token: c		symID: 37		SY:identifier		line: 2		column:5
-token: [		symID: 33		SY:left brack		line: 2		column:6
-token: 20		symID: 29		SY:number		line: 2		column:7
-token: ]		symID: 34		SY:right brack		line: 2		column:9
-token: ;		symID: 24		SY:semi		line: 2		column:10
-token: void		symID: 3		SY:void		line: 3		column:1
-token: main		symID: 4		SY:main		line: 3		column:6
-token: (		symID: 31		SY:left parent		line: 3		column:10
-token: )		symID: 32		SY:right parent		line: 3		column:11
-token: {		symID: 35		SY:left brace		line: 3		column:12
-token: int		symID: 1		SY:int		line: 4		column:5
-token: t		symID: 37		SY:identifier		line: 4		column:9
-token: ,		symID: 23		SY:comma		line: 4		column:10
-token: x		symID: 37		SY:identifier		line: 4		column:11
-token: ;		symID: 24		SY:semi		line: 4		column:12
-token: t		symID: 37		SY:identifier		line: 5		column:5
-token: =		symID: 25		SY:assign		line: 5		column:7
-token: 3		symID: 29		SY:number		line: 5		column:9
-token: *		symID: 15		SY:mult		line: 5		column:10
-token: -		symID: 14		SY:sub		line: 5		column:11
-token: 2		symID: 29		SY:number		line: 5		column:12
-token: -		symID: 14		SY:sub		line: 5		column:13
-token: 4		symID: 29		SY:number		line: 5		column:14
-token: /		symID: 16		SY:div		line: 5		column:15
-token: -		symID: 14		SY:sub		line: 5		column:16
-token: 7		symID: 29		SY:number		line: 5		column:17
-token: ;		symID: 24		SY:semi		line: 5		column:18
-token: x		symID: 37		SY:identifier		line: 6		column:5
-token: =		symID: 25		SY:assign		line: 6		column:7
-token: 3		symID: 29		SY:number		line: 6		column:9
-token: *		symID: 15		SY:mult		line: 6		column:10
-token: -		symID: 14		SY:sub		line: 6		column:11
-token: 2		symID: 29		SY:number		line: 6		column:12
-token: -		symID: 14		SY:sub		line: 6		column:13
-token: 4		symID: 29		SY:number		line: 6		column:14
-token: /		symID: 16		SY:div		line: 6		column:15
-token: -		symID: 14		SY:sub		line: 6		column:16
-token: 7		symID: 29		SY:number		line: 6		column:17
+token: const		symID: 0		SY:const		line: 1		column:1
+token: int		symID: 1		SY:int		line: 1		column:7
+token: cona		symID: 37		SY:identifier		line: 1		column:11
+token: =		symID: 25		SY:assign		line: 1		column:15
+token: 10		symID: 29		SY:number		line: 1		column:16
+token: ;		symID: 24		SY:semi		line: 1		column:18
+token: const		symID: 0		SY:const		line: 2		column:1
+token: char		symID: 2		SY:char		line: 2		column:7
+token: conb		symID: 37		SY:identifier		line: 2		column:12
+token: =		symID: 25		SY:assign		line: 2		column:16
+token: a		symID: 26		SY:single quota		line: 2		column:17
+token: ,		symID: 23		SY:comma		line: 2		column:20
+token: conc		symID: 37		SY:identifier		line: 2		column:21
+token: =		symID: 25		SY:assign		line: 2		column:25
+token: 6		symID: 26		SY:single quota		line: 2		column:26
+token: ;		symID: 24		SY:semi		line: 2		column:29
+token: int		symID: 1		SY:int		line: 3		column:1
+token: _cha		symID: 37		SY:identifier		line: 3		column:5
+token: ,		symID: 23		SY:comma		line: 3		column:9
+token: chb		symID: 37		SY:identifier		line: 3		column:10
+token: [		symID: 33		SY:left brack		line: 3		column:13
+token: 6		symID: 29		SY:number		line: 3		column:14
+token: ]		symID: 34		SY:right brack		line: 3		column:15
+token: ;		symID: 24		SY:semi		line: 3		column:16
+token: char		symID: 2		SY:char		line: 4		column:1
+token: chc		symID: 37		SY:identifier		line: 4		column:6
+token: ,		symID: 23		SY:comma		line: 4		column:9
+token: chd		symID: 37		SY:identifier		line: 4		column:10
+token: ;		symID: 24		SY:semi		line: 4		column:13
+token: int		symID: 1		SY:int		line: 5		column:1
+token: f		symID: 37		SY:identifier		line: 5		column:5
+token: (		symID: 31		SY:left parent		line: 5		column:6
+token: int		symID: 1		SY:int		line: 5		column:7
+token: x		symID: 37		SY:identifier		line: 5		column:11
+token: ,		symID: 23		SY:comma		line: 5		column:12
+token: int		symID: 1		SY:int		line: 5		column:13
+token: y		symID: 37		SY:identifier		line: 5		column:17
+token: )		symID: 32		SY:right parent		line: 5		column:18
+token: {		symID: 35		SY:left brace		line: 5		column:19
+token: const		symID: 0		SY:const		line: 6		column:5
+token: int		symID: 1		SY:int		line: 6		column:11
+token: z		symID: 37		SY:identifier		line: 6		column:15
+token: =		symID: 25		SY:assign		line: 6		column:16
+token: 1		symID: 29		SY:number		line: 6		column:17
 token: ;		symID: 24		SY:semi		line: 6		column:18
-token: }		symID: 36		SY:right brace		line: 7		column:1
+token: if		symID: 9		SY:if		line: 7		column:5
+token: (		symID: 31		SY:left parent		line: 7		column:7
+token: x		symID: 37		SY:identifier		line: 7		column:8
+token: >		symID: 17		SY:great		line: 7		column:9
+token: 1		symID: 29		SY:number		line: 7		column:10
+token: )		symID: 32		SY:right parent		line: 7		column:11
+token: return		symID: 12		SY:return		line: 7		column:13
+token: (		symID: 31		SY:left parent		line: 7		column:20
+token: x		symID: 37		SY:identifier		line: 7		column:21
+token: +		symID: 13		SY:plus		line: 7		column:22
+token: z		symID: 37		SY:identifier		line: 7		column:23
+token: )		symID: 32		SY:right parent		line: 7		column:24
+token: ;		symID: 24		SY:semi		line: 7		column:25
+token: x		symID: 37		SY:identifier		line: 8		column:5
+token: =		symID: 25		SY:assign		line: 8		column:6
+token: x		symID: 37		SY:identifier		line: 8		column:7
+token: +		symID: 13		SY:plus		line: 8		column:8
+token: 1		symID: 29		SY:number		line: 8		column:9
+token: ;		symID: 24		SY:semi		line: 8		column:10
+token: f		symID: 37		SY:identifier		line: 8		column:11
+token: (		symID: 31		SY:left parent		line: 8		column:12
+token: x		symID: 37		SY:identifier		line: 8		column:13
+token: ,		symID: 23		SY:comma		line: 8		column:14
+token: y		symID: 37		SY:identifier		line: 8		column:15
+token: )		symID: 32		SY:right parent		line: 8		column:16
+token: ;		symID: 24		SY:semi		line: 8		column:17
+token: return		symID: 12		SY:return		line: 9		column:5
+token: (		symID: 31		SY:left parent		line: 9		column:12
+token: x		symID: 37		SY:identifier		line: 9		column:13
+token: +		symID: 13		SY:plus		line: 9		column:14
+token: y		symID: 37		SY:identifier		line: 9		column:15
+token: )		symID: 32		SY:right parent		line: 9		column:16
+token: ;		symID: 24		SY:semi		line: 9		column:17
+token: }		symID: 36		SY:right brace		line: 10		column:1
+token: int		symID: 1		SY:int		line: 11		column:1
+token: compare		symID: 37		SY:identifier		line: 11		column:5
+token: (		symID: 31		SY:left parent		line: 11		column:12
+token: int		symID: 1		SY:int		line: 11		column:13
+token: a		symID: 37		SY:identifier		line: 11		column:17
+token: ,		symID: 23		SY:comma		line: 11		column:18
+token: int		symID: 1		SY:int		line: 11		column:19
+token: b		symID: 37		SY:identifier		line: 11		column:23
+token: )		symID: 32		SY:right parent		line: 11		column:24
+token: {		symID: 35		SY:left brace		line: 11		column:25
+token: if		symID: 9		SY:if		line: 12		column:9
+token: (		symID: 31		SY:left parent		line: 12		column:11
+token: a		symID: 37		SY:identifier		line: 12		column:12
+token: >		symID: 17		SY:great		line: 12		column:13
+token: b		symID: 37		SY:identifier		line: 12		column:14
+token: )		symID: 32		SY:right parent		line: 12		column:15
+token: return		symID: 12		SY:return		line: 12		column:17
+token: (		symID: 31		SY:left parent		line: 12		column:24
+token: 1		symID: 29		SY:number		line: 12		column:25
+token: )		symID: 32		SY:right parent		line: 12		column:26
+token: ;		symID: 24		SY:semi		line: 12		column:27
+token: if		symID: 9		SY:if		line: 13		column:9
+token: (		symID: 31		SY:left parent		line: 13		column:11
+token: a		symID: 37		SY:identifier		line: 13		column:12
+token: <=		symID: 20		SY:less or equal		line: 13		column:13
+token: b		symID: 37		SY:identifier		line: 13		column:15
+token: )		symID: 32		SY:right parent		line: 13		column:16
+token: return		symID: 12		SY:return		line: 13		column:18
+token: (		symID: 31		SY:left parent		line: 13		column:25
+token: -		symID: 14		SY:sub		line: 13		column:26
+token: 1		symID: 29		SY:number		line: 13		column:27
+token: )		symID: 32		SY:right parent		line: 13		column:28
+token: ;		symID: 24		SY:semi		line: 13		column:29
+token: }		symID: 36		SY:right brace		line: 14		column:1
+token: void		symID: 3		SY:void		line: 16		column:1
+token: line		symID: 37		SY:identifier		line: 16		column:6
+token: (		symID: 31		SY:left parent		line: 16		column:10
+token: int		symID: 1		SY:int		line: 16		column:11
+token: n		symID: 37		SY:identifier		line: 16		column:15
+token: ,		symID: 23		SY:comma		line: 16		column:16
+token: int		symID: 1		SY:int		line: 16		column:17
+token: m		symID: 37		SY:identifier		line: 16		column:21
+token: )		symID: 32		SY:right parent		line: 16		column:22
+token: {		symID: 35		SY:left brace		line: 16		column:23
+token: int		symID: 1		SY:int		line: 17		column:5
+token: i		symID: 37		SY:identifier		line: 17		column:9
+token: ,		symID: 23		SY:comma		line: 17		column:10
+token: j		symID: 37		SY:identifier		line: 17		column:11
+token: ,		symID: 23		SY:comma		line: 17		column:12
+token: stpos		symID: 37		SY:identifier		line: 17		column:13
+token: [		symID: 33		SY:left brack		line: 17		column:18
+token: 100		symID: 29		SY:number		line: 17		column:19
+token: ]		symID: 34		SY:right brack		line: 17		column:22
+token: ,		symID: 23		SY:comma		line: 17		column:23
+token: posst		symID: 37		SY:identifier		line: 17		column:24
+token: [		symID: 33		SY:left brack		line: 17		column:29
+token: 100		symID: 29		SY:number		line: 17		column:30
+token: ]		symID: 34		SY:right brack		line: 17		column:33
+token: ;		symID: 24		SY:semi		line: 17		column:34
+token: int		symID: 1		SY:int		line: 18		column:5
+token: p		symID: 37		SY:identifier		line: 18		column:9
+token: ,		symID: 23		SY:comma		line: 18		column:10
+token: q		symID: 37		SY:identifier		line: 18		column:11
+token: ,		symID: 23		SY:comma		line: 18		column:12
+token: move		symID: 37		SY:identifier		line: 18		column:13
+token: ,		symID: 23		SY:comma		line: 18		column:17
+token: end		symID: 37		SY:identifier		line: 18		column:18
+token: ,		symID: 23		SY:comma		line: 18		column:21
+token: po1		symID: 37		SY:identifier		line: 18		column:22
+token: ,		symID: 23		SY:comma		line: 18		column:25
+token: po2		symID: 37		SY:identifier		line: 18		column:26
+token: ,		symID: 23		SY:comma		line: 18		column:29
+token: st2		symID: 37		SY:identifier		line: 18		column:30
+token: ;		symID: 24		SY:semi		line: 18		column:33
+token: i		symID: 37		SY:identifier		line: 19		column:5
+token: =		symID: 25		SY:assign		line: 19		column:6
+token: 1		symID: 29		SY:number		line: 19		column:7
+token: ;		symID: 24		SY:semi		line: 19		column:8
+token: j		symID: 37		SY:identifier		line: 19		column:9
+token: =		symID: 25		SY:assign		line: 19		column:10
+token: 1		symID: 29		SY:number		line: 19		column:11
+token: ;		symID: 24		SY:semi		line: 19		column:12
+token: do		symID: 5		SY:do		line: 20		column:5
+token: {		symID: 35		SY:left brace		line: 20		column:7
+token: stpos		symID: 37		SY:identifier		line: 21		column:9
+token: [		symID: 33		SY:left brack		line: 21		column:14
+token: i		symID: 37		SY:identifier		line: 21		column:15
+token: ]		symID: 34		SY:right brack		line: 21		column:16
+token: =		symID: 25		SY:assign		line: 21		column:17
+token: i		symID: 37		SY:identifier		line: 21		column:18
+token: ;		symID: 24		SY:semi		line: 21		column:19
+token: posst		symID: 37		SY:identifier		line: 22		column:9
+token: [		symID: 33		SY:left brack		line: 22		column:14
+token: i		symID: 37		SY:identifier		line: 22		column:15
+token: ]		symID: 34		SY:right brack		line: 22		column:16
+token: =		symID: 25		SY:assign		line: 22		column:17
+token: i		symID: 37		SY:identifier		line: 22		column:18
+token: ;		symID: 24		SY:semi		line: 22		column:19
+token: i		symID: 37		SY:identifier		line: 23		column:9
+token: =		symID: 25		SY:assign		line: 23		column:10
+token: i		symID: 37		SY:identifier		line: 23		column:11
+token: +		symID: 13		SY:plus		line: 23		column:12
+token: 1		symID: 29		SY:number		line: 23		column:13
+token: ;		symID: 24		SY:semi		line: 23		column:14
+token: }		symID: 36		SY:right brace		line: 24		column:5
+token: while		symID: 6		SY:while		line: 24		column:6
+token: (		symID: 31		SY:left parent		line: 24		column:11
+token: i		symID: 37		SY:identifier		line: 24		column:12
+token: <=		symID: 20		SY:less or equal		line: 24		column:13
+token: n		symID: 37		SY:identifier		line: 24		column:15
+token: )		symID: 32		SY:right parent		line: 24		column:16
+token: i		symID: 37		SY:identifier		line: 25		column:5
+token: =		symID: 25		SY:assign		line: 25		column:6
+token: 1		symID: 29		SY:number		line: 25		column:7
+token: ;		symID: 24		SY:semi		line: 25		column:8
+token: do		symID: 5		SY:do		line: 26		column:5
+token: {		symID: 35		SY:left brace		line: 26		column:7
+token: if		symID: 9		SY:if		line: 27		column:9
+token: (		symID: 31		SY:left parent		line: 27		column:11
+token: i		symID: 37		SY:identifier		line: 27		column:12
+token: ==		symID: 21		SY:equal		line: 27		column:13
+token: 1		symID: 29		SY:number		line: 27		column:15
+token: )		symID: 32		SY:right parent		line: 27		column:16
+token: {		symID: 35		SY:left brace		line: 27		column:17
+token: p		symID: 37		SY:identifier		line: 28		column:19
+token: =		symID: 25		SY:assign		line: 28		column:20
+token: 3		symID: 29		SY:number		line: 28		column:21
+token: ;		symID: 24		SY:semi		line: 28		column:22
+token: q		symID: 37		SY:identifier		line: 28		column:23
+token: =		symID: 25		SY:assign		line: 28		column:24
+token: 2		symID: 29		SY:number		line: 28		column:25
+token: ;		symID: 24		SY:semi		line: 28		column:26
+token: }		symID: 36		SY:right brace		line: 29		column:10
+token: if		symID: 9		SY:if		line: 30		column:11
+token: (		symID: 31		SY:left parent		line: 30		column:13
+token: i		symID: 37		SY:identifier		line: 30		column:14
+token: ==		symID: 21		SY:equal		line: 30		column:15
+token: 2		symID: 29		SY:number		line: 30		column:17
+token: )		symID: 32		SY:right parent		line: 30		column:18
+token: {		symID: 35		SY:left brace		line: 30		column:19
+token: p		symID: 37		SY:identifier		line: 31		column:15
+token: =		symID: 25		SY:assign		line: 31		column:16
+token: 8		symID: 29		SY:number		line: 31		column:17
+token: ;		symID: 24		SY:semi		line: 31		column:18
+token: q		symID: 37		SY:identifier		line: 31		column:19
+token: =		symID: 25		SY:assign		line: 31		column:20
+token: -		symID: 14		SY:sub		line: 31		column:21
+token: 3		symID: 29		SY:number		line: 31		column:22
+token: ;		symID: 24		SY:semi		line: 31		column:23
+token: }		symID: 36		SY:right brace		line: 32		column:11
+token: if		symID: 9		SY:if		line: 33		column:11
+token: (		symID: 31		SY:left parent		line: 33		column:13
+token: i		symID: 37		SY:identifier		line: 33		column:14
+token: ==		symID: 21		SY:equal		line: 33		column:15
+token: 3		symID: 29		SY:number		line: 33		column:17
+token: )		symID: 32		SY:right parent		line: 33		column:18
+token: {		symID: 35		SY:left brace		line: 33		column:19
+token: p		symID: 37		SY:identifier		line: 34		column:15
+token: =		symID: 25		SY:assign		line: 34		column:16
+token: 3		symID: 29		SY:number		line: 34		column:17
+token: ;		symID: 24		SY:semi		line: 34		column:18
+token: q		symID: 37		SY:identifier		line: 34		column:19
+token: =		symID: 25		SY:assign		line: 34		column:20
+token: -		symID: 14		SY:sub		line: 34		column:21
+token: 2		symID: 29		SY:number		line: 34		column:22
+token: ;		symID: 24		SY:semi		line: 34		column:23
+token: }		symID: 36		SY:right brace		line: 35		column:11
+token: if		symID: 9		SY:if		line: 36		column:9
+token: (		symID: 31		SY:left parent		line: 36		column:11
+token: q		symID: 37		SY:identifier		line: 36		column:12
+token: !=		symID: 22		SY:not equal		line: 36		column:13
+token: 0		symID: 29		SY:number		line: 36		column:15
+token: )		symID: 32		SY:right parent		line: 36		column:16
+token: {		symID: 35		SY:left brace		line: 36		column:17
+token: move		symID: 37		SY:identifier		line: 37		column:13
+token: =		symID: 25		SY:assign		line: 37		column:17
+token: compare		symID: 37		SY:identifier		line: 37		column:18
+token: (		symID: 31		SY:left parent		line: 37		column:25
+token: q		symID: 37		SY:identifier		line: 37		column:26
+token: ,		symID: 23		SY:comma		line: 37		column:27
+token: 0		symID: 29		SY:number		line: 37		column:28
+token: )		symID: 32		SY:right parent		line: 37		column:29
+token: ;		symID: 24		SY:semi		line: 37		column:30
+token: end		symID: 37		SY:identifier		line: 38		column:13
+token: =		symID: 25		SY:assign		line: 38		column:16
+token: move		symID: 37		SY:identifier		line: 38		column:17
+token: *		symID: 15		SY:mult		line: 38		column:21
+token: q		symID: 37		SY:identifier		line: 38		column:22
+token: ;		symID: 24		SY:semi		line: 38		column:23
+token: po1		symID: 37		SY:identifier		line: 39		column:13
+token: =		symID: 25		SY:assign		line: 39		column:16
+token: stpos		symID: 37		SY:identifier		line: 39		column:17
+token: [		symID: 33		SY:left brack		line: 39		column:22
+token: p		symID: 37		SY:identifier		line: 39		column:23
+token: ]		symID: 34		SY:right brack		line: 39		column:24
+token: ;		symID: 24		SY:semi		line: 39		column:25
+token: do		symID: 5		SY:do		line: 40		column:13
+token: {		symID: 35		SY:left brace		line: 40		column:15
+token: st2		symID: 37		SY:identifier		line: 41		column:17
+token: =		symID: 25		SY:assign		line: 41		column:20
+token: posst		symID: 37		SY:identifier		line: 41		column:21
+token: [		symID: 33		SY:left brack		line: 41		column:26
+token: po1		symID: 37		SY:identifier		line: 41		column:27
+token: +		symID: 13		SY:plus		line: 41		column:30
+token: move		symID: 37		SY:identifier		line: 41		column:31
+token: ]		symID: 34		SY:right brack		line: 41		column:35
+token: ;		symID: 24		SY:semi		line: 41		column:36
+token: po2		symID: 37		SY:identifier		line: 42		column:17
+token: =		symID: 25		SY:assign		line: 42		column:20
+token: stpos		symID: 37		SY:identifier		line: 42		column:21
+token: [		symID: 33		SY:left brack		line: 42		column:26
+token: st2		symID: 37		SY:identifier		line: 42		column:27
+token: ]		symID: 34		SY:right brack		line: 42		column:30
+token: ;		symID: 24		SY:semi		line: 42		column:31
+token: posst		symID: 37		SY:identifier		line: 43		column:17
+token: [		symID: 33		SY:left brack		line: 43		column:22
+token: po1		symID: 37		SY:identifier		line: 43		column:23
+token: ]		symID: 34		SY:right brack		line: 43		column:26
+token: =		symID: 25		SY:assign		line: 43		column:27
+token: st2		symID: 37		SY:identifier		line: 43		column:28
+token: ;		symID: 24		SY:semi		line: 43		column:31
+token: stpos		symID: 37		SY:identifier		line: 44		column:17
+token: [		symID: 33		SY:left brack		line: 44		column:22
+token: st2		symID: 37		SY:identifier		line: 44		column:23
+token: ]		symID: 34		SY:right brack		line: 44		column:26
+token: =		symID: 25		SY:assign		line: 44		column:27
+token: po1		symID: 37		SY:identifier		line: 44		column:28
+token: ;		symID: 24		SY:semi		line: 44		column:31
+token: po1		symID: 37		SY:identifier		line: 45		column:17
+token: =		symID: 25		SY:assign		line: 45		column:20
+token: po2		symID: 37		SY:identifier		line: 45		column:21
+token: ;		symID: 24		SY:semi		line: 45		column:24
+token: j		symID: 37		SY:identifier		line: 46		column:17
+token: =		symID: 25		SY:assign		line: 46		column:18
+token: j		symID: 37		SY:identifier		line: 46		column:19
+token: +		symID: 13		SY:plus		line: 46		column:20
+token: 1		symID: 29		SY:number		line: 46		column:21
+token: ;		symID: 24		SY:semi		line: 46		column:22
+token: }		symID: 36		SY:right brace		line: 47		column:13
+token: while		symID: 6		SY:while		line: 47		column:14
+token: (		symID: 31		SY:left parent		line: 47		column:19
+token: j		symID: 37		SY:identifier		line: 47		column:20
+token: <=		symID: 20		SY:less or equal		line: 47		column:21
+token: end		symID: 37		SY:identifier		line: 47		column:23
+token: )		symID: 32		SY:right parent		line: 47		column:26
+token: posst		symID: 37		SY:identifier		line: 48		column:13
+token: [		symID: 33		SY:left brack		line: 48		column:18
+token: po2		symID: 37		SY:identifier		line: 48		column:19
+token: ]		symID: 34		SY:right brack		line: 48		column:22
+token: =		symID: 25		SY:assign		line: 48		column:23
+token: p		symID: 37		SY:identifier		line: 48		column:24
+token: ;		symID: 24		SY:semi		line: 48		column:25
+token: stpos		symID: 37		SY:identifier		line: 49		column:13
+token: [		symID: 33		SY:left brack		line: 49		column:18
+token: p		symID: 37		SY:identifier		line: 49		column:19
+token: ]		symID: 34		SY:right brack		line: 49		column:20
+token: =		symID: 25		SY:assign		line: 49		column:21
+token: stpos		symID: 37		SY:identifier		line: 49		column:22
+token: [		symID: 33		SY:left brack		line: 49		column:27
+token: p		symID: 37		SY:identifier		line: 49		column:28
+token: ]		symID: 34		SY:right brack		line: 49		column:29
+token: +		symID: 13		SY:plus		line: 49		column:30
+token: q		symID: 37		SY:identifier		line: 49		column:31
+token: ;		symID: 24		SY:semi		line: 49		column:32
+token: }		symID: 36		SY:right brace		line: 50		column:9
+token: i		symID: 37		SY:identifier		line: 51		column:9
+token: =		symID: 25		SY:assign		line: 51		column:10
+token: i		symID: 37		SY:identifier		line: 51		column:11
+token: +		symID: 13		SY:plus		line: 51		column:12
+token: 1		symID: 29		SY:number		line: 51		column:13
+token: ;		symID: 24		SY:semi		line: 51		column:14
+token: }		symID: 36		SY:right brace		line: 52		column:5
+token: while		symID: 6		SY:while		line: 52		column:6
+token: (		symID: 31		SY:left parent		line: 52		column:11
+token: i		symID: 37		SY:identifier		line: 52		column:12
+token: <=		symID: 20		SY:less or equal		line: 52		column:13
+token: m		symID: 37		SY:identifier		line: 52		column:15
+token: )		symID: 32		SY:right parent		line: 52		column:16
+token: printf		symID: 11		SY:printf		line: 53		column:9
+token: (		symID: 31		SY:left parent		line: 53		column:15
+token: posst		symID: 37		SY:identifier		line: 53		column:16
+token: [		symID: 33		SY:left brack		line: 53		column:21
+token: 1		symID: 29		SY:number		line: 53		column:22
+token: ]		symID: 34		SY:right brack		line: 53		column:23
+token: )		symID: 32		SY:right parent		line: 53		column:24
+token: ;		symID: 24		SY:semi		line: 53		column:25
+token: i		symID: 37		SY:identifier		line: 54		column:9
+token: =		symID: 25		SY:assign		line: 54		column:10
+token: 2		symID: 29		SY:number		line: 54		column:11
+token: ;		symID: 24		SY:semi		line: 54		column:12
+token: do		symID: 5		SY:do		line: 55		column:5
+token: {		symID: 35		SY:left brace		line: 55		column:7
+token: printf		symID: 11		SY:printf		line: 56		column:9
+token: (		symID: 31		SY:left parent		line: 56		column:15
+token: posst		symID: 37		SY:identifier		line: 56		column:16
+token: [		symID: 33		SY:left brack		line: 56		column:21
+token: i		symID: 37		SY:identifier		line: 56		column:22
+token: ]		symID: 34		SY:right brack		line: 56		column:23
+token: )		symID: 32		SY:right parent		line: 56		column:24
+token: ;		symID: 24		SY:semi		line: 56		column:25
+token: i		symID: 37		SY:identifier		line: 57		column:9
+token: =		symID: 25		SY:assign		line: 57		column:10
+token: i		symID: 37		SY:identifier		line: 57		column:11
+token: +		symID: 13		SY:plus		line: 57		column:12
+token: 1		symID: 29		SY:number		line: 57		column:13
+token: ;		symID: 24		SY:semi		line: 57		column:14
+token: }		symID: 36		SY:right brace		line: 58		column:8
+token: while		symID: 6		SY:while		line: 58		column:9
+token: (		symID: 31		SY:left parent		line: 58		column:14
+token: i		symID: 37		SY:identifier		line: 58		column:15
+token: <=		symID: 20		SY:less or equal		line: 58		column:16
+token: n		symID: 37		SY:identifier		line: 58		column:18
+token: )		symID: 32		SY:right parent		line: 58		column:19
+token: return		symID: 12		SY:return		line: 59		column:5
+token: ;		symID: 24		SY:semi		line: 59		column:11
+token: }		symID: 36		SY:right brace		line: 60		column:1
+token: char		symID: 2		SY:char		line: 61		column:1
+token: f2		symID: 37		SY:identifier		line: 61		column:6
+token: (		symID: 31		SY:left parent		line: 61		column:8
+token: char		symID: 2		SY:char		line: 61		column:9
+token: x		symID: 37		SY:identifier		line: 61		column:14
+token: )		symID: 32		SY:right parent		line: 61		column:15
+token: {		symID: 35		SY:left brace		line: 61		column:16
+token: int		symID: 1		SY:int		line: 62		column:9
+token: z2		symID: 37		SY:identifier		line: 62		column:13
+token: ;		symID: 24		SY:semi		line: 62		column:15
+token: z2		symID: 37		SY:identifier		line: 63		column:9
+token: =		symID: 25		SY:assign		line: 63		column:11
+token: 1		symID: 29		SY:number		line: 63		column:12
+token: ;		symID: 24		SY:semi		line: 63		column:13
+token: x		symID: 37		SY:identifier		line: 64		column:5
+token: =		symID: 25		SY:assign		line: 64		column:6
+token: x		symID: 37		SY:identifier		line: 64		column:7
+token: +		symID: 13		SY:plus		line: 64		column:8
+token: z2		symID: 37		SY:identifier		line: 64		column:9
+token: ;		symID: 24		SY:semi		line: 64		column:11
+token: return		symID: 12		SY:return		line: 65		column:9
+token: (		symID: 31		SY:left parent		line: 65		column:16
+token: x		symID: 37		SY:identifier		line: 65		column:17
+token: )		symID: 32		SY:right parent		line: 65		column:18
+token: ;		symID: 24		SY:semi		line: 65		column:19
+token: }		symID: 36		SY:right brace		line: 66		column:1
+token: int		symID: 1		SY:int		line: 67		column:1
+token: fib		symID: 37		SY:identifier		line: 67		column:5
+token: (		symID: 31		SY:left parent		line: 67		column:8
+token: int		symID: 1		SY:int		line: 67		column:9
+token: n		symID: 37		SY:identifier		line: 67		column:13
+token: )		symID: 32		SY:right parent		line: 67		column:14
+token: {		symID: 35		SY:left brace		line: 67		column:15
+token: int		symID: 1		SY:int		line: 68		column:9
+token: result		symID: 37		SY:identifier		line: 68		column:13
+token: ;		symID: 24		SY:semi		line: 68		column:19
+token: if		symID: 9		SY:if		line: 69		column:9
+token: (		symID: 31		SY:left parent		line: 69		column:11
+token: n		symID: 37		SY:identifier		line: 69		column:12
+token: ==		symID: 21		SY:equal		line: 69		column:13
+token: 0		symID: 29		SY:number		line: 69		column:15
+token: )		symID: 32		SY:right parent		line: 69		column:16
+token: return		symID: 12		SY:return		line: 69		column:18
+token: (		symID: 31		SY:left parent		line: 69		column:24
+token: 0		symID: 29		SY:number		line: 69		column:25
+token: )		symID: 32		SY:right parent		line: 69		column:26
+token: ;		symID: 24		SY:semi		line: 69		column:27
+token: if		symID: 9		SY:if		line: 70		column:9
+token: (		symID: 31		SY:left parent		line: 70		column:11
+token: n		symID: 37		SY:identifier		line: 70		column:12
+token: ==		symID: 21		SY:equal		line: 70		column:13
+token: 1		symID: 29		SY:number		line: 70		column:15
+token: )		symID: 32		SY:right parent		line: 70		column:16
+token: return		symID: 12		SY:return		line: 70		column:18
+token: (		symID: 31		SY:left parent		line: 70		column:24
+token: 1		symID: 29		SY:number		line: 70		column:25
+token: )		symID: 32		SY:right parent		line: 70		column:26
+token: ;		symID: 24		SY:semi		line: 70		column:27
+token: result		symID: 37		SY:identifier		line: 71		column:9
+token: =		symID: 25		SY:assign		line: 71		column:15
+token: fib		symID: 37		SY:identifier		line: 71		column:16
+token: (		symID: 31		SY:left parent		line: 71		column:19
+token: n		symID: 37		SY:identifier		line: 71		column:20
+token: -		symID: 14		SY:sub		line: 71		column:21
+token: 1		symID: 29		SY:number		line: 71		column:22
+token: )		symID: 32		SY:right parent		line: 71		column:23
+token: +		symID: 13		SY:plus		line: 71		column:24
+token: fib		symID: 37		SY:identifier		line: 71		column:25
+token: (		symID: 31		SY:left parent		line: 71		column:28
+token: n		symID: 37		SY:identifier		line: 71		column:29
+token: -		symID: 14		SY:sub		line: 71		column:30
+token: 2		symID: 29		SY:number		line: 71		column:31
+token: )		symID: 32		SY:right parent		line: 71		column:32
+token: ;		symID: 24		SY:semi		line: 71		column:33
+token: return		symID: 12		SY:return		line: 72		column:9
+token: (		symID: 31		SY:left parent		line: 72		column:16
+token: result		symID: 37		SY:identifier		line: 72		column:17
+token: )		symID: 32		SY:right parent		line: 72		column:23
+token: ;		symID: 24		SY:semi		line: 72		column:24
+token: }		symID: 36		SY:right brace		line: 74		column:1
+token: void		symID: 3		SY:void		line: 75		column:1
+token: nest		symID: 37		SY:identifier		line: 75		column:6
+token: (		symID: 31		SY:left parent		line: 75		column:10
+token: )		symID: 32		SY:right parent		line: 75		column:11
+token: {		symID: 35		SY:left brace		line: 75		column:12
+token: int		symID: 1		SY:int		line: 76		column:5
+token: a		symID: 37		SY:identifier		line: 76		column:9
+token: [		symID: 33		SY:left brack		line: 76		column:10
+token: 15		symID: 29		SY:number		line: 76		column:11
+token: ]		symID: 34		SY:right brack		line: 76		column:13
+token: ;		symID: 24		SY:semi		line: 76		column:14
+token: int		symID: 1		SY:int		line: 77		column:5
+token: b		symID: 37		SY:identifier		line: 77		column:9
+token: [		symID: 33		SY:left brack		line: 77		column:10
+token: 15		symID: 29		SY:number		line: 77		column:11
+token: ]		symID: 34		SY:right brack		line: 77		column:13
+token: ;		symID: 24		SY:semi		line: 77		column:14
+token: a		symID: 37		SY:identifier		line: 78		column:5
+token: [		symID: 33		SY:left brack		line: 78		column:6
+token: 0		symID: 29		SY:number		line: 78		column:7
+token: ]		symID: 34		SY:right brack		line: 78		column:8
+token: =		symID: 25		SY:assign		line: 78		column:9
+token: 1		symID: 29		SY:number		line: 78		column:10
+token: ;		symID: 24		SY:semi		line: 78		column:11
+token: b		symID: 37		SY:identifier		line: 79		column:5
+token: [		symID: 33		SY:left brack		line: 79		column:6
+token: 1		symID: 29		SY:number		line: 79		column:7
+token: ]		symID: 34		SY:right brack		line: 79		column:8
+token: =		symID: 25		SY:assign		line: 79		column:9
+token: 3		symID: 29		SY:number		line: 79		column:10
+token: ;		symID: 24		SY:semi		line: 79		column:11
+token: a		symID: 37		SY:identifier		line: 80		column:5
+token: [		symID: 33		SY:left brack		line: 80		column:6
+token: 3		symID: 29		SY:number		line: 80		column:7
+token: ]		symID: 34		SY:right brack		line: 80		column:8
+token: =		symID: 25		SY:assign		line: 80		column:9
+token: 4		symID: 29		SY:number		line: 80		column:10
+token: ;		symID: 24		SY:semi		line: 80		column:11
+token: b		symID: 37		SY:identifier		line: 81		column:5
+token: [		symID: 33		SY:left brack		line: 81		column:6
+token: 4		symID: 29		SY:number		line: 81		column:7
+token: ]		symID: 34		SY:right brack		line: 81		column:8
+token: =		symID: 25		SY:assign		line: 81		column:9
+token: 6		symID: 29		SY:number		line: 81		column:10
+token: ;		symID: 24		SY:semi		line: 81		column:11
+token: a		symID: 37		SY:identifier		line: 82		column:5
+token: [		symID: 33		SY:left brack		line: 82		column:6
+token: 6		symID: 29		SY:number		line: 82		column:7
+token: ]		symID: 34		SY:right brack		line: 82		column:8
+token: =		symID: 25		SY:assign		line: 82		column:9
+token: 8		symID: 29		SY:number		line: 82		column:10
+token: ;		symID: 24		SY:semi		line: 82		column:11
+token: b		symID: 37		SY:identifier		line: 83		column:5
+token: [		symID: 33		SY:left brack		line: 83		column:6
+token: a		symID: 37		SY:identifier		line: 83		column:7
+token: [		symID: 33		SY:left brack		line: 83		column:8
+token: b		symID: 37		SY:identifier		line: 83		column:9
+token: [		symID: 33		SY:left brack		line: 83		column:10
+token: a		symID: 37		SY:identifier		line: 83		column:11
+token: [		symID: 33		SY:left brack		line: 83		column:12
+token: b		symID: 37		SY:identifier		line: 83		column:13
+token: [		symID: 33		SY:left brack		line: 83		column:14
+token: a		symID: 37		SY:identifier		line: 83		column:15
+token: [		symID: 33		SY:left brack		line: 83		column:16
+token: 0		symID: 29		SY:number		line: 83		column:17
+token: ]		symID: 34		SY:right brack		line: 83		column:18
+token: ]		symID: 34		SY:right brack		line: 83		column:19
+token: ]		symID: 34		SY:right brack		line: 83		column:20
+token: ]		symID: 34		SY:right brack		line: 83		column:21
+token: ]		symID: 34		SY:right brack		line: 83		column:22
+token: ]		symID: 34		SY:right brack		line: 83		column:23
+token: =		symID: 25		SY:assign		line: 83		column:24
+token: 2333		symID: 29		SY:number		line: 83		column:25
+token: ;		symID: 24		SY:semi		line: 83		column:29
+token: printf		symID: 11		SY:printf		line: 84		column:5
+token: (		symID: 31		SY:left parent		line: 84		column:11
+token: a		symID: 37		SY:identifier		line: 84		column:12
+token: [		symID: 33		SY:left brack		line: 84		column:13
+token: 0		symID: 29		SY:number		line: 84		column:14
+token: ]		symID: 34		SY:right brack		line: 84		column:15
+token: +		symID: 13		SY:plus		line: 84		column:16
+token: b		symID: 37		SY:identifier		line: 84		column:17
+token: [		symID: 33		SY:left brack		line: 84		column:18
+token: 8		symID: 29		SY:number		line: 84		column:19
+token: ]		symID: 34		SY:right brack		line: 84		column:20
+token: )		symID: 32		SY:right parent		line: 84		column:21
+token: ;		symID: 24		SY:semi		line: 84		column:22
+token: return		symID: 12		SY:return		line: 85		column:5
+token: ;		symID: 24		SY:semi		line: 85		column:11
+token: }		symID: 36		SY:right brace		line: 86		column:1
+token: void		symID: 3		SY:void		line: 87		column:1
+token: t		symID: 37		SY:identifier		line: 87		column:6
+token: (		symID: 31		SY:left parent		line: 87		column:7
+token: char		symID: 2		SY:char		line: 87		column:8
+token: x		symID: 37		SY:identifier		line: 87		column:13
+token: )		symID: 32		SY:right parent		line: 87		column:14
+token: {		symID: 35		SY:left brace		line: 87		column:15
+token: if		symID: 9		SY:if		line: 88		column:5
+token: (		symID: 31		SY:left parent		line: 88		column:7
+token: x		symID: 37		SY:identifier		line: 88		column:8
+token: >		symID: 17		SY:great		line: 88		column:9
+token: c		symID: 26		SY:single quota		line: 88		column:10
+token: )		symID: 32		SY:right parent		line: 88		column:13
+token: return		symID: 12		SY:return		line: 88		column:15
+token: ;		symID: 24		SY:semi		line: 88		column:21
+token: x		symID: 37		SY:identifier		line: 89		column:5
+token: =		symID: 25		SY:assign		line: 89		column:6
+token: x		symID: 37		SY:identifier		line: 89		column:7
+token: +		symID: 13		SY:plus		line: 89		column:8
+token: 1		symID: 29		SY:number		line: 89		column:9
+token: ;		symID: 24		SY:semi		line: 89		column:10
+token: printf		symID: 11		SY:printf		line: 90		column:5
+token: (		symID: 31		SY:left parent		line: 90		column:11
+token: x		symID: 37		SY:identifier		line: 90		column:12
+token: )		symID: 32		SY:right parent		line: 90		column:13
+token: ;		symID: 24		SY:semi		line: 90		column:14
+token: t		symID: 37		SY:identifier		line: 91		column:5
+token: (		symID: 31		SY:left parent		line: 91		column:6
+token: x		symID: 37		SY:identifier		line: 91		column:7
+token: )		symID: 32		SY:right parent		line: 91		column:8
+token: ;		symID: 24		SY:semi		line: 91		column:9
+token: return		symID: 12		SY:return		line: 92		column:5
+token: ;		symID: 24		SY:semi		line: 92		column:11
+token: }		symID: 36		SY:right brace		line: 93		column:1
+token: void		symID: 3		SY:void		line: 94		column:1
+token: main		symID: 4		SY:main		line: 94		column:6
+token: (		symID: 31		SY:left parent		line: 94		column:10
+token: )		symID: 32		SY:right parent		line: 94		column:11
+token: {		symID: 35		SY:left brace		line: 95		column:1
+token: const		symID: 0		SY:const		line: 96		column:9
+token: int		symID: 1		SY:int		line: 96		column:15
+token: coz		symID: 37		SY:identifier		line: 96		column:19
+token: =		symID: 25		SY:assign		line: 96		column:22
+token: 3		symID: 29		SY:number		line: 96		column:23
+token: ;		symID: 24		SY:semi		line: 96		column:24
+token: int		symID: 1		SY:int		line: 97		column:9
+token: a		symID: 37		SY:identifier		line: 97		column:13
+token: ,		symID: 23		SY:comma		line: 97		column:14
+token: b		symID: 37		SY:identifier		line: 97		column:15
+token: ,		symID: 23		SY:comma		line: 97		column:16
+token: c		symID: 37		SY:identifier		line: 97		column:17
+token: ,		symID: 23		SY:comma		line: 97		column:18
+token: d		symID: 37		SY:identifier		line: 97		column:19
+token: ,		symID: 23		SY:comma		line: 97		column:20
+token: key		symID: 37		SY:identifier		line: 97		column:21
+token: ,		symID: 23		SY:comma		line: 97		column:24
+token: i		symID: 37		SY:identifier		line: 97		column:25
+token: ,		symID: 23		SY:comma		line: 97		column:26
+token: sz2		symID: 37		SY:identifier		line: 97		column:27
+token: [		symID: 33		SY:left brack		line: 97		column:30
+token: 5		symID: 29		SY:number		line: 97		column:31
+token: ]		symID: 34		SY:right brack		line: 97		column:32
+token: ;		symID: 24		SY:semi		line: 97		column:33
+token: int		symID: 1		SY:int		line: 98		column:5
+token: cho		symID: 37		SY:identifier		line: 98		column:9
+token: ;		symID: 24		SY:semi		line: 98		column:12
+token: char		symID: 2		SY:char		line: 99		column:9
+token: sz		symID: 37		SY:identifier		line: 99		column:14
+token: [		symID: 33		SY:left brack		line: 99		column:16
+token: 5		symID: 29		SY:number		line: 99		column:17
+token: ]		symID: 34		SY:right brack		line: 99		column:18
+token: ,		symID: 23		SY:comma		line: 99		column:19
+token: e		symID: 37		SY:identifier		line: 99		column:20
+token: ;		symID: 24		SY:semi		line: 99		column:21
+token: chc		symID: 37		SY:identifier		line: 100		column:9
+token: =		symID: 25		SY:assign		line: 100		column:12
+token: +		symID: 26		SY:single quota		line: 100		column:13
+token: ;		symID: 24		SY:semi		line: 100		column:16
+token: chd		symID: 37		SY:identifier		line: 101		column:9
+token: =		symID: 25		SY:assign		line: 101		column:12
+token: -		symID: 26		SY:single quota		line: 101		column:13
+token: ;		symID: 24		SY:semi		line: 101		column:16
+token: b		symID: 37		SY:identifier		line: 102		column:9
+token: =		symID: 25		SY:assign		line: 102		column:10
+token: +		symID: 13		SY:plus		line: 102		column:11
+token: 3		symID: 29		SY:number		line: 102		column:12
+token: ;		symID: 24		SY:semi		line: 102		column:13
+token: i		symID: 37		SY:identifier		line: 103		column:9
+token: =		symID: 25		SY:assign		line: 103		column:10
+token: 0		symID: 29		SY:number		line: 103		column:11
+token: ;		symID: 24		SY:semi		line: 103		column:12
+token: c		symID: 37		SY:identifier		line: 104		column:5
+token: =		symID: 25		SY:assign		line: 104		column:6
+token: -		symID: 14		SY:sub		line: 104		column:7
+token: 2		symID: 29		SY:number		line: 104		column:8
+token: ;		symID: 24		SY:semi		line: 104		column:9
+token: key		symID: 37		SY:identifier		line: 105		column:5
+token: =		symID: 25		SY:assign		line: 105		column:8
+token: 1		symID: 29		SY:number		line: 105		column:9
+token: ;		symID: 24		SY:semi		line: 105		column:10
+token: scanf		symID: 10		SY:scanf		line: 106		column:5
+token: (		symID: 31		SY:left parent		line: 106		column:10
+token: cho		symID: 37		SY:identifier		line: 106		column:11
+token: )		symID: 32		SY:right parent		line: 106		column:14
+token: ;		symID: 24		SY:semi		line: 106		column:15
+token: switch		symID: 7		SY:switch		line: 107		column:5
+token: (		symID: 31		SY:left parent		line: 107		column:11
+token: cho		symID: 37		SY:identifier		line: 107		column:12
+token: )		symID: 32		SY:right parent		line: 107		column:15
+token: {		symID: 35		SY:left brace		line: 107		column:16
+token: case		symID: 8		SY:case		line: 108		column:9
+token: 0		symID: 29		SY:number		line: 108		column:14
+token: :		symID: 28		SY:colon		line: 108		column:15
+token: {		symID: 35		SY:left brace		line: 108		column:16
+token: printf		symID: 11		SY:printf		line: 110		column:13
+token: (		symID: 31		SY:left parent		line: 110		column:19
+token: test line:		symID: 30		SY:string		line: 110		column:20
+token: )		symID: 32		SY:right parent		line: 110		column:32
+token: ;		symID: 24		SY:semi		line: 110		column:33
+token: line		symID: 37		SY:identifier		line: 111		column:17
+token: (		symID: 31		SY:left parent		line: 111		column:21
+token: 8		symID: 29		SY:number		line: 111		column:22
+token: ,		symID: 23		SY:comma		line: 111		column:23
+token: 3		symID: 29		SY:number		line: 111		column:24
+token: )		symID: 32		SY:right parent		line: 111		column:25
+token: ;		symID: 24		SY:semi		line: 111		column:26
+token: }		symID: 36		SY:right brace		line: 113		column:9
+token: case		symID: 8		SY:case		line: 114		column:9
+token: 1		symID: 29		SY:number		line: 114		column:14
+token: :		symID: 28		SY:colon		line: 114		column:15
+token: {		symID: 35		SY:left brace		line: 114		column:16
+token: printf		symID: 11		SY:printf		line: 115		column:13
+token: (		symID: 31		SY:left parent		line: 115		column:19
+token: test fib:		symID: 30		SY:string		line: 115		column:20
+token: )		symID: 32		SY:right parent		line: 115		column:31
+token: ;		symID: 24		SY:semi		line: 115		column:32
+token: d		symID: 37		SY:identifier		line: 116		column:17
+token: =		symID: 25		SY:assign		line: 116		column:18
+token: fib		symID: 37		SY:identifier		line: 116		column:19
+token: (		symID: 31		SY:left parent		line: 116		column:22
+token: coz		symID: 37		SY:identifier		line: 116		column:23
+token: )		symID: 32		SY:right parent		line: 116		column:26
+token: ;		symID: 24		SY:semi		line: 116		column:27
+token: printf		symID: 11		SY:printf		line: 117		column:17
+token: (		symID: 31		SY:left parent		line: 117		column:23
+token: fib=		symID: 30		SY:string		line: 117		column:24
+token: ,		symID: 23		SY:comma		line: 117		column:30
+token: d		symID: 37		SY:identifier		line: 117		column:31
+token: )		symID: 32		SY:right parent		line: 117		column:32
+token: ;		symID: 24		SY:semi		line: 117		column:33
+token: }		symID: 36		SY:right brace		line: 119		column:9
+token: case		symID: 8		SY:case		line: 120		column:9
+token: 2		symID: 29		SY:number		line: 120		column:14
+token: :		symID: 28		SY:colon		line: 120		column:15
+token: {		symID: 35		SY:left brace		line: 120		column:16
+token: do		symID: 5		SY:do		line: 121		column:13
+token: {		symID: 35		SY:left brace		line: 121		column:15
+token: sz		symID: 37		SY:identifier		line: 122		column:24
+token: [		symID: 33		SY:left brack		line: 122		column:26
+token: i		symID: 37		SY:identifier		line: 122		column:27
+token: ]		symID: 34		SY:right brack		line: 122		column:28
+token: =		symID: 25		SY:assign		line: 122		column:29
+token: a		symID: 26		SY:single quota		line: 122		column:30
+token: ;		symID: 24		SY:semi		line: 122		column:33
+token: sz2		symID: 37		SY:identifier		line: 123		column:21
+token: [		symID: 33		SY:left brack		line: 123		column:24
+token: i		symID: 37		SY:identifier		line: 123		column:25
+token: ]		symID: 34		SY:right brack		line: 123		column:26
+token: =		symID: 25		SY:assign		line: 123		column:27
+token: i		symID: 37		SY:identifier		line: 123		column:28
+token: ;		symID: 24		SY:semi		line: 123		column:29
+token: i		symID: 37		SY:identifier		line: 124		column:21
+token: =		symID: 25		SY:assign		line: 124		column:22
+token: i		symID: 37		SY:identifier		line: 124		column:23
+token: +		symID: 13		SY:plus		line: 124		column:24
+token: 1		symID: 29		SY:number		line: 124		column:25
+token: ;		symID: 24		SY:semi		line: 124		column:26
+token: }		symID: 36		SY:right brace		line: 125		column:17
+token: while		symID: 6		SY:while		line: 125		column:18
+token: (		symID: 31		SY:left parent		line: 125		column:23
+token: i		symID: 37		SY:identifier		line: 125		column:24
+token: <		symID: 18		SY:less		line: 125		column:25
+token: 5		symID: 29		SY:number		line: 125		column:26
+token: )		symID: 32		SY:right parent		line: 125		column:27
+token: scanf		symID: 10		SY:scanf		line: 129		column:13
+token: (		symID: 31		SY:left parent		line: 129		column:18
+token: key		symID: 37		SY:identifier		line: 129		column:19
+token: ,		symID: 23		SY:comma		line: 129		column:22
+token: a		symID: 37		SY:identifier		line: 129		column:23
+token: )		symID: 32		SY:right parent		line: 129		column:24
+token: ;		symID: 24		SY:semi		line: 129		column:25
+token: if		symID: 9		SY:if		line: 130		column:17
+token: (		symID: 31		SY:left parent		line: 130		column:19
+token: key		symID: 37		SY:identifier		line: 130		column:20
+token: <		symID: 18		SY:less		line: 130		column:23
+token: 3		symID: 29		SY:number		line: 130		column:24
+token: )		symID: 32		SY:right parent		line: 130		column:25
+token: {		symID: 35		SY:left brace		line: 130		column:26
+token: a		symID: 37		SY:identifier		line: 131		column:21
+token: =		symID: 25		SY:assign		line: 131		column:22
+token: a		symID: 37		SY:identifier		line: 131		column:23
+token: +		symID: 13		SY:plus		line: 131		column:24
+token: b		symID: 37		SY:identifier		line: 131		column:25
+token: ;		symID: 24		SY:semi		line: 131		column:26
+token: printf		symID: 11		SY:printf		line: 132		column:17
+token: (		symID: 31		SY:left parent		line: 132		column:23
+token: a		symID: 37		SY:identifier		line: 132		column:24
+token: )		symID: 32		SY:right parent		line: 132		column:25
+token: ;		symID: 24		SY:semi		line: 132		column:26
+token: }		symID: 36		SY:right brace		line: 133		column:17
+token: if		symID: 9		SY:if		line: 134		column:17
+token: (		symID: 31		SY:left parent		line: 134		column:19
+token: key		symID: 37		SY:identifier		line: 134		column:20
+token: <=		symID: 20		SY:less or equal		line: 134		column:23
+token: 3		symID: 29		SY:number		line: 134		column:25
+token: )		symID: 32		SY:right parent		line: 134		column:26
+token: {		symID: 35		SY:left brace		line: 134		column:28
+token: b		symID: 37		SY:identifier		line: 135		column:21
+token: =		symID: 25		SY:assign		line: 135		column:22
+token: b		symID: 37		SY:identifier		line: 135		column:23
+token: -		symID: 14		SY:sub		line: 135		column:24
+token: a		symID: 37		SY:identifier		line: 135		column:25
+token: ;		symID: 24		SY:semi		line: 135		column:26
+token: sz2		symID: 37		SY:identifier		line: 136		column:21
+token: [		symID: 33		SY:left brack		line: 136		column:24
+token: 0		symID: 29		SY:number		line: 136		column:25
+token: ]		symID: 34		SY:right brack		line: 136		column:26
+token: =		symID: 25		SY:assign		line: 136		column:27
+token: sz2		symID: 37		SY:identifier		line: 136		column:28
+token: [		symID: 33		SY:left brack		line: 136		column:31
+token: 0		symID: 29		SY:number		line: 136		column:32
+token: ]		symID: 34		SY:right brack		line: 136		column:33
+token: +		symID: 13		SY:plus		line: 136		column:34
+token: b		symID: 37		SY:identifier		line: 136		column:35
+token: ;		symID: 24		SY:semi		line: 136		column:36
+token: sz		symID: 37		SY:identifier		line: 137		column:21
+token: [		symID: 33		SY:left brack		line: 137		column:23
+token: 0		symID: 29		SY:number		line: 137		column:24
+token: ]		symID: 34		SY:right brack		line: 137		column:25
+token: =		symID: 25		SY:assign		line: 137		column:26
+token: sz		symID: 37		SY:identifier		line: 137		column:27
+token: [		symID: 33		SY:left brack		line: 137		column:29
+token: 0		symID: 29		SY:number		line: 137		column:30
+token: ]		symID: 34		SY:right brack		line: 137		column:31
+token: +		symID: 13		SY:plus		line: 137		column:32
+token: 1		symID: 29		SY:number		line: 137		column:33
+token: ;		symID: 24		SY:semi		line: 137		column:34
+token: printf		symID: 11		SY:printf		line: 138		column:17
+token: (		symID: 31		SY:left parent		line: 138		column:23
+token: b		symID: 37		SY:identifier		line: 138		column:24
+token: )		symID: 32		SY:right parent		line: 138		column:25
+token: ;		symID: 24		SY:semi		line: 138		column:26
+token: printf		symID: 11		SY:printf		line: 139		column:17
+token: (		symID: 31		SY:left parent		line: 139		column:23
+token: sz		symID: 37		SY:identifier		line: 139		column:24
+token: [		symID: 33		SY:left brack		line: 139		column:26
+token: 0		symID: 29		SY:number		line: 139		column:27
+token: ]		symID: 34		SY:right brack		line: 139		column:28
+token: )		symID: 32		SY:right parent		line: 139		column:29
+token: ;		symID: 24		SY:semi		line: 139		column:30
+token: printf		symID: 11		SY:printf		line: 140		column:17
+token: (		symID: 31		SY:left parent		line: 140		column:23
+token: sz2		symID: 37		SY:identifier		line: 140		column:24
+token: [		symID: 33		SY:left brack		line: 140		column:27
+token: 0		symID: 29		SY:number		line: 140		column:28
+token: ]		symID: 34		SY:right brack		line: 140		column:29
+token: )		symID: 32		SY:right parent		line: 140		column:30
+token: ;		symID: 24		SY:semi		line: 140		column:31
+token: }		symID: 36		SY:right brace		line: 141		column:16
+token: if		symID: 9		SY:if		line: 142		column:17
+token: (		symID: 31		SY:left parent		line: 142		column:19
+token: key		symID: 37		SY:identifier		line: 142		column:20
+token: >		symID: 17		SY:great		line: 142		column:23
+token: 6		symID: 29		SY:number		line: 142		column:24
+token: )		symID: 32		SY:right parent		line: 142		column:25
+token: {		symID: 35		SY:left brace		line: 142		column:27
+token: c		symID: 37		SY:identifier		line: 143		column:21
+token: =		symID: 25		SY:assign		line: 143		column:22
+token: a		symID: 37		SY:identifier		line: 143		column:23
+token: *		symID: 15		SY:mult		line: 143		column:24
+token: b		symID: 37		SY:identifier		line: 143		column:25
+token: ;		symID: 24		SY:semi		line: 143		column:26
+token: sz2		symID: 37		SY:identifier		line: 144		column:21
+token: [		symID: 33		SY:left brack		line: 144		column:24
+token: 1		symID: 29		SY:number		line: 144		column:25
+token: ]		symID: 34		SY:right brack		line: 144		column:26
+token: =		symID: 25		SY:assign		line: 144		column:27
+token: sz2		symID: 37		SY:identifier		line: 144		column:28
+token: [		symID: 33		SY:left brack		line: 144		column:31
+token: 1		symID: 29		SY:number		line: 144		column:32
+token: ]		symID: 34		SY:right brack		line: 144		column:33
+token: +		symID: 13		SY:plus		line: 144		column:34
+token: c		symID: 37		SY:identifier		line: 144		column:35
+token: ;		symID: 24		SY:semi		line: 144		column:36
+token: sz		symID: 37		SY:identifier		line: 145		column:21
+token: [		symID: 33		SY:left brack		line: 145		column:23
+token: 1		symID: 29		SY:number		line: 145		column:24
+token: ]		symID: 34		SY:right brack		line: 145		column:25
+token: =		symID: 25		SY:assign		line: 145		column:26
+token: sz		symID: 37		SY:identifier		line: 145		column:27
+token: [		symID: 33		SY:left brack		line: 145		column:29
+token: 1		symID: 29		SY:number		line: 145		column:30
+token: ]		symID: 34		SY:right brack		line: 145		column:31
+token: +		symID: 13		SY:plus		line: 145		column:32
+token: 1		symID: 29		SY:number		line: 145		column:33
+token: ;		symID: 24		SY:semi		line: 145		column:34
+token: printf		symID: 11		SY:printf		line: 146		column:17
+token: (		symID: 31		SY:left parent		line: 146		column:23
+token: c		symID: 37		SY:identifier		line: 146		column:24
+token: )		symID: 32		SY:right parent		line: 146		column:25
+token: ;		symID: 24		SY:semi		line: 146		column:26
+token: printf		symID: 11		SY:printf		line: 147		column:17
+token: (		symID: 31		SY:left parent		line: 147		column:23
+token: sz		symID: 37		SY:identifier		line: 147		column:24
+token: [		symID: 33		SY:left brack		line: 147		column:26
+token: 1		symID: 29		SY:number		line: 147		column:27
+token: ]		symID: 34		SY:right brack		line: 147		column:28
+token: )		symID: 32		SY:right parent		line: 147		column:29
+token: ;		symID: 24		SY:semi		line: 147		column:30
+token: printf		symID: 11		SY:printf		line: 148		column:17
+token: (		symID: 31		SY:left parent		line: 148		column:23
+token: sz2		symID: 37		SY:identifier		line: 148		column:24
+token: [		symID: 33		SY:left brack		line: 148		column:27
+token: 1		symID: 29		SY:number		line: 148		column:28
+token: ]		symID: 34		SY:right brack		line: 148		column:29
+token: )		symID: 32		SY:right parent		line: 148		column:30
+token: ;		symID: 24		SY:semi		line: 148		column:31
+token: }		symID: 36		SY:right brace		line: 149		column:17
+token: if		symID: 9		SY:if		line: 150		column:17
+token: (		symID: 31		SY:left parent		line: 150		column:19
+token: key		symID: 37		SY:identifier		line: 150		column:20
+token: >=		symID: 19		SY:great or equal		line: 150		column:23
+token: 6		symID: 29		SY:number		line: 150		column:25
+token: )		symID: 32		SY:right parent		line: 150		column:26
+token: {		symID: 35		SY:left brace		line: 150		column:28
+token: d		symID: 37		SY:identifier		line: 151		column:21
+token: =		symID: 25		SY:assign		line: 151		column:22
+token: +		symID: 13		SY:plus		line: 151		column:23
+token: a		symID: 37		SY:identifier		line: 151		column:24
+token: /		symID: 16		SY:div		line: 151		column:25
+token: b		symID: 37		SY:identifier		line: 151		column:26
+token: ;		symID: 24		SY:semi		line: 151		column:27
+token: sz2		symID: 37		SY:identifier		line: 152		column:21
+token: [		symID: 33		SY:left brack		line: 152		column:24
+token: 2		symID: 29		SY:number		line: 152		column:25
+token: ]		symID: 34		SY:right brack		line: 152		column:26
+token: =		symID: 25		SY:assign		line: 152		column:27
+token: sz2		symID: 37		SY:identifier		line: 152		column:28
+token: [		symID: 33		SY:left brack		line: 152		column:31
+token: 2		symID: 29		SY:number		line: 152		column:32
+token: ]		symID: 34		SY:right brack		line: 152		column:33
+token: +		symID: 13		SY:plus		line: 152		column:34
+token: d		symID: 37		SY:identifier		line: 152		column:35
+token: ;		symID: 24		SY:semi		line: 152		column:36
+token: sz		symID: 37		SY:identifier		line: 153		column:17
+token: [		symID: 33		SY:left brack		line: 153		column:19
+token: 2		symID: 29		SY:number		line: 153		column:20
+token: ]		symID: 34		SY:right brack		line: 153		column:21
+token: =		symID: 25		SY:assign		line: 153		column:22
+token: sz		symID: 37		SY:identifier		line: 153		column:23
+token: [		symID: 33		SY:left brack		line: 153		column:25
+token: 2		symID: 29		SY:number		line: 153		column:26
+token: ]		symID: 34		SY:right brack		line: 153		column:27
+token: +		symID: 13		SY:plus		line: 153		column:28
+token: 1		symID: 29		SY:number		line: 153		column:29
+token: ;		symID: 24		SY:semi		line: 153		column:30
+token: printf		symID: 11		SY:printf		line: 154		column:17
+token: (		symID: 31		SY:left parent		line: 154		column:23
+token: d		symID: 37		SY:identifier		line: 154		column:24
+token: )		symID: 32		SY:right parent		line: 154		column:25
+token: ;		symID: 24		SY:semi		line: 154		column:26
+token: printf		symID: 11		SY:printf		line: 155		column:17
+token: (		symID: 31		SY:left parent		line: 155		column:23
+token: sz		symID: 37		SY:identifier		line: 155		column:24
+token: [		symID: 33		SY:left brack		line: 155		column:26
+token: 2		symID: 29		SY:number		line: 155		column:27
+token: ]		symID: 34		SY:right brack		line: 155		column:28
+token: )		symID: 32		SY:right parent		line: 155		column:29
+token: ;		symID: 24		SY:semi		line: 155		column:30
+token: printf		symID: 11		SY:printf		line: 156		column:17
+token: (		symID: 31		SY:left parent		line: 156		column:23
+token: sz2		symID: 37		SY:identifier		line: 156		column:24
+token: [		symID: 33		SY:left brack		line: 156		column:27
+token: 2		symID: 29		SY:number		line: 156		column:28
+token: ]		symID: 34		SY:right brack		line: 156		column:29
+token: )		symID: 32		SY:right parent		line: 156		column:30
+token: ;		symID: 24		SY:semi		line: 156		column:31
+token: }		symID: 36		SY:right brace		line: 157		column:17
+token: if		symID: 9		SY:if		line: 158		column:17
+token: (		symID: 31		SY:left parent		line: 158		column:19
+token: key		symID: 37		SY:identifier		line: 158		column:20
+token: !=		symID: 22		SY:not equal		line: 158		column:23
+token: 4		symID: 29		SY:number		line: 158		column:25
+token: )		symID: 32		SY:right parent		line: 158		column:26
+token: {		symID: 35		SY:left brace		line: 158		column:28
+token: a		symID: 37		SY:identifier		line: 159		column:21
+token: =		symID: 25		SY:assign		line: 159		column:22
+token: a		symID: 37		SY:identifier		line: 159		column:23
+token: -		symID: 14		SY:sub		line: 159		column:24
+token: 1		symID: 29		SY:number		line: 159		column:25
+token: /		symID: 16		SY:div		line: 159		column:26
+token: coz		symID: 37		SY:identifier		line: 159		column:27
+token: ;		symID: 24		SY:semi		line: 159		column:30
+token: sz2		symID: 37		SY:identifier		line: 160		column:21
+token: [		symID: 33		SY:left brack		line: 160		column:24
+token: 3		symID: 29		SY:number		line: 160		column:25
+token: ]		symID: 34		SY:right brack		line: 160		column:26
+token: =		symID: 25		SY:assign		line: 160		column:27
+token: sz2		symID: 37		SY:identifier		line: 160		column:28
+token: [		symID: 33		SY:left brack		line: 160		column:31
+token: 3		symID: 29		SY:number		line: 160		column:32
+token: ]		symID: 34		SY:right brack		line: 160		column:33
+token: +		symID: 13		SY:plus		line: 160		column:34
+token: a		symID: 37		SY:identifier		line: 160		column:35
+token: +		symID: 13		SY:plus		line: 160		column:36
+token: c		symID: 26		SY:single quota		line: 160		column:37
+token: ;		symID: 24		SY:semi		line: 160		column:40
+token: sz		symID: 37		SY:identifier		line: 161		column:21
+token: [		symID: 33		SY:left brack		line: 161		column:23
+token: 3		symID: 29		SY:number		line: 161		column:24
+token: ]		symID: 34		SY:right brack		line: 161		column:25
+token: =		symID: 25		SY:assign		line: 161		column:26
+token: sz		symID: 37		SY:identifier		line: 161		column:27
+token: [		symID: 33		SY:left brack		line: 161		column:29
+token: 3		symID: 29		SY:number		line: 161		column:30
+token: ]		symID: 34		SY:right brack		line: 161		column:31
+token: +		symID: 13		SY:plus		line: 161		column:32
+token: 1		symID: 29		SY:number		line: 161		column:33
+token: ;		symID: 24		SY:semi		line: 161		column:34
+token: printf		symID: 11		SY:printf		line: 162		column:17
+token: (		symID: 31		SY:left parent		line: 162		column:23
+token: a		symID: 37		SY:identifier		line: 162		column:24
+token: )		symID: 32		SY:right parent		line: 162		column:25
+token: ;		symID: 24		SY:semi		line: 162		column:26
+token: printf		symID: 11		SY:printf		line: 163		column:17
+token: (		symID: 31		SY:left parent		line: 163		column:23
+token: sz		symID: 37		SY:identifier		line: 163		column:24
+token: [		symID: 33		SY:left brack		line: 163		column:26
+token: 3		symID: 29		SY:number		line: 163		column:27
+token: ]		symID: 34		SY:right brack		line: 163		column:28
+token: )		symID: 32		SY:right parent		line: 163		column:29
+token: ;		symID: 24		SY:semi		line: 163		column:30
+token: printf		symID: 11		SY:printf		line: 164		column:17
+token: (		symID: 31		SY:left parent		line: 164		column:23
+token: sz2		symID: 37		SY:identifier		line: 164		column:24
+token: [		symID: 33		SY:left brack		line: 164		column:27
+token: 3		symID: 29		SY:number		line: 164		column:28
+token: ]		symID: 34		SY:right brack		line: 164		column:29
+token: )		symID: 32		SY:right parent		line: 164		column:30
+token: ;		symID: 24		SY:semi		line: 164		column:31
+token: }		symID: 36		SY:right brace		line: 165		column:17
+token: if		symID: 9		SY:if		line: 166		column:17
+token: (		symID: 31		SY:left parent		line: 166		column:19
+token: key		symID: 37		SY:identifier		line: 166		column:20
+token: ==		symID: 21		SY:equal		line: 166		column:23
+token: 4		symID: 29		SY:number		line: 166		column:25
+token: )		symID: 32		SY:right parent		line: 166		column:26
+token: {		symID: 35		SY:left brace		line: 166		column:28
+token: a		symID: 37		SY:identifier		line: 167		column:21
+token: =		symID: 25		SY:assign		line: 167		column:22
+token: -		symID: 14		SY:sub		line: 167		column:23
+token: a		symID: 37		SY:identifier		line: 167		column:24
+token: +		symID: 13		SY:plus		line: 167		column:25
+token: 2		symID: 29		SY:number		line: 167		column:26
+token: *		symID: 15		SY:mult		line: 167		column:27
+token: coz		symID: 37		SY:identifier		line: 167		column:28
+token: ;		symID: 24		SY:semi		line: 167		column:31
+token: sz		symID: 37		SY:identifier		line: 168		column:21
+token: [		symID: 33		SY:left brack		line: 168		column:23
+token: 4		symID: 29		SY:number		line: 168		column:24
+token: ]		symID: 34		SY:right brack		line: 168		column:25
+token: =		symID: 25		SY:assign		line: 168		column:26
+token: sz		symID: 37		SY:identifier		line: 168		column:27
+token: [		symID: 33		SY:left brack		line: 168		column:29
+token: 4		symID: 29		SY:number		line: 168		column:30
+token: ]		symID: 34		SY:right brack		line: 168		column:31
+token: +		symID: 13		SY:plus		line: 168		column:32
+token: 1		symID: 29		SY:number		line: 168		column:33
+token: ;		symID: 24		SY:semi		line: 168		column:34
+token: printf		symID: 11		SY:printf		line: 169		column:17
+token: (		symID: 31		SY:left parent		line: 169		column:23
+token: a		symID: 37		SY:identifier		line: 169		column:24
+token: )		symID: 32		SY:right parent		line: 169		column:25
+token: ;		symID: 24		SY:semi		line: 169		column:26
+token: printf		symID: 11		SY:printf		line: 170		column:17
+token: (		symID: 31		SY:left parent		line: 170		column:23
+token: sz		symID: 37		SY:identifier		line: 170		column:24
+token: [		symID: 33		SY:left brack		line: 170		column:26
+token: 4		symID: 29		SY:number		line: 170		column:27
+token: ]		symID: 34		SY:right brack		line: 170		column:28
+token: )		symID: 32		SY:right parent		line: 170		column:29
+token: ;		symID: 24		SY:semi		line: 170		column:30
+token: printf		symID: 11		SY:printf		line: 171		column:17
+token: (		symID: 31		SY:left parent		line: 171		column:23
+token: sz2		symID: 37		SY:identifier		line: 171		column:24
+token: [		symID: 33		SY:left brack		line: 171		column:27
+token: 4		symID: 29		SY:number		line: 171		column:28
+token: ]		symID: 34		SY:right brack		line: 171		column:29
+token: )		symID: 32		SY:right parent		line: 171		column:30
+token: ;		symID: 24		SY:semi		line: 171		column:31
+token: }		symID: 36		SY:right brace		line: 172		column:17
+token: if		symID: 9		SY:if		line: 173		column:17
+token: (		symID: 31		SY:left parent		line: 173		column:19
+token: key		symID: 37		SY:identifier		line: 173		column:20
+token: )		symID: 32		SY:right parent		line: 173		column:23
+token: {		symID: 35		SY:left brace		line: 173		column:24
+token: printf		symID: 11		SY:printf		line: 174		column:21
+token: (		symID: 31		SY:left parent		line: 174		column:27
+token: +		symID: 13		SY:plus		line: 174		column:28
+token: a		symID: 37		SY:identifier		line: 174		column:29
+token: )		symID: 32		SY:right parent		line: 174		column:30
+token: ;		symID: 24		SY:semi		line: 174		column:31
+token: }		symID: 36		SY:right brace		line: 175		column:17
+token: }		symID: 36		SY:right brace		line: 176		column:9
+token: case		symID: 8		SY:case		line: 177		column:9
+token: 3		symID: 29		SY:number		line: 177		column:14
+token: :		symID: 28		SY:colon		line: 177		column:15
+token: {		symID: 35		SY:left brace		line: 177		column:16
+token: printf		symID: 11		SY:printf		line: 178		column:13
+token: (		symID: 31		SY:left parent		line: 178		column:19
+token: test function:		symID: 30		SY:string		line: 178		column:20
+token: )		symID: 32		SY:right parent		line: 178		column:36
+token: ;		symID: 24		SY:semi		line: 178		column:37
+token: if		symID: 9		SY:if		line: 179		column:13
+token: (		symID: 31		SY:left parent		line: 179		column:15
+token: key		symID: 37		SY:identifier		line: 179		column:16
+token: )		symID: 32		SY:right parent		line: 179		column:19
+token: sz2		symID: 37		SY:identifier		line: 179		column:21
+token: [		symID: 33		SY:left brack		line: 179		column:24
+token: 4		symID: 29		SY:number		line: 179		column:25
+token: ]		symID: 34		SY:right brack		line: 179		column:26
+token: =		symID: 25		SY:assign		line: 179		column:27
+token: f		symID: 37		SY:identifier		line: 179		column:28
+token: (		symID: 31		SY:left parent		line: 179		column:29
+token: -		symID: 14		SY:sub		line: 179		column:30
+token: 2		symID: 29		SY:number		line: 179		column:31
+token: ,		symID: 23		SY:comma		line: 179		column:32
+token: 3		symID: 29		SY:number		line: 179		column:33
+token: )		symID: 32		SY:right parent		line: 179		column:34
+token: +		symID: 13		SY:plus		line: 179		column:35
+token: (		symID: 31		SY:left parent		line: 179		column:36
+token: 5		symID: 29		SY:number		line: 179		column:37
+token: +		symID: 13		SY:plus		line: 179		column:38
+token: 1		symID: 29		SY:number		line: 179		column:39
+token: )		symID: 32		SY:right parent		line: 179		column:40
+token: *		symID: 15		SY:mult		line: 179		column:41
+token: coz		symID: 37		SY:identifier		line: 179		column:42
+token: ;		symID: 24		SY:semi		line: 179		column:45
+token: t		symID: 37		SY:identifier		line: 180		column:17
+token: (		symID: 31		SY:left parent		line: 180		column:18
+token: conb		symID: 37		SY:identifier		line: 180		column:19
+token: )		symID: 32		SY:right parent		line: 180		column:23
+token: ;		symID: 24		SY:semi		line: 180		column:24
+token: printf		symID: 11		SY:printf		line: 181		column:13
+token: (		symID: 31		SY:left parent		line: 181		column:19
+token: f2		symID: 37		SY:identifier		line: 181		column:20
+token: (		symID: 31		SY:left parent		line: 181		column:22
+token: a		symID: 26		SY:single quota		line: 181		column:23
+token: )		symID: 32		SY:right parent		line: 181		column:26
+token: )		symID: 32		SY:right parent		line: 181		column:27
+token: ;		symID: 24		SY:semi		line: 181		column:28
+token: printf		symID: 11		SY:printf		line: 182		column:13
+token: (		symID: 31		SY:left parent		line: 182		column:19
+token: sz2		symID: 37		SY:identifier		line: 182		column:20
+token: [		symID: 33		SY:left brack		line: 182		column:23
+token: 4		symID: 29		SY:number		line: 182		column:24
+token: ]		symID: 34		SY:right brack		line: 182		column:25
+token: )		symID: 32		SY:right parent		line: 182		column:26
+token: ;		symID: 24		SY:semi		line: 182		column:27
+token: }		symID: 36		SY:right brace		line: 183		column:9
+token: case		symID: 8		SY:case		line: 184		column:9
+token: 4		symID: 29		SY:number		line: 184		column:14
+token: :		symID: 28		SY:colon		line: 184		column:15
+token: {		symID: 35		SY:left brace		line: 184		column:16
+token: printf		symID: 11		SY:printf		line: 185		column:13
+token: (		symID: 31		SY:left parent		line: 185		column:19
+token: test switch:		symID: 30		SY:string		line: 185		column:20
+token: )		symID: 32		SY:right parent		line: 185		column:34
+token: ;		symID: 24		SY:semi		line: 185		column:35
+token: scanf		symID: 10		SY:scanf		line: 186		column:13
+token: (		symID: 31		SY:left parent		line: 186		column:18
+token: key		symID: 37		SY:identifier		line: 186		column:19
+token: )		symID: 32		SY:right parent		line: 186		column:22
+token: ;		symID: 24		SY:semi		line: 186		column:23
+token: switch		symID: 7		SY:switch		line: 187		column:17
+token: (		symID: 31		SY:left parent		line: 187		column:23
+token: key		symID: 37		SY:identifier		line: 187		column:24
+token: *		symID: 15		SY:mult		line: 187		column:27
+token: 1		symID: 29		SY:number		line: 187		column:28
+token: )		symID: 32		SY:right parent		line: 187		column:29
+token: {		symID: 35		SY:left brace		line: 187		column:30
+token: case		symID: 8		SY:case		line: 188		column:21
+token: 0		symID: 29		SY:number		line: 188		column:26
+token: :		symID: 28		SY:colon		line: 188		column:27
+token: printf		symID: 11		SY:printf		line: 188		column:28
+token: (		symID: 31		SY:left parent		line: 188		column:34
+token: key is 0		symID: 30		SY:string		line: 188		column:35
+token: )		symID: 32		SY:right parent		line: 188		column:45
+token: ;		symID: 24		SY:semi		line: 188		column:46
+token: case		symID: 8		SY:case		line: 189		column:21
+token: 1		symID: 29		SY:number		line: 189		column:26
+token: :		symID: 28		SY:colon		line: 189		column:27
+token: printf		symID: 11		SY:printf		line: 189		column:28
+token: (		symID: 31		SY:left parent		line: 189		column:34
+token: key is 		symID: 30		SY:string		line: 189		column:35
+token: ,		symID: 23		SY:comma		line: 189		column:44
+token: key		symID: 37		SY:identifier		line: 189		column:45
+token: )		symID: 32		SY:right parent		line: 189		column:48
+token: ;		symID: 24		SY:semi		line: 189		column:49
+token: case		symID: 8		SY:case		line: 190		column:21
+token: 2		symID: 29		SY:number		line: 190		column:26
+token: :		symID: 28		SY:colon		line: 190		column:27
+token: printf		symID: 11		SY:printf		line: 190		column:28
+token: (		symID: 31		SY:left parent		line: 190		column:34
+token: key is 2		symID: 30		SY:string		line: 190		column:35
+token: )		symID: 32		SY:right parent		line: 190		column:45
+token: ;		symID: 24		SY:semi		line: 190		column:46
+token: }		symID: 36		SY:right brace		line: 191		column:17
+token: scanf		symID: 10		SY:scanf		line: 192		column:13
+token: (		symID: 31		SY:left parent		line: 192		column:18
+token: e		symID: 37		SY:identifier		line: 192		column:19
+token: )		symID: 32		SY:right parent		line: 192		column:20
+token: ;		symID: 24		SY:semi		line: 192		column:21
+token: switch		symID: 7		SY:switch		line: 193		column:17
+token: (		symID: 31		SY:left parent		line: 193		column:23
+token: e		symID: 37		SY:identifier		line: 193		column:24
+token: )		symID: 32		SY:right parent		line: 193		column:25
+token: {		symID: 35		SY:left brace		line: 193		column:26
+token: case		symID: 8		SY:case		line: 194		column:21
+token: a		symID: 26		SY:single quota		line: 194		column:26
+token: :		symID: 28		SY:colon		line: 194		column:29
+token: printf		symID: 11		SY:printf		line: 194		column:30
+token: (		symID: 31		SY:left parent		line: 194		column:36
+token: +		symID: 13		SY:plus		line: 194		column:37
+token: +		symID: 13		SY:plus		line: 194		column:38
+token: 2		symID: 29		SY:number		line: 194		column:39
+token: )		symID: 32		SY:right parent		line: 194		column:40
+token: ;		symID: 24		SY:semi		line: 194		column:41
+token: case		symID: 8		SY:case		line: 195		column:21
+token: b		symID: 26		SY:single quota		line: 195		column:26
+token: :		symID: 28		SY:colon		line: 195		column:29
+token: printf		symID: 11		SY:printf		line: 195		column:30
+token: (		symID: 31		SY:left parent		line: 195		column:36
+token: +		symID: 13		SY:plus		line: 195		column:37
+token: 2		symID: 29		SY:number		line: 195		column:38
+token: +		symID: 13		SY:plus		line: 195		column:39
+token: -		symID: 14		SY:sub		line: 195		column:40
+token: 2		symID: 29		SY:number		line: 195		column:41
+token: )		symID: 32		SY:right parent		line: 195		column:42
+token: ;		symID: 24		SY:semi		line: 195		column:43
+token: }		symID: 36		SY:right brace		line: 196		column:17
+token: }		symID: 36		SY:right brace		line: 198		column:9
+token: }		symID: 36		SY:right brace		line: 201		column:5
+token: nest		symID: 37		SY:identifier		line: 204		column:9
+token: (		symID: 31		SY:left parent		line: 204		column:13
+token: )		symID: 32		SY:right parent		line: 204		column:14
+token: ;		symID: 24		SY:semi		line: 204		column:15
+token: return		symID: 12		SY:return		line: 205		column:9
+token: ;		symID: 24		SY:semi		line: 205		column:16
+token: }		symID: 36		SY:right brace		line: 206		column:1

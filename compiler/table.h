@@ -19,10 +19,17 @@ struct PCode{
 
 struct DagPoint{
 	std::string name;
+	//节点指向的左右节点，若无则为0
 	int left;
 	int right;
+	//节点的父节点个数
+	int fatnum;
+	//节点的值
 	int value;
+	//节点对应的序号
 	int loc;
+	//节点是否为中间节点 0-中间节点 1-最终节点
+	int fin_or_temp;
 };
 
 struct DagTable{

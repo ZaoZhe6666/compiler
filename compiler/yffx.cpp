@@ -331,7 +331,7 @@ void YF::evalue(std::string name){
 		}
 		array_index = 0;
 	}
-	count+=2;
+	count++;
 	st.st_push("T",count,9,1);
 //	zj->midcode("=",count,0,0);
 //	zj->midcode("=",count,1,left);
@@ -339,7 +339,7 @@ void YF::evalue(std::string name){
 	mustread(ASSIGNSY);
 	int right = express(0);
 	zj->midcode("[]=",left,right,name);
-	count -=2;
+	count --;
 }
 
 int YF::express(int ident = 0){

@@ -13,6 +13,9 @@ DT::DT(){
 	DagTable *dt;
 	if(dt = new DagTable){
 		dt->topnum = 0;
+		DagPoint dp;
+		dp.name = "Zero Point!";
+		dt->dt.push_back(dp);
 		s1 = dt;
 	}
 	else{
@@ -83,20 +86,53 @@ int DT::dt_create_point(std::string name,int value){
 	dp.value = value;
 	dp.name = name;
 	dp.loc = ++s1->topnum;
+	dp.fin_or_temp = 1;
 	s1->dt.push_back(dp);
 	if(name == "T"){
-		outf << "CREATE POINT #"  << s1->topnum << "  T" << value <<endl;
+		outf << "CREATE FINAL POINT #"  << s1->topnum << "  T" << value <<endl;
 	}
 	else if(name == "CONST"){
-		outf << "CREATE POINT #"  << s1->topnum << "  CONST  " << value <<endl;
+		outf << "CREATE FINAL POINT #"  << s1->topnum << "  CONST  " << value <<endl;
 	}
 	else{
-		outf << "CREATE POINT #"  << s1->topnum << "  " << name <<endl;
+		outf << "CREATE FINAL POINT #"  << s1->topnum << "  " << name <<endl;
 	}
 	return dp.loc;
 }
 
 void DT::dt_change_point_value(int point_index, int loc){
+//	cout << "in change size is:" << s1->dt.size() << endl;
+	int now_loc = s1->dt.at(point_index).loc;
+	int i;
+	int judge = 0;
+	std::string name = s1->dt.at(point_index).name;
+	int top = s1->dt.size();
+	for(i=0;i<top;i++){
+		if(s1->dt.at(i).loc == now_loc && i != point_index){
+			judge =1;
+		}
+	}
+	if(judge == 0){
+		if(name != "CONST"){
+			DagPoint new_dp;
+			new_dp.fatnum = s1->dt.at(point_index).fatnum;
+			new_dp.fin_or_temp = 0;
+			new_dp.left = s1->dt.at(point_index).left;
+			new_dp.loc = s1->dt.at(point_index).loc;
+			new_dp.name = s1->dt.at(point_index).name;
+			new_dp.right = s1->dt.at(point_index).right;
+			new_dp.value = s1->dt.at(point_index).value;
+			s1->dt.push_back(new_dp);
+		}
+		if(name == "T"){
+			int value = s1->dt.at(point_index).value;
+			outf << "CREATE TEMP POINT #"  << s1->topnum << "  T" << value <<endl;
+		}
+		else if(name != "CONST"){
+			outf << "CREATE TEMP POINT #"  << s1->topnum << "  " << name <<endl;
+		}
+	}
+	outf << "\tCHANGE POINT #" << point_index << " To  #" << loc << endl;
 	s1->dt.at(point_index).loc = loc;
 	return;
 }
@@ -111,8 +147,11 @@ int DT::dt_create_relate(std::string relate,int left,int right){
 	dp.left = left;
 	dp.right = right;
 	dp.loc = s1->topnum;
+	dp.fatnum = 0;
 	dp.name = relate;
 	dp.value = 0;
+	s1->dt.at(left).fatnum++;
+	s1->dt.at(right).fatnum++;
 	s1->dt.push_back(dp);
 	outf << "CREATE POINT #"  << s1->topnum << " " << relate <<endl;
 	s2->drt.push_back(new_relate);
@@ -121,8 +160,27 @@ int DT::dt_create_relate(std::string relate,int left,int right){
 }
 
 void DT::dt_delete_relate(){
-	outf << "########## END DAG ##########" << endl;
+	outf << "\n########## DAG RES ##########" << endl;
+	outf << "i\tStatus\tname\tloc" << endl;
+	std::string status;
+	int size = s1->dt.size();
+	for(int i=1;i<size;i++){
+		status = (s1->dt.at(i).fin_or_temp)?"FINAL":"TEMP ";
+		if(s1->dt.at(i).name == "CONST"){
+			outf << "#" << i << "\t" << status << "\t" << s1->dt.at(i).value << "\t\t" << s1->dt.at(i).loc << endl;
+		}
+		else if(s1->dt.at(i).name == "T"){
+			outf << "#" << i << "\t" << status << "\tT" << s1->dt.at(i).value << "\t\t" << s1->dt.at(i).loc << endl;
+		}
+		else{
+			outf << "#" << i << "\t" << status << "\t" << s1->dt.at(i).name << "\t\t" << s1->dt.at(i).loc << endl;
+		}
+	}
+	outf << "########## END DAG ##########\n\n" << endl;
 	s1->dt.clear();
+	DagPoint dp;
+	dp.name = "You Should not See This!";
+	s1->dt.push_back(dp);
 	s1->topnum = 0;
 	s2->drt.clear();
 }

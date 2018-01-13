@@ -13,11 +13,11 @@ extern FT ft;
 extern ST st;
 
 char *TEMP_GEN[20]={"$zero",
-					"$t3",	"$t4",	"$t5",
-					"$t6",	"$t7",	"$s0",
-					"$s2",	"$s3",	"$s4",
-					"$s5",	"$s6",	"$s6",
-					"$t8",	"$t9"
+					"$t2",	"$t3",	"$t4",
+					"$t5",	"$t6",	"$t7",
+					"$s0",	"$s2",	"$s3",
+					"$s4",	"$s5",	"$s6",
+					"$s7",	"$t8",	"$t9"
 							 }; 
 
 MIPS::MIPS(){
@@ -185,16 +185,16 @@ void MIPS::mid2mips(PCode pcode){
 				int offset_brack = getLocation(num3);
 				int offset_sz = getLocation(str);
 				
-				outf << "\tlw $t2 " << (-1*offset_brack) << "($fp)" << endl;
-				outf << "\tmul $t2 $t2 4" << endl;
+				outf << "\tlw $t0 " << (-1*offset_brack) << "($fp)" << endl;
+				outf << "\tmul $t0 $t0 4" << endl;
 				if(offset_sz < 0){
 					outf << "\tla $t1 " << str << endl;
-					outf << "\tadd $t1 $t1 $t2" << endl;
+					outf << "\tadd $t1 $t1 $t0" << endl;
 					outf << "\tlw $t1 0($t1)" << endl;
 				}
 				else{
 					outf << "\tli $t1 " << (-1*offset_sz) << endl;
-					outf << "\tsub $t1 $t1 $t2" << endl;
+					outf << "\tsub $t1 $t1 $t0" << endl;
 					outf << "\tadd $t1 $t1 $fp" << endl;
 					outf << "\tlw $t1 0($t1)" << endl;
 				}
@@ -206,16 +206,16 @@ void MIPS::mid2mips(PCode pcode){
 				int offset_left = getLocation(num2);
 				int offset_brack = getLocation(num3);
 				int offset_sz = getLocation(str);
-				outf << "\tlw $t2 " << (-1*offset_brack) << "($fp)" << endl;
-				outf << "\tmul $t2 $t2 4" << endl;
+				outf << "\tlw $t0 " << (-1*offset_brack) << "($fp)" << endl;
+				outf << "\tmul $t0 $t0 4" << endl;
 				if(offset_sz < 0){
 					outf << "\tla $t1 " << str << endl;
-					outf << "\tadd $t1 $t1 $t2" << endl;
+					outf << "\tadd $t1 $t1 $t0" << endl;
 					outf << "\tlw $t1 0($t1)" << endl;
 				}
 				else{
 					outf << "\tli $t1 " << (-1*offset_sz) << endl;
-					outf << "\tsub $t1 $t1 $t2" << endl;
+					outf << "\tsub $t1 $t1 $t0" << endl;
 					outf << "\tadd $t1 $t1 $fp" << endl;
 					outf << "\tlw $t1 0($t1)" << endl;
 				}
@@ -289,8 +289,8 @@ void MIPS::mid2mips(PCode pcode){
 				outf << "\tsub $t0 $t0 $t1" << endl;
 				outf << "\tadd $t0 $t0 $fp" << endl;
 			}
-			outf << "\tlw $t2 " << (-1*offset_right) << "($fp)" << endl;
-			outf << "\tsw $t2 0($t0)" << endl;
+			outf << "\tlw $t1 " << (-1*offset_right) << "($fp)" << endl;
+			outf << "\tsw $t1 0($t0)" << endl;
 			
 		}
 	}
@@ -467,40 +467,48 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 			if(num3 == -1){
 				int offset_right = getLocation(num2);
 				int offset_left = getLocation(str);
-				if(num2 > 14){
+				if(num2 > 15){
 					outf_MT2T << "\tlw $t0 " << (-1*offset_right) << "($fp)" << endl;
-				}
-				else{
-					if(num2 > max_temp){
-						max_temp = num2;
+					if(offset_left >= 0){
+						outf_MT2T << "\tsw $t0 " << (-1*offset_left)  << "($fp)" << endl;
 					}
-					outf_MT2T << "\tmove $t0 " << TEMP_GEN[num2] << endl;
-				}
-				if(offset_left >= 0){
-					outf_MT2T << "\tsw $t0 " << (-1*offset_left)  << "($fp)" << endl;
+					else{
+						outf_MT2T << "\tsw $t0 " << str << "($0)" << endl;
+					}
 				}
 				else{
-					outf_MT2T << "\tsw $t0 " << str << "($0)" << endl;
+					max_temp = num2;
+					if(offset_left >= 0){
+						outf_MT2T << "\tsw " << TEMP_GEN[num2] << " " << (-1*offset_left)  << "($fp)" << endl;
+					}
+					else{
+						outf_MT2T << "\tsw " << TEMP_GEN[num2] << " " << str << "($0)" << endl;
+					}
 				}
 			}
 			else{
 				if(num3 == 0){
 					int offset_right = getLocation(str);
 					int offset_left = getLocation(num2);
-					if(offset_right >= 0){
-						outf_MT2T << "\tlw $t1 " << (-1*offset_right) << "($fp)" << endl;
-					}
-					else{
-						outf_MT2T << "\tlw $t1 " << str << "($0)" << endl;
-					}
-					if(num2 > 14){
+					if(num2 > 15){
+						if(offset_right >= 0){
+							outf_MT2T << "\tlw $t1 " << (-1*offset_right) << "($fp)" << endl;
+						}
+						else{
+							outf_MT2T << "\tlw $t1 " << str << "($0)" << endl;
+						}
 						outf_MT2T << "\tsw $t1 " << (-1*offset_left)  << "($fp)" << endl;
 					}
 					else{
 						if(num2 > max_temp){
 							max_temp = num2;
 						}
-						outf_MT2T << "\tmove " << TEMP_GEN[num2]  << " $t1" << endl;
+						if(offset_right >= 0){
+							outf_MT2T << "\tlw " << TEMP_GEN[num2] << " " << (-1*offset_right) << "($fp)" << endl;
+						}
+						else{
+							outf_MT2T << "\tlw " << TEMP_GEN[num2] << " " << str << "($0)" << endl;
+						}
 					}
 				}
 				else{
@@ -511,14 +519,12 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 						
 					}
 					else{
-						outf_MT2T << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 						outf_MT2T << "\tlw $t1 " << str << "($0)" << endl;
 					}
-					if(num2 > 14){
+					if(num2 > 15){
 						outf_MT2T << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 						outf_MT2T << "\t" <<sym_list[num3] << " $t0 $t0 $t1" << endl;
 						outf_MT2T << "\tsw $t0 " << (-1*offset_left)  << "($fp)" << endl;
-
 					}
 					else{
 						if(num2 > max_temp){
@@ -541,40 +547,32 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 		else if(num1 == -3){
 			int para_offset = num3*4-4;
 			int offset_right = getLocation(num2);
-			if(num2 > 14){
+			if(num2 > 15){
 				outf_MT2T << "\tlw $t0 " << (-1*offset_right) << "($fp)" << endl;
+				outf_MT2T << "\tsw $t0 0($sp)" << endl;
 			}
 			else{
-				if(num2 > max_temp){
-					max_temp = num2;
-				}
-				outf_MT2T << "\tmove $t0 " << TEMP_GEN[num2] <<endl;
+				max_temp = num2 - 1;
+				outf_MT2T << "\tsw " << TEMP_GEN[num2] << " 0($sp)" << endl;
 			}
-			outf_MT2T << "\tsw $t0 0($sp)" << endl;
 			outf_MT2T << "\tsubi $sp $sp 4" << endl;
 		}
 		else if(num1 == -5){
 			int offset_left = getLocation(num2);
-			int tempi;
-			for(tempi=1;tempi<=max_temp;tempi++){
-				int offset_temp = getLocation(tempi);
-				outf_MT2T << "\tlw " << TEMP_GEN[tempi] << " " << (-1*offset_temp) << "($fp)" << endl;
-			}
-			max_temp = 0;
-			if(num2 > 14){
-				outf_MT2T << "\tmove $t1 $s1" << endl;
+			if(num2 > 15){
 				if(num3 == 2){
-					outf_MT2T << "\tmove $t0 $s1" << endl;
+					outf_MT2T << "\tsw $s1 " << (-1*offset_left) << "($fp)" << endl;
 				}
 				else if(num3 == 3){
 					outf_MT2T << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
-					outf_MT2T << "\tmul $t0 $t0 $t1" << endl;
+					outf_MT2T << "\tmul $t0 $t0 $s1" << endl;
+					outf_MT2T << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				}
 				else if(num3 == 4){
 					outf_MT2T << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
-					outf_MT2T << "\tdiv $t0 $t0 $t1" << endl;
+					outf_MT2T << "\tdiv $t0 $t0 $s1" << endl;
+					outf_MT2T << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				}
-				outf_MT2T << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
 			}
 			else{
 				if(num3 == 2){
@@ -595,28 +593,28 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 				int offset_left = getLocation(num2);
 				int offset_brack = getLocation(num3);
 				int offset_sz = getLocation(str);
-				if(num3 >14){
-					outf_MT2T << "\tlw $t2 " << (-1*offset_brack) << "($fp)" << endl;
+				if(num3 > 15){
+					outf_MT2T << "\tlw $t0 " << (-1*offset_brack) << "($fp)" << endl;
+					outf_MT2T << "\tmul $t0 $t0 4" << endl;
 				}
 				else{
 					if(num3 >max_temp){
 						max_temp = num3;
 					}
-					outf_MT2T << "\tmove $t2 " << TEMP_GEN[num3] << endl;
+					outf_MT2T << "\tmul $t0 " << TEMP_GEN[num3] << " 4" << endl;
 				}
-				outf_MT2T << "\tmul $t2 $t2 4" << endl;
 				if(offset_sz < 0){
 					outf_MT2T << "\tla $t1 " << str << endl;
-					outf_MT2T << "\tadd $t1 $t1 $t2" << endl;
+					outf_MT2T << "\tadd $t1 $t1 $t0" << endl;
 					outf_MT2T << "\tlw $t1 0($t1)" << endl;
 				}
 				else{
 					outf_MT2T << "\tli $t1 " << (-1*offset_sz) << endl;
-					outf_MT2T << "\tsub $t1 $t1 $t2" << endl;
+					outf_MT2T << "\tsub $t1 $t1 $t0" << endl;
 					outf_MT2T << "\tadd $t1 $t1 $fp" << endl;
 					outf_MT2T << "\tlw $t1 0($t1)" << endl;
 				}
-				if(num2 > 14){
+				if(num2 > 15){
 					outf_MT2T << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 					outf_MT2T << "\tdiv $t0 $t0 $t1" << endl;
 					outf_MT2T << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
@@ -632,28 +630,28 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 				int offset_left = getLocation(num2);
 				int offset_brack = getLocation(num3);
 				int offset_sz = getLocation(str);
-				if(num3 > 14){
-					outf_MT2T << "\tlw $t2 " << (-1*offset_brack) << "($fp)" << endl;
+				if(num3 > 15){
+					outf_MT2T << "\tlw $t0 " << (-1*offset_brack) << "($fp)" << endl;
+					outf_MT2T << "\tmul $t0 $t0 4" << endl;
 				}
 				else{
 					if(num3 > max_temp){
 						max_temp = num3;
 					}
-					outf_MT2T << "\tmove $t2 " << TEMP_GEN[num3] << endl;
+					outf_MT2T << "\tmul $t0 " << TEMP_GEN[num3] << " 4" << endl;
 				}
-				outf_MT2T << "\tmul $t2 $t2 4" << endl;
 				if(offset_sz < 0){
 					outf_MT2T << "\tla $t1 " << str << endl;
-					outf_MT2T << "\tadd $t1 $t1 $t2" << endl;
+					outf_MT2T << "\tadd $t1 $t1 $t0" << endl;
 					outf_MT2T << "\tlw $t1 0($t1)" << endl;
 				}
 				else{
 					outf_MT2T << "\tli $t1 " << (-1*offset_sz) << endl;
-					outf_MT2T << "\tsub $t1 $t1 $t2" << endl;
+					outf_MT2T << "\tsub $t1 $t1 $t0" << endl;
 					outf_MT2T << "\tadd $t1 $t1 $fp" << endl;
 					outf_MT2T << "\tlw $t1 0($t1)" << endl;
 				}
-				if(num2 > 14){
+				if(num2 > 15){
 					outf_MT2T << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 					outf_MT2T << "\tmul $t0 $t0 $t1" << endl;
 					outf_MT2T << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
@@ -725,26 +723,30 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 		}
 		else if(num1 == -12){
 			int tempi;
-			for(tempi=1;tempi<=max_temp;tempi++){
+			int m_t = max_temp;
+			for(tempi=1;tempi<=m_t;tempi++){
 				int offset_temp = getLocation(tempi);
 				outf_MT2T << "\tsw " << TEMP_GEN[tempi] << " " << (-1 * offset_temp) << "($fp)" << endl;
 			}
 			outf_MT2T << "\tjal " << str << endl;
+			for(tempi=1;tempi<=m_t;tempi++){
+				int offset_temp = getLocation(tempi);
+				outf_MT2T << "\tlw " << TEMP_GEN[tempi] << " " << (-1 * offset_temp) << "($fp)" << endl;
+			}
+			max_temp = 0;
 		}
 		else if(num1 == -13){
 			int offset_right = getLocation(num3);
 			int offset_off = getLocation(num2);
 			int offset_sz = getLocation(str);
-			if(num2 > 14){
+			if(num2 > 15){
 				outf_MT2T << "\tlw $t1 " << (-1*offset_off) << "($fp)" << endl; 
+				outf_MT2T << "\tmul $t1 $t1 4" << endl;
 			}
 			else{
-				if(num2 > max_temp){
-					max_temp = num2;
-				}
-				outf_MT2T << "\tmove $t1 " << TEMP_GEN[num2] << endl;
+				max_temp = num2;
+				outf_MT2T << "\tmul $t1 " << TEMP_GEN[num2] << " 4" << endl;
 			}
-			outf_MT2T << "\tmul $t1 $t1 4" << endl;
 			if(offset_sz < 0){
 				outf_MT2T << "\tla $t0 " << str << endl;
 				outf_MT2T << "\tadd $t0 $t0 $t1" << endl;
@@ -754,16 +756,13 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 				outf_MT2T << "\tsub $t0 $t0 $t1" << endl;
 				outf_MT2T << "\tadd $t0 $t0 $fp" << endl;
 			}
-			if(num3 > 14){
-				outf_MT2T << "\tlw $t2 " << (-1*offset_right) << "($fp)" << endl;
+			if(num3 > 15){
+				outf_MT2T << "\tlw $t1 " << (-1*offset_right) << "($fp)" << endl;
+				outf_MT2T << "\tsw $t1 0($t0)" << endl;
 			}
 			else{
-				if(num3 > max_temp){
-					max_temp = num3;
-				}
-				outf_MT2T << "\tmove $t2 " << TEMP_GEN[num3] << endl;
+				outf_MT2T << "\tsw " << TEMP_GEN[num3] << " 0($t0)" << endl;
 			}
-			outf_MT2T << "\tsw $t2 0($t0)" << endl;
 		}
 	}
 	else{
@@ -776,23 +775,21 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 			if(num2 == -6){
 				int offset_left = getLocation(num1);
 				int offset_right = getLocation(num3);
-				if(num3 > 14 && num1 > 14){
+				if(num3 > 15 && num1 > 15){
 					outf_MT2T << "\tlw $t0 " << (-1*offset_right) << "($fp)" << endl;
 					outf_MT2T << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				}
-				else if(num3 >14){
+				else if(num3 > 15){
 					if(num1 > max_temp){
 						max_temp = num1;
 					}
-					outf_MT2T << "\tlw $t0 " << (-1*offset_right) << "($fp)" << endl;
-					outf_MT2T << "\tmove " << TEMP_GEN[num1] <<  " $t0" << endl;
+					outf_MT2T << "\tlw " << TEMP_GEN[num1] << " " << (-1*offset_right) << "($fp)" << endl;
 				}
-				else if(num1 > 14){
+				else if(num1 > 15){
 					if(num3 > max_temp){
 						max_temp = num3;
 					}
-					outf_MT2T << "\tmove $t0 " << TEMP_GEN[num3] << endl;
-					outf_MT2T << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
+					outf_MT2T << "\tsw " << TEMP_GEN[num3] << " " << (-1*offset_left) << "($fp)" << endl;
 				}
 				else{
 					if(num1 > max_temp){
@@ -806,7 +803,7 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 			}
 			else if(num2 == -5){
 				int offset_left = getLocation(num1);
-				if(num1 > 14){
+				if(num1 > 15){
 					outf_MT2T << "\tli $t0 " << num3 << endl;
 					outf_MT2T << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				}
@@ -821,7 +818,7 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 				num2 += 8;
 				int offset_left = getLocation(num1);
 				outf_MT2T << "\tli $t1 " << num3 << endl;
-				if(num1 > 14){
+				if(num1 > 15){
 					outf_MT2T << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 					outf_MT2T << "\t" << sym_list[num2] << " $t0 $t0 $t1" << endl;
 					outf_MT2T << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
@@ -835,7 +832,7 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 			}
 			else if(num2 == 0){
 				int offset_left = getLocation(num1);
-				if(num1 > 14){
+				if(num1 > 15){
 					outf_MT2T << "\tli $t0 " << num3 << endl;
 					outf_MT2T << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				}
@@ -846,13 +843,13 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 			else{
 				int offset_left = getLocation(num1);
 				int offset_right = getLocation(num3);
-				if(num1 > 14 && num3 > 14){
+				if(num1 > 15 && num3 > 15){
 					outf_MT2T << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 					outf_MT2T << "\tlw $t1 " << (-1*offset_right) << "($fp)" << endl;
 					outf_MT2T << "\t" << sym_list[num2] << " $t0 $t0 $t1" << endl;
 					outf_MT2T << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				}
-				else if(num1 > 14){
+				else if(num1 > 15){
 					if(num3 > max_temp){
 						max_temp = num3;
 					}
@@ -860,7 +857,7 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 					outf_MT2T << "\t" << sym_list[num2] << " $t0 $t0 " << TEMP_GEN[num3] << endl;
 					outf_MT2T << "\tsw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				}
-				else if(num3 > 14){
+				else if(num3 > 15){
 					if(num1 > max_temp){
 						max_temp = num1;
 					}
@@ -903,19 +900,19 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 			}
 			int offset_left = getLocation(num1);
 			int offset_right = getLocation(num3);
-			if(num1 > 14 && num3 > 14){
+			if(num1 > 15 && num3 > 15){
 				outf_MT2T << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				outf_MT2T << "\tlw $t1 " << (-1*offset_right) << "($fp)" << endl;
 				outf_MT2T << "\tsub $t0 $t0 $t1" << endl;
 			}
-			else if(num1 > 14){
+			else if(num1 > 15){
 				if(num3 > max_temp){
 					max_temp = num3;
 				}
 				outf_MT2T << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
 				outf_MT2T << "\tsub $t0 $t0 " << TEMP_GEN[num3] << endl;
 			}
-			else if(num3 > 14){
+			else if(num3 > 15){
 				if(num1 > max_temp){
 					max_temp = num1;
 				}
@@ -954,7 +951,7 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 		else if(str == "ret"){
 			if(num3 >= 0){
 				int offset = getLocation(num2);
-				if(num2 > 14){
+				if(num2 > 15){
 					outf_MT2T << "\tlw $s1 " << (-1*offset) << "($fp)" << endl;
 				}
 				else{
@@ -979,41 +976,43 @@ void MIPS::mid2mips_MemT2Temp(PCode pcode){
 		}
 		else if(str == "jmp"){
 			int offset = getLocation(num1);
-			if(num1 > 14){
+			if(num1 > 15){
 				outf_MT2T << "\tlw $t0 " << (-1*offset) << "($fp)" << endl;
-			}
-			else{
-				if(num1 > max_temp){
-					max_temp = num1;
+				if(num2<0){
+					outf_MT2T << "\tbne $t0 $0 label" << num3 << endl;
 				}
-				outf_MT2T << "\tmove $t0 " <<TEMP_GEN[num1] << endl;
-			}
-			if(num2<0){
-				outf_MT2T << "\tbne $t0 $0 label" << num3 << endl;
+				else{
+					outf_MT2T << "\tbeq $t0 $0 label" << num3 << endl;
+				}
 			}
 			else{
-				outf_MT2T << "\tbeq $t0 $0 label" << num3 << endl;
+				max_temp = num1;
+				if(num2<0){
+					outf_MT2T << "\tbne " <<TEMP_GEN[num1] << " $0 label" << num3 << endl;
+				}
+				else{
+					outf_MT2T << "\tbeq " <<TEMP_GEN[num1] << " $0 label" << num3 << endl;
+				}
 			}
 		}
 		else if(str == "case"){
 			int offset_left = getLocation(num1);
-			if(num1 > 14){
+			outf_MT2T << "\tli $t1 " << num2 << endl;
+			if(num1 > 15){
 				outf_MT2T << "\tlw $t0 " << (-1*offset_left) << "($fp)" << endl;
+				outf_MT2T << "\tbne $t0 $t1 label" << num3 << endl;
 			}
 			else{
 				if(num1 > max_temp){
 					max_temp = num1;
 				}
-				outf_MT2T << "\tmove $t0 " << TEMP_GEN[num1] << endl;
+				outf_MT2T << "\tbne " << TEMP_GEN[num1] << " $t1 label" << num3 << endl;
 			}
-			outf_MT2T << "\tli $t1 " << num2 << endl;
-			outf_MT2T << "\tbne $t0 $t1 label" << num3 << endl;
 		}
 		else if(str == "pr"){
 			int offset = getLocation(num3);
-			if(num3 > 14){
-				outf_MT2T << "\tlw $t0 " << (-1*offset) << "($fp)" << endl;
-				outf_MT2T << "\tmove $a0 $t0" << endl;
+			if(num3 > 15){
+				outf_MT2T << "\tlw $a0 " << (-1*offset) << "($fp)" << endl;
 			}
 			else{
 				if(num3 > max_temp){
