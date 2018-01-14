@@ -36,7 +36,7 @@ void ZJ::deal_Dag(){
 		int judge;
 		std::string str;
 		/*将DAG中存储的中间代码，转换并生成DAG图*/
-		outf_DAG << "size: " << dsize << endl;
+//		outf_DAG << "size: " << dsize << endl;
 		for(i=0;i<dsize;i++){
 //			outf_DAG << DAG.at(i).num1 << " " << DAG.at(i).num2 << " " << DAG.at(i).num3 << " " << DAG.at(i).str <<endl;
 
@@ -56,9 +56,6 @@ void ZJ::deal_Dag(){
 						}
 						if(right < 0){
 							right = dt.dt_create_point("T", num2);
-						}
-						if(left != right){
-							outf_DAG << str << " = T" << num2 << endl;
 						}
 						dt.dt_change_point_value(left, right);
 					}
@@ -85,8 +82,14 @@ void ZJ::deal_Dag(){
 						if(right < 0){
 							right = dt.dt_create_point(str, 0);
 						}
-						int new_left = dt.dt_create_relate(relate_list[num3],left,right);
-						dt.dt_change_point_value(left, new_left);
+						int relate_judge = dt.dt_seek(relate_list[num3], left, right);
+						if(relate_judge < 0){
+							int new_left = dt.dt_create_relate(relate_list[num3],left,right);
+							dt.dt_change_point_value(left, new_left);
+						}
+						else{
+							dt.dt_change_point_value(left, relate_judge);
+						}
 					}
 				}
 				else if(num1 == -6){
@@ -106,8 +109,10 @@ void ZJ::deal_Dag(){
 						if(left < 0){
 							left = dt.dt_create_point("T", num2);
 						}
-						int new_left = dt.dt_create_relate("/", left, right);
-						dt.dt_change_point_value(left, new_left);
+						dt.dt_change_point_value(left, right);
+						int new_left = dt.dt_seek("T", num2);
+						left = dt.dt_create_relate("/", left, new_left);
+						dt.dt_change_point_value(new_left, left);
 					}
 					else{
 						/* Tnum2 *= str[ Tnum3 ] */	
@@ -124,26 +129,11 @@ void ZJ::deal_Dag(){
 						if(left < 0){
 							left = dt.dt_create_point("T", num2);
 						}
-						int new_left = dt.dt_create_relate("*", left, right);
-						dt.dt_change_point_value(left, new_left);
+						dt.dt_change_point_value(left, right);
+						int new_left = dt.dt_seek("T", num2);
+						left = dt.dt_create_relate("*", left, new_left);
+						dt.dt_change_point_value(new_left, left);
 					}
-				}
-				else if(num1 == -13){
-					/* str[Tnum2] = Tnum3 */
-					int left_brack = dt.dt_seek(str);
-					if(left_brack < 0){
-						left_brack = dt.dt_create_point(str, 0);
-					}
-					int right_brack = dt.dt_seek("T", num2);
-					if(right_brack < 0){
-						right_brack = dt.dt_create_point("T", num2);
-					}
-					int left = dt.dt_create_relate("[]", left_brack, right_brack);
-					int right = dt.dt_seek("T", num3);
-					if(right < 0){
-						right = dt.dt_create_point("T", num3);
-					}
-					dt.dt_change_point_value(left, right);
 				}
 			}
 			else{
@@ -173,8 +163,8 @@ void ZJ::deal_Dag(){
 					dt.dt_change_point_value(left,right);
 				}
 				else if(num2 == -5 || num2 == 0){
-					int left = dt.dt_seek("T",num1);
 					int right = dt.dt_seek(num3);
+					int left = dt.dt_seek("T",num1);
 					if(right < 0){
 						right = dt.dt_create_point("CONST",num3);
 					}
@@ -194,8 +184,14 @@ void ZJ::deal_Dag(){
 					if(left < 0){
 						left = dt.dt_create_point("T", num1);
 					}
-					int new_left = dt.dt_create_relate(relate_list[num2],left,right);
-					dt.dt_change_point_value(left, new_left);
+					int relate_judge = dt.dt_seek(relate_list[num2],left,right);
+					if(relate_judge < 0){
+						int new_left = dt.dt_create_relate(relate_list[num2],left,right);
+						dt.dt_change_point_value(left, new_left);
+					}
+					else{
+						dt.dt_change_point_value(left, relate_judge);
+					}
 				}
 				else{
 					std::string relate_list[6] = {"","+","-","*","/"};
@@ -207,17 +203,24 @@ void ZJ::deal_Dag(){
 					if(left < 0){
 						left = dt.dt_create_point("T", num1);
 					}
-					int new_left = dt.dt_create_relate(relate_list[num2],left,right);
-					dt.dt_change_point_value(left, new_left);
+					int relate_judge = dt.dt_seek(relate_list[num2],left,right);
+					if(relate_judge < 0){
+						int new_left = dt.dt_create_relate(relate_list[num2],left,right);
+						dt.dt_change_point_value(left, new_left);
+					}
+					else{
+						dt.dt_change_point_value(left, relate_judge);
+					}
 				}
 			}
 		}
-		dt.dt_delete_relate();
 		/*将生成的DAG图转换成删减后的目标代码*/
+		dt.dt_output(outf_DAG);
 
 		/*清空DAG*/
+		dt.dt_delete_relate();
 		DAG.clear();
-		outf_DAG << "\n\n" << endl;
+//		outf_DAG << "\n\n" << endl;
 	}
 	return;
 }
@@ -239,8 +242,18 @@ void ZJ::midcode(std::string w1,int w2,int w3,int w4){
 			pcode_DAG.push_back(pc_new);
 		}
 	}
+	midcode_deal(w1,w2,w3,w4,outf);
+	midcode_deal(w1,-1*w2,w3,w4,outf_DAG);
+}
+
+void ZJ::midcode_deal(std::string w1,int w2,int w3, int w4,std::ofstream & outf){
 	extern Error error;
-	if(w1 == "="){
+	int dag_judge = 1;
+	if(w2 < 0){
+		w2 *= -1;
+		dag_judge = 0;
+	}
+	if(w1 == "=" && dag_judge){
 		/*
 		-6  T2 = T4
 		-5  T2 = w4
@@ -365,25 +378,43 @@ void ZJ::midcode(std::string w1,int w2,int w3,int w4){
 }
 
 void ZJ::midcode(std::string w1,int w2,int w3,std::string w4){
-	extern Error error;
 	ptop++;
 	PCode pc_new;
 	pc_new.str = w4;
 	pc_new.num2 = w2;
 	pc_new.num3 = w3;
 	pcode.push_back(pc_new);
-	if(w1 == "=" || w1 == "=[]" || w1 == "[]="){
+	if(w1 == "="){
 		DAG.push_back(pc_new);
 	}
 	else{
 		deal_Dag();
+		int dag_count = 0;
+		while(dt.dt_zjdm_GetBack_judge(dag_count)){
+			PCode pc = dt.dt_zjdm_GetBack(dag_count);
+			pcode_DAG.push_back(pc);
+			dag_count++;
+		}
 		pcode_DAG.push_back(pc_new);
 	}
-	if(w1 == "="){
+	midcode_deal(w1,w2,w3,w4,outf);
+	midcode_deal(w1,-1*w2,w3,w4,outf_DAG);
+}
+
+void ZJ::midcode_deal(std::string w1,int w2,int w3,std::string w4,std::ofstream & outf){
+	extern Error error;
+	int dag_judge = 1;
+	if(w2 < 0){
+		w2 *= -1;
+		dag_judge = 0;
+	}
+	if(w1 == "=" && dag_judge){
 		//pcode[ptop].num1 = -1;
 		pcode.at(ptop).num1 = -1;
 		DAG.at(DAG.size()-1).num1 = -1;
 		/*
+		-3  w4 = str2
+		-2  w4 = w2
 		-1	w4 = T2
 		0	T2 = w4
 		1	T2 = T2 + w4
@@ -458,7 +489,7 @@ void ZJ::midcode(std::string w1,int w2,int w3,std::string w4){
 	else if(w1 == "=[]"){
 //		pcode[ptop].num1 = -6;
 		pcode.at(ptop).num1 = -6;
-		DAG.at(DAG.size()-1).num1 = -6;
+		pcode_DAG.at(pcode_DAG.size()-1).num1 = -6;
 		if(w3 <0){
 			w3 *= -1;
 			w3 -= 1;
@@ -528,7 +559,7 @@ void ZJ::midcode(std::string w1,int w2,int w3,std::string w4){
 	else if(w1 == "[]="){
 		//pcode[ptop].num1 = -13;
 		pcode.at(ptop).num1 = -13;
-		DAG.at(DAG.size()-1).num1 = -13;
+		pcode_DAG.at(pcode_DAG.size()-1).num1 = -13;
 		outf << w4 << "[T" << w2  <<"] = T" << w3 << endl; 
 	}
 }

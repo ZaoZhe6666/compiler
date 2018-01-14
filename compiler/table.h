@@ -14,7 +14,12 @@ struct PCode{
 	int num1;
 	int num2;
 	int num3;
+	int num4;
+	int num5;
+	std::string str0;
+	std::string relate;
 	std::string str;
+	std::string str2;
 };
 
 struct DagPoint{
@@ -30,6 +35,8 @@ struct DagPoint{
 	int loc;
 	//节点是否为中间节点 0-中间节点 1-最终节点
 	int fin_or_temp;
+	//标志位，判断是否计算过
+	int sym;
 };
 
 struct DagTable{
@@ -53,6 +60,7 @@ class DT{
 		std::ofstream outf;
 		DagTable *s1;
 		DagRelateTable *s2;
+		DagRelateTable *s3;
 	public:
 		DT();
 		//判断变量是否在dag表中
@@ -70,7 +78,17 @@ class DT{
 		void dt_change_point_value(int point_index, int loc);
 		//创建DAG图中关系节点
 		int dt_create_relate(std::string relate,int left,int right);
+		//输出目标代码
+		void dt_output(std::ofstream & outf_DAG);
+		//递归调用计算节点信息
+		void dt_deal_point(DagPoint father_dp,int deal_point);
+		//清空信息
 		void dt_delete_relate();
+
+		//判断是否仍有未返回中间代码
+		int dt_zjdm_GetBack_judge(int count);
+		//返回DAG处理后中间代码
+		PCode dt_zjdm_GetBack(int count);
 };
 
 struct Func{
@@ -123,6 +141,7 @@ struct Symbol{
 	*/
 	int value;
 	int location;
+	int weight;
 };
 
 struct SymTable{
@@ -136,6 +155,8 @@ class ST{
 		SymTable *s;
 		int const_sp;
 		int const_judge;
+		std::string weight_max[20];
+		int weight_max_num[20];
 	public:
 		ST();
 		//出入栈操作
@@ -151,4 +172,8 @@ class ST{
 		int getpara_offset(std::string name);
 		int st_func_type(std::string name);
 		int array_length(std::string name);
+		void st_add_weight(std::string name, int add_num);
+		void st_sort_weight(std::string func_name);
+		int st_MaxJudge(std::string name);
+		std::string st_max_get(int i);
 };

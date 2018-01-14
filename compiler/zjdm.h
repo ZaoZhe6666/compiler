@@ -26,5 +26,7 @@ class ZJ{
 		PCode getcode(int num);
 		void deal_Dag();
 		void midcode(std::string w1,int w2,int w3,int w4);
+		void midcode_deal(std::string w1,int w2,int w3,int w4,std::ofstream & outf);
 		void midcode(std::string w1,int w2,int w3,std::string w4);
+		void midcode_deal(std::string w1,int w2,int w3,std::string w4,std::ofstream & outf);
 };

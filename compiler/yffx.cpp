@@ -30,6 +30,7 @@ YF::YF(std::string filename){
 	deal_express_type = 1;
 	array_index = 0;
 	array_garbage_judge = 0;
+	weight_rate = 1;
 }
 
 void YF::getSym(){
@@ -171,6 +172,7 @@ void YF::condef(int type = 0){
 					zj->midcode("const",0,num,const_name);
 
 				}
+				st.st_add_weight(const_name ,weight_rate);
 			}
 			getSym();
 			if(symID == COMMASY){
@@ -201,6 +203,7 @@ void YF::condef(int type = 0){
 						error(-307);
 					}
 					else{
+						st.st_add_weight(const_name, weight_rate);
 						zj->midcode("const",1,token[0],const_name);
 					}
 				}
@@ -549,6 +552,7 @@ int YF::factor(int ident = 0){
 			if(ident_type == 4 || ident_type == 6){
 				deal_express_type = 0;
 			}
+			st.st_add_weight(ident_name, weight_rate);
 			zj->midcode("=",left,(ident==0)?0:symbol,ident_name);
 			st.st_push("T",left,9,1);
 			factor(2);
@@ -651,7 +655,9 @@ void YF::loopsen(){
 	}
 	int label = ++zj->label_num;
 	zj->midcode("label",0,0,label);
+	weight_rate *= 10;
 	senten();
+	weight_rate /= 10;
 	mustread(WHILESY);
 	mustread(LPARENTSY);
 	condit(-1*label);
@@ -899,6 +905,7 @@ void YF::readsen(){
 	mustread(LPARENTSY);
 	if(symID == IDENTSY){
 		int vtype = st.st_seek(token,0);
+		st.st_add_weight(token, weight_rate);
 		if(vtype == 6){
 			zj->midcode("sc",0,1,token);
 		}
@@ -914,6 +921,7 @@ void YF::readsen(){
 		getSym();
 		if(symID == IDENTSY){
 			int ident_type = st.st_seek(token,0);
+			st.st_add_weight(token, weight_rate);
 			if(ident_type <6 || ident_type>7){
 				error(-303);
 			}
@@ -1120,6 +1128,7 @@ void YF::senten(){
 				cout << "error 305 ident is not var : " << ident_type << endl;
 				error(-305);
 			}
+			st.st_add_weight(ident_name, weight_rate);
 			getSym();
 			int value = express();
 			zj->midcode("=",value,-1,ident_name);

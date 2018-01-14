@@ -30,6 +30,7 @@ class YF{
 		int relate_judge;
 		int array_index;
 		int array_garbage_judge;
+		int weight_rate;
 	public:
 		YF(std::string filename);
 		void getSym();

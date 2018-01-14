@@ -42,8 +42,8 @@ char *ErrorList[ERRORNUM]={
 "Need IDENT in Const_Define(CHAR DEFINE)",
 //17 非法的const初值
 "Illigal Const Init Num",
-//18
-"",
+//18 缺失MAIN函数
+"Missing Main Function",
 //19 过多的加减号
 "Too many SUB or PLUS symbol",
 //20 过多的关系符
